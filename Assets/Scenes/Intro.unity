@@ -196,89 +196,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299992584}
   m_CullTransparentMesh: 1
---- !u!1 &431786915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 431786916}
-  - component: {fileID: 431786918}
-  - component: {fileID: 431786917}
-  - component: {fileID: 431786919}
-  m_Layer: 5
-  m_Name: Blackness
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &431786916
+--- !u!224 &431786916 stripped
 RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+  m_PrefabInstance: {fileID: 8130866469362480212}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431786915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2130546290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &431786917
+--- !u!114 &431786919 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6183344964361274697, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+  m_PrefabInstance: {fileID: 8130866469362480212}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431786915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &431786918
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431786915}
-  m_CullTransparentMesh: 1
---- !u!114 &431786919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431786915}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ee11a57645827ec09d90cb2fda2ca5a, type: 3}
@@ -373,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570421735}
   - component: {fileID: 570421734}
+  - component: {fileID: 570421736}
   m_Layer: 0
   m_Name: Singletons
   m_TagString: Untagged
@@ -393,7 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntroManager
   cps: 15
-  fadeOut: 2
+  fade: 2
+  fadeExit: 3
   black: {fileID: 431786919}
   panels:
   - panel: {fileID: 1347534258}
@@ -414,9 +344,26 @@ Transform:
   m_LocalPosition: {x: 632.4921, y: 357.5817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1771912228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570421736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570421733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c26fa0f3df703dea1bd3a57941acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAmbient
+  id: Intro_Ambient
+  delay: 0
+  fadeDuration: 3
+  playOnStart: 1
 --- !u!1001 &646923769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -431,20 +378,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776095060359607615, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_text
-      value: 'You found this whole "expedition" pointless, a result of local goverment''s
-        stupidity. Since when a miniscule earthquake could cause damage to multiple
-        layers of concrete and steel?
+      value: 'You found this whole "expedition" pointless, a result of the local
+        government''s stupidity. Since when a minuscule earthquake could cause damage
+        to multiple layers of concrete and steel?
 
 
-        You decided however, that this would
-        be an easy pay and why should you let the easy pay slip by? It is not the
-        worst place they sent you to anyway. With hesitation you accepted the job.
+        You decided, however,
+        that this would be easy pay, and why should you let the easy pay slip by?
+        It is not the worst place they sent you to anyway. With hesitation, you accepted
+        the job.
 
 
-        Now,
-        maw of the tunnel lies before you. Further down are three stations that need
-        to be checked for any signs of damage. With flashlight in hand, you proceed
-        through the main entrance...'
+        Now, the maw of the tunnel lies before you. Further down
+        are three stations that need to be checked for any signs of damage. With
+        flashlight in hand, you proceed through the main entrance...'
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x
@@ -776,6 +723,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663205554}
   m_CullTransparentMesh: 1
+--- !u!4 &1771912228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+  m_PrefabInstance: {fileID: 5277627996911147638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1803693274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,6 +1333,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5277627996911147638
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 570421735}
+    m_Modifications:
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204646116754802553, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077360182639675181, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 306d7f626120ce373bb8c09b3a0d158e, type: 3}
 --- !u!1001 &7268561922346576413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1398,19 +1407,19 @@ PrefabInstance:
       value: 'Cincinnati, 2019
 
 
-        During early hours of the morning an earthquake
-        has been registered not so far away from the city. It was too small to wake
-        any body, and those lone souls who were awake at that hour barely notice,
-        if at all. Once the sun came up life continued unbothered by last nigth events.
-        That was until cracks were discovered on on of the road leading to the city.
+        During the early hours of the morning an
+        earthquake has been registered not so far away from the city. It was too
+        small to wake anybody, and those lone souls who were awake at that hour barely
+        noticed, if at all. Once the sun came up, life continued unbothered by last
+        night''s events. That was until cracks were discovered on one of the roads
+        leading to the city.
 
 
-        Again,
-        it was ignored. However then someone in the local goverment mentioned the
-        old abandoned metro, that runs under the city. Unfinished and forgotten,
-        now became a point of concern for those in charge, as no one wanted to be
-        blamed, should a tragedy occured. In a moment of panic, a civil inspector
-        was tasked with inspecting the tunnels - you'
+        Again, it was ignored. However, then someone
+        in the local government mentioned the old abandoned metro, that runs under
+        the city. Unfinished and forgotten, now became a point of concern for those
+        in charge, as no one wanted to be blamed, should a tragedy occur. In a moment
+        of panic, a civil inspector was tasked with inspecting the tunnels - you'
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x
@@ -1513,6 +1522,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc04388d936699098fbc6a23194831a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPWrapper
+--- !u!1001 &8130866469362480212
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2130546290}
+    m_Modifications:
+    - target: {fileID: 2254710687806369434, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_Name
+      value: Blackness
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391642306679950969, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2e6e54fa2f995c8a900c0c7e0b964a9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

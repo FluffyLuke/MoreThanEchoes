@@ -64,6 +64,7 @@ public class IntroManager : MonoBehaviour {
                 Debug.Log("Exiting...");
                 input.Disable();
                 black.TransitionIn(fadeExit, onComplete: () => changeLevel());
+                AmbientManager.instance.PlayAmbient(LevelNames.EmptyAmbient, fadeExit * 0.8f);
                 break;
             default:
                 Debug.LogError("This code should not be reachable?");
@@ -97,6 +98,6 @@ public class IntroManager : MonoBehaviour {
     }
 
     private void changeLevel() {
-        SceneManager.LoadScene(LevelNames.MainLevel);
+        SceneManager.LoadScene(LevelNames.Entrance);
     }
 }

@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour {
         if (instance != null) {
             Destroy(gameObject);
         }
+
         instance = this;
 
         lookup = soundDatabase.sounds.ToDictionary(s => s.id);
