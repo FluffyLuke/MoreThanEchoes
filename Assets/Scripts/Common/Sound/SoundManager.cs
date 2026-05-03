@@ -119,14 +119,14 @@ public class SoundManager : MonoBehaviour {
         source.PlayOneShot(clip);
         handle = new SoundHandle(source);
 
-        Destroy(gameObject, clip.length);
+        // Destroy(gameObject, clip.length);
         return true;
     }
 
     public bool PlayOneShot(string id, Vector3 position) {
         bool ifSuccess = PlayOneShot(id, position, out SoundHandle handle);
         if (ifSuccess) {
-            Destroy(handle.source.gameObject, handle.source.clip.length);
+            // Destroy(handle.source.gameObject, handle.source.clip.length);
         }
         return ifSuccess;
     }

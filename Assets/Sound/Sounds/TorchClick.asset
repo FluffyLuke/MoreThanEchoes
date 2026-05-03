@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87b6c9bb14b383e3b8d8db3e40ff621, type: 3}
+  m_Name: TorchClick
+  m_EditorClassIdentifier: Assembly-CSharp::SoundAsset
+  id: Torch_Button_Click
+  busID: 1
+  clips:
+  - {fileID: 8300000, guid: 0c05d33f0b1ba1b8e8be00955095b9f1, type: 3}
+  pitchRange: {x: 0.8, y: 1.1}
+  volume: 5

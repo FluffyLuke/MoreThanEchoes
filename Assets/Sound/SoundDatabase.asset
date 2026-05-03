@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f499e9ee31440659244ad9f6c3420f, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: Assembly-CSharp::SoundDatabase
-  sounds: []
+  sounds:
+  - {fileID: 11400000, guid: 48aec54d65b4045959945cfbfd92749f, type: 2}
   ambients:
   - {fileID: 11400000, guid: 3b1723842619d9b769dce30fb9035a55, type: 2}
   - {fileID: 11400000, guid: c4c81a8952e3a910994658502c091757, type: 2}
+  - {fileID: 11400000, guid: 8af2033aa13046d94ad84a992f7362af, type: 2}

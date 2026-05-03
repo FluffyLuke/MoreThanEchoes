@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AmbientManager : MonoBehaviour {
+    [Header("Sounds")]
     [SerializeField] private SoundDatabase soundDatabase;
     private Dictionary<string, SoundAsset> lookup;
     [SerializeField] private AudioSource source1, source2;

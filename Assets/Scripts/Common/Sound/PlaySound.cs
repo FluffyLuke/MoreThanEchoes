@@ -4,13 +4,13 @@ using UnityEngine;
 public class PlaySound : MonoBehaviour {
     [SerializeField] private string id;
     [SerializeField] private float delay = 0f;
-    public void Play() {
-        StartCoroutine(playAmbient());
+    public void Play(Vector3 pos = default) {
+        StartCoroutine(playAmbient(pos));
     }
 
-    private IEnumerator playAmbient() {
+    private IEnumerator playAmbient(Vector3 pos) {
         yield return new WaitForSeconds(delay);
-        //Debug.Log($"Playing sound \"{id}\"");
-        SoundManager.instance.PlayOneShot(id, Vector3.zero);
+        Debug.Log($"Playing sound \"{id}\"");
+        SoundManager.instance.PlayOneShot(id, pos);
     }
 }
