@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour {
     void Awake() {
         if (instance != null) {
             Destroy(gameObject);
+            return;
         }
 
         instance = this;
@@ -83,8 +84,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     public bool PlayOneShot(string id, Vector3 position, out SoundHandle handle) {
-        if (!lookup.TryGetValue(id, out SoundAsset sound))
-        {
+        if (!lookup.TryGetValue(id, out SoundAsset sound)) {
             Debug.LogError($"Cannot found asset of id: \"{id}\"");
             handle = new SoundHandle(default);
             return false;
@@ -119,14 +119,14 @@ public class SoundManager : MonoBehaviour {
         source.PlayOneShot(clip);
         handle = new SoundHandle(source);
 
-        // Destroy(gameObject, clip.length);
+        Destroy(gameObject, clip.length);
         return true;
     }
 
     public bool PlayOneShot(string id, Vector3 position) {
         bool ifSuccess = PlayOneShot(id, position, out SoundHandle handle);
         if (ifSuccess) {
-            // Destroy(handle.source.gameObject, handle.source.clip.length);
+            Destroy(handle.source.gameObject, handle.source.clip.length);
         }
         return ifSuccess;
     }

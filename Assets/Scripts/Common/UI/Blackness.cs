@@ -7,13 +7,17 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class Blackness : MonoBehaviour {
     private Image blackness;
-    private Tween tween;
-    
+    private Tween tween;    
     void Awake() {
         blackness = GetComponent<Image>();
     }
 
-    public void TransitionOut(float seconds, Ease ease = Ease.Linear, Action onComplete = null) {
+    // This can be used in editor
+    public void TransitionOut(float seconds) {
+        TransitionOut(seconds, Ease.Linear, null);
+    }
+
+    public void TransitionOut(float seconds, Ease ease, Action onComplete) {
         tween?.Kill();
 
         blackness.color = new Color(0,0,0,1);
@@ -26,7 +30,11 @@ public class Blackness : MonoBehaviour {
             });
     }
 
-    public void TransitionIn(float seconds, Ease ease = Ease.Linear, Action onComplete = null) {
+    public void TransitionIn(float seconds) {
+        TransitionOut(seconds);
+    }
+
+    public void TransitionIn(float seconds, Ease ease, Action onComplete) {
         tween?.Kill();
 
         blackness.color = new Color(0,0,0,0);

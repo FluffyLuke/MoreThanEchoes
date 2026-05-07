@@ -21,7 +21,7 @@ public class PlaySoundWithReset : MonoBehaviour {
 
     private IEnumerator playAmbient() {
         yield return new WaitForSeconds(delay);
-        Debug.Log($"Playing sound \"{id}\"");
+        // Debug.Log($"Playing sound \"{id}\"");
         SoundManager.instance.PlayOneShot(id, Vector3.zero, out SoundHandle handle);
         currentHandle = handle;
         coroutine = null;

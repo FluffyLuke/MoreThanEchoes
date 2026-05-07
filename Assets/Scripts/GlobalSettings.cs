@@ -8,8 +8,7 @@ public enum GameLanguage {
 }
 
 [CreateAssetMenu(menuName = "Misc/GlobalSettings")]
-public class GlobalSettings : ScriptableObject
-{
+public class GlobalSettings : ScriptableObject {
     public UnityEvent SettingsUpdated = new();
     [Serializable]
     private struct GameLanguagePath {

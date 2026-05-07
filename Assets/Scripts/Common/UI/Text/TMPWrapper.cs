@@ -43,6 +43,21 @@ public class TMPWrapper : MonoBehaviour
         showTextCoroutine = StartCoroutine(showText(defaultSpeed, -1, null));
     }
 
+    public void ShowText(string text, float speed, float clearAfter = -1, Action onComplete = null) {
+        SetText(text);
+        if(showTextCoroutine != null) {
+            Debug.Log("Skipped text showing...");
+            StopCoroutine(showTextCoroutine);
+        }
+
+        if (speed <= 0) {
+            showTextCoroutine = StartCoroutine(showText(defaultSpeed, clearAfter, onComplete));
+            return;
+        }
+
+        showTextCoroutine = StartCoroutine(showText(speed, clearAfter, onComplete));
+    }
+
     public void ShowText(float speed, float clearAfter = -1, Action onComplete = null) {
         if(showTextCoroutine != null) {
             Debug.Log("Skipped text showing...");

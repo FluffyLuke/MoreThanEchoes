@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
@@ -63,8 +64,8 @@ public class IntroManager : MonoBehaviour {
             case 3:
                 Debug.Log("Exiting...");
                 input.Disable();
-                black.TransitionIn(fadeExit, onComplete: () => changeLevel());
-                AmbientManager.instance.PlayAmbient(LevelNames.EmptyAmbient, fadeExit * 0.8f);
+                black.TransitionIn(fadeExit, Ease.Linear, () => changeLevel());
+                AmbientManager.instance.PlayAmbient(AmbientNames.EmptyAmbient, fadeExit * 0.8f);
                 break;
             default:
                 Debug.LogError("This code should not be reachable?");
