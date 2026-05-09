@@ -21,8 +21,13 @@ public class SetDepth : MonoBehaviour {
     }
 
     public void Set(DepthLevel depth) {
-        Vector3 currentPosition = transform.position;
+        // Must use localPosition, to avoid scale problems
+        Vector3 currentPosition = transform.localPosition;
         currentPosition.z = (int)depth;
-        transform.position = currentPosition;
+        transform.localPosition = currentPosition;
+    }
+
+    void OnValidate() {
+        Set(startingDepth);        
     }
 }
