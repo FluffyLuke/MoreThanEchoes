@@ -9,12 +9,14 @@ public class PlayerBrain : MonoBehaviour
     public GameObject speechBubble;
     private PlayerMove move;
     private PlayerTorch torch;
+    private PlayerCheckObjective objective;
     private PlayerMoveCinematic moveCinematic;
     [SerializeField] private PlayerMode startingMode = PlayerMode.Normal;
     void Awake() {
         // Get interactive components
         move = GetComponent<PlayerMove>();
         torch = GetComponent<PlayerTorch>();
+        objective = GetComponent<PlayerCheckObjective>();
         moveCinematic = GetComponent<PlayerMoveCinematic>();
 
         // Some of the games code spawns player and imidiatelly does something to it's state
@@ -27,6 +29,7 @@ public class PlayerBrain : MonoBehaviour
         move.enabled = false;
         torch.enabled = false;
         moveCinematic.enabled = false;
+        objective.enabled = false;
 
         Debug.Log($"Switching player to mode: {mode}");
 
@@ -42,6 +45,7 @@ public class PlayerBrain : MonoBehaviour
     private void normalMode() {
         move.enabled = true;
         torch.enabled = true;
+        objective.enabled = true;
     }
 
     public static Transform GetSpeechBubbleTransform() {

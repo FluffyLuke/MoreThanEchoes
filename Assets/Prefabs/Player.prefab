@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 2901169387776068751}
   - component: {fileID: 3322791990559661558}
   - component: {fileID: 750929339280996023}
+  - component: {fileID: 8350722941863323993}
   - component: {fileID: 3911638551900794345}
   - component: {fileID: 9111381125114412964}
   - component: {fileID: 2085873503544386328}
@@ -479,6 +480,18 @@ MonoBehaviour:
   walkStepDelta: 0.9
   sprintStepDelta: 0.3
   walkSoundPlayer: {fileID: 103996492124760198}
+--- !u!114 &8350722941863323993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148687200473207946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff300e3ad0666871691776a5f134ec94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCheckObjective
 --- !u!114 &3911638551900794345
 MonoBehaviour:
   m_ObjectHideFlags: 0
