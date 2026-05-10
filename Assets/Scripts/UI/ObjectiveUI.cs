@@ -21,19 +21,19 @@ public class ObjectiveUI : MonoBehaviour {
         canvasGroup.alpha = 0;
     }
 
-    public void AddObjective(string id, ObjectiveData objective) {
+    public void AddObjective(string id, ObjectiveData objective, bool showNew = true) {
         objectives.Add(id, objective);
         Rebuild();
-        Show();
+        if (showNew) Show();
     }
 
-    public void RemoveObjective(string id) {
+    public void RemoveObjective(string id, bool showNew = true) {
         objectives.Remove(id);
         Rebuild();
-        Show();
+        if (showNew) Show();
     }
 
-    public void MarkCompletion(string id, bool completed) {
+    public void MarkCompletion(string id, bool completed, bool showNew = true) {
         if (!objectives.ContainsKey(id)) {
             Debug.LogWarning($"Cannot find objective of id '{id}'");
             return;
@@ -41,10 +41,10 @@ public class ObjectiveUI : MonoBehaviour {
 
         objectives[id].isCompleted = completed;
         Rebuild();
-        Show();
+        if (showNew) Show();
     }
 
-    public void ModifyObjective(string id, string newContents) {
+    public void ModifyObjective(string id, string newContents, bool showNew = true) {
         if (!objectives.ContainsKey(id)) {
             Debug.LogWarning($"Cannot find objective of id '{id}'");
             return;
@@ -52,7 +52,7 @@ public class ObjectiveUI : MonoBehaviour {
 
         objectives[id].text = newContents;
         Rebuild();
-        Show();
+        if (showNew) Show();
     }
 
     public void Reset() {

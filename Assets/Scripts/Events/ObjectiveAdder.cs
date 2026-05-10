@@ -6,6 +6,7 @@ public enum ObjectiveAction {
     Complete,
     Modify,
     Delete,
+    Show,
 }
 public class ObjectiveAdder : MonoBehaviour {
     public ObjectiveAction whatToDo = ObjectiveAction.Add;
@@ -26,6 +27,9 @@ public class ObjectiveAdder : MonoBehaviour {
                 break;
             case ObjectiveAction.Complete:
                 ObjectiveUI.instance.MarkCompletion(id, true);
+                break;
+            case ObjectiveAction.Show:
+                ObjectiveUI.instance.Show();
                 break;
         }
     } 

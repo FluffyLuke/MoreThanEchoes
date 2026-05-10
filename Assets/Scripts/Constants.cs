@@ -11,4 +11,5 @@ public static class AmbientNames {
 public static class Tags {
     public static readonly string PlayerTag = "Player";
     public static readonly string EntranceTag = "Entrance";
+    public static readonly string PillarTag = "Beam";
 }

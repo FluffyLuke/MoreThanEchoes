@@ -27,8 +27,11 @@ public class UseAction : MonoBehaviour {
         input.Player.Interact .Disable();
     }
 
+    void OnDisable() {
+        buttonSprite.SetActive(false);
+    }
+
     private void interact(InputAction.CallbackContext ctx) {
-        Debug.Log("DUPA 2");
         interacted.Invoke();
     }
 }
