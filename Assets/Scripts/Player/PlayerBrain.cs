@@ -19,6 +19,8 @@ public class PlayerBrain : MonoBehaviour
         objective = GetComponent<PlayerCheckObjective>();
         moveCinematic = GetComponent<PlayerMoveCinematic>();
 
+        PlayerEventBus.changeState.AddListener(SwitchMode);
+
         // Some of the games code spawns player and imidiatelly does something to it's state
         // This call MUST BE in awake
         SwitchMode(startingMode);
@@ -30,6 +32,7 @@ public class PlayerBrain : MonoBehaviour
         torch.enabled = false;
         moveCinematic.enabled = false;
         objective.enabled = false;
+        PlayerEventBus.canInteract = false;
 
         Debug.Log($"Switching player to mode: {mode}");
 
@@ -43,6 +46,7 @@ public class PlayerBrain : MonoBehaviour
         moveCinematic.enabled = true;
     }
     private void normalMode() {
+        PlayerEventBus.canInteract = true;
         move.enabled = true;
         torch.enabled = true;
         objective.enabled = true;
