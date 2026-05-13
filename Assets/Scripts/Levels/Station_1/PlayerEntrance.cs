@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Station1Manager : MonoBehaviour {
+public class PlayerEntrance : MonoBehaviour {
     private GameObject[] entrances;
     void Start() {
         entrances = GameObject.FindGameObjectsWithTag(Tags.EntranceTag);

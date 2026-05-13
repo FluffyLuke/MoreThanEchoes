@@ -19,6 +19,9 @@ public class Station1Objective : MonoBehaviour {
     private void pillarChecked() {
         pillarCount--;
         ObjectiveUI.instance.ModifyObjective(objectiveID, $"{objectiveContent}{pillarCount}");
-        if (pillarCount == 0) ObjectiveUI.instance.MarkCompletion(objectiveID, true);
+        if (pillarCount == 0) {
+            ObjectiveUI.instance.MarkCompletion(objectiveID, true);
+            objectiveCompleted.Invoke();
+        }
     }
 }
