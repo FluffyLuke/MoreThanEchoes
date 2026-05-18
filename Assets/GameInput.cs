@@ -1204,6 +1204,74 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Obstacle"",
+            ""id"": ""8cfa5f1c-e0c1-425d-9fc1-39b25f01df2f"",
+            ""actions"": [
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""90fc2763-9270-495d-8650-f35c67d7ac45"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""af1c8540-0352-4e9d-b8a3-652fc60d77f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpOver"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1c9fd0e-d38c-4d5a-86e0-26188c1fbd8f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e0ba7711-48ce-4349-843e-e51083343747"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5248ab1e-b614-4aa9-98f7-266d2348e2d2"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe613874-5e02-4e04-bbcf-083248f3ca05"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""JumpOver"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1301,6 +1369,11 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_MoreSpeed = m_Debug.FindAction("MoreSpeed", throwIfNotFound: true);
         m_Debug_LessSpeed = m_Debug.FindAction("LessSpeed", throwIfNotFound: true);
+        // Obstacle
+        m_Obstacle = asset.FindActionMap("Obstacle", throwIfNotFound: true);
+        m_Obstacle_Slide = m_Obstacle.FindAction("Slide", throwIfNotFound: true);
+        m_Obstacle_Crouch = m_Obstacle.FindAction("Crouch", throwIfNotFound: true);
+        m_Obstacle_JumpOver = m_Obstacle.FindAction("JumpOver", throwIfNotFound: true);
     }
 
     ~@GameInput()
@@ -1309,6 +1382,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameInput.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Intro.enabled, "This will cause a leak and performance issues, GameInput.Intro.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Debug.enabled, "This will cause a leak and performance issues, GameInput.Debug.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Obstacle.enabled, "This will cause a leak and performance issues, GameInput.Obstacle.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1984,6 +2058,124 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="DebugActions" /> instance referencing this action map.
     /// </summary>
     public DebugActions @Debug => new DebugActions(this);
+
+    // Obstacle
+    private readonly InputActionMap m_Obstacle;
+    private List<IObstacleActions> m_ObstacleActionsCallbackInterfaces = new List<IObstacleActions>();
+    private readonly InputAction m_Obstacle_Slide;
+    private readonly InputAction m_Obstacle_Crouch;
+    private readonly InputAction m_Obstacle_JumpOver;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Obstacle".
+    /// </summary>
+    public struct ObstacleActions
+    {
+        private @GameInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ObstacleActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Obstacle/Slide".
+        /// </summary>
+        public InputAction @Slide => m_Wrapper.m_Obstacle_Slide;
+        /// <summary>
+        /// Provides access to the underlying input action "Obstacle/Crouch".
+        /// </summary>
+        public InputAction @Crouch => m_Wrapper.m_Obstacle_Crouch;
+        /// <summary>
+        /// Provides access to the underlying input action "Obstacle/JumpOver".
+        /// </summary>
+        public InputAction @JumpOver => m_Wrapper.m_Obstacle_JumpOver;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Obstacle; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ObstacleActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ObstacleActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ObstacleActions" />
+        public void AddCallbacks(IObstacleActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ObstacleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ObstacleActionsCallbackInterfaces.Add(instance);
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
+            @JumpOver.started += instance.OnJumpOver;
+            @JumpOver.performed += instance.OnJumpOver;
+            @JumpOver.canceled += instance.OnJumpOver;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ObstacleActions" />
+        private void UnregisterCallbacks(IObstacleActions instance)
+        {
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
+            @JumpOver.started -= instance.OnJumpOver;
+            @JumpOver.performed -= instance.OnJumpOver;
+            @JumpOver.canceled -= instance.OnJumpOver;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ObstacleActions.UnregisterCallbacks(IObstacleActions)" />.
+        /// </summary>
+        /// <seealso cref="ObstacleActions.UnregisterCallbacks(IObstacleActions)" />
+        public void RemoveCallbacks(IObstacleActions instance)
+        {
+            if (m_Wrapper.m_ObstacleActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ObstacleActions.AddCallbacks(IObstacleActions)" />
+        /// <seealso cref="ObstacleActions.RemoveCallbacks(IObstacleActions)" />
+        /// <seealso cref="ObstacleActions.UnregisterCallbacks(IObstacleActions)" />
+        public void SetCallbacks(IObstacleActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ObstacleActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ObstacleActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ObstacleActions" /> instance referencing this action map.
+    /// </summary>
+    public ObstacleActions @Obstacle => new ObstacleActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2248,5 +2440,34 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLessSpeed(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Obstacle" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ObstacleActions.AddCallbacks(IObstacleActions)" />
+    /// <seealso cref="ObstacleActions.RemoveCallbacks(IObstacleActions)" />
+    public interface IObstacleActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Slide" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSlide(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCrouch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "JumpOver" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJumpOver(InputAction.CallbackContext context);
     }
 }

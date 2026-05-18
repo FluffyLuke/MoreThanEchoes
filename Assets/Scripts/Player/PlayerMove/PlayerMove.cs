@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void OnDisable() {
+        controller.SetMotion(new(0,0));
         input.Player.Disable();
     }
 
@@ -32,13 +33,14 @@ public class PlayerMove : MonoBehaviour {
     public float sprintStepDelta;
     [SerializeField] private PlaySound walkSoundPlayer;
     private float moveT = 0;
-
     private void moveInput() {
         Vector2 moveBy = input.Player.Move.ReadValue<Vector2>();
         bool isSprinting = input.Player.Sprint.IsPressed();
         Move(moveBy, isSprinting);
     }
-    public void Move(Vector2 direction, bool isSprinting) {
+
+    // FIX: make footstep sounds be relative to speed
+    public void Move(Vector2 direction, bool isSprinting, float customSpeed = 0) {
         // Player is not moving at all
         if (direction.x == 0) {
             controller.SetMotion(new(0,0));
@@ -57,15 +59,22 @@ public class PlayerMove : MonoBehaviour {
 
 
         // Moving part
+        SetModelDirection(direction);
+        float speed = direction.x * Time.deltaTime;
+        
+        if (customSpeed == 0) {
+            speed *= isSprinting ? runSpeed : walkSpeed;
+        } else {
+            speed *= customSpeed;
+        }
+
+        controller.SetMotion(new(speed,0));
+    }
+
+    public void SetModelDirection(Vector2 direction) {
         Vector3 newBodyScale = body.transform.localScale;
         if (direction.x > 0) newBodyScale.x = Mathf.Abs(newBodyScale.x);
         else if (direction.x < 0) newBodyScale.x = -Math.Abs(newBodyScale.x);
         body.transform.localScale = newBodyScale;
-
-
-        float speed = direction.x * Time.deltaTime;
-        speed *= isSprinting ? runSpeed : walkSpeed;
-
-        controller.SetMotion(new(speed,0));
     }
 }

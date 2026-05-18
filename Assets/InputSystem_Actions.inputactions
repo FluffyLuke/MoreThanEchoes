@@ -1118,6 +1118,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Obstacle",
+            "id": "8cfa5f1c-e0c1-425d-9fc1-39b25f01df2f",
+            "actions": [
+                {
+                    "name": "Slide",
+                    "type": "Button",
+                    "id": "90fc2763-9270-495d-8650-f35c67d7ac45",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "af1c8540-0352-4e9d-b8a3-652fc60d77f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "JumpOver",
+                    "type": "Button",
+                    "id": "c1c9fd0e-d38c-4d5a-86e0-26188c1fbd8f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e0ba7711-48ce-4349-843e-e51083343747",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5248ab1e-b614-4aa9-98f7-266d2348e2d2",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe613874-5e02-4e04-bbcf-083248f3ca05",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "JumpOver",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

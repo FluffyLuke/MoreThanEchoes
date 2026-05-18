@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerEntrance : MonoBehaviour {
+    public Entrance defaultEntrance;
     private GameObject[] entrances;
     void Start() {
         entrances = GameObject.FindGameObjectsWithTag(Tags.EntranceTag);
@@ -28,7 +29,7 @@ public class PlayerEntrance : MonoBehaviour {
 
         if (currentEntrance == null) {
             Debug.LogWarning($"Could not find entrance '{currentEntranceName}'. Using default...");
-            currentEntrance = entrances[0].GetComponent<Entrance>();
+            currentEntrance = defaultEntrance;
         }
 
         currentEntrance.SpawnPlayer();
