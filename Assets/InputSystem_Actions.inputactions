@@ -1092,6 +1092,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KYS",
+                    "type": "Button",
+                    "id": "2d922e17-f78b-4d67-8636-d21dc5520ca9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1114,6 +1123,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "LessSpeed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccd67e4f-69fa-4a8f-945d-8fff901c2009",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "KYS",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

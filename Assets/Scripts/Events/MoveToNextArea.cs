@@ -8,6 +8,7 @@ public class MoveToNextArea : MonoBehaviour {
     public float transitionTimeSecs = 3;
     [SerializeField] private string sceneName = "Intro";
     [SerializeField] private string entranceName = "EntranceName";
+    [SerializeField] private MoveDirection direction = MoveDirection.Right;
     [SerializeField] private Blackness fade;
     void Awake() {
         // var scene = SceneManager.GetSceneByName(sceneName);
@@ -26,7 +27,7 @@ public class MoveToNextArea : MonoBehaviour {
 
         // Move to the right
         PlayerMoveCinematic move = playerObj.GetComponent<PlayerMoveCinematic>();
-        move.SetMove(MoveDirection.Right, false);
+        move.SetMove(direction, false);
 
         // Set transition
         fade.TransitionIn(transitionTimeSecs, Ease.Linear, () => {

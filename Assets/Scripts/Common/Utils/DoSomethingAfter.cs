@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class DoSomethingAfter : MonoBehaviour {
     public float defaultDelay = 1;
-    [SerializeField] private bool runOnStart = true;
+    [SerializeField] private bool runOnStart = false;
     public UnityEvent timeOut;
     private Coroutine coroutine;
     void Start() {
@@ -13,16 +13,11 @@ public class DoSomethingAfter : MonoBehaviour {
         }
     }
 
-    public void StartCounting(float delay = -1) {
+    public void StartCounting() {
         if (coroutine != null) {
             StopCoroutine(coroutine);
         }
-
-        if (delay <= 0) {
-            coroutine = StartCoroutine(display(defaultDelay));
-            return;
-        }
-        coroutine = StartCoroutine(display(delay));
+        coroutine = StartCoroutine(display(defaultDelay));
     }
 
     public void Skip() {

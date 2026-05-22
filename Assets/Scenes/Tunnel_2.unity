@@ -1269,6 +1269,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoveToNextArea
       objectReference: {fileID: 0}
+    - target: {fileID: 2865293578501785587, guid: cf9b9160ef04f2832952210556bba18b, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 245261487}
+    - target: {fileID: 2865293578501785587, guid: cf9b9160ef04f2832952210556bba18b, type: 3}
+      propertyPath: sceneName
+      value: Station_3
+      objectReference: {fileID: 0}
     - target: {fileID: 6120355500691503940, guid: cf9b9160ef04f2832952210556bba18b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71

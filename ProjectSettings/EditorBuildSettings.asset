@@ -14,5 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Station_1.unity
     guid: ec8c7eda86283213abe0fbab589cffef
+  - enabled: 1
+    path: Assets/Scenes/Tunnel_2.unity
+    guid: e67b0f3b0dcbb2b5394bf329ea0c4492
+  - enabled: 1
+    path: Assets/Scenes/Station_3.unity
+    guid: e9648176d4354c364b2a3bec7dfdae13
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5d798205944d6406da2f08674e23e3f4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

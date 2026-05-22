@@ -29,6 +29,7 @@ public class UseAction : MonoBehaviour {
 
     void OnDisable() {
         buttonSprite.SetActive(false);
+        input.Player.Interact.Disable();
     }
 
     private void interact(InputAction.CallbackContext ctx) {

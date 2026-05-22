@@ -18,13 +18,11 @@ public class ChanceAmbient : MonoBehaviour {
         }
     }
     public void PlayAmbient1() {
-        Debug.Log("A");
         collider1.enabled = false;
         collider2.enabled = true;
         playAmbient(Ambient1_ID);
     }
     public void PlayAmbient2() {
-        Debug.Log("B");
         collider1.enabled = true;
         collider2.enabled = false;
         playAmbient(Ambient2_ID);

@@ -3,6 +3,7 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -16,16 +17,19 @@ public enum IntroPanelState {
 public class IntroPanel {
     public GameObject panel;
     public TMPWrapper exposition;
-    public IntroPanelState state;
+    [HideInInspector] public IntroPanelState state;
 }
-public class IntroManager : MonoBehaviour {
-    public float cps = 15;
-    public float fade = 2;
-    public float fadeExit = 3;
-    private int currentPage = 0; 
-    private GameInput input;
+public class ExpositionManager : MonoBehaviour {
+    [Header("References")]
     [SerializeField] private Blackness black;
     [SerializeField] private IntroPanel[] panels;
+    [Header("Values")]
+    public float cps = 15;
+    public float fade = 2;
+    private int currentPage = 0; 
+    [Header("Event")]
+    public UnityEvent ended;
+    private GameInput input;
     void Awake() {
         input = new GameInput();
         input.Intro.Next.performed += nextPageInput;
@@ -33,6 +37,9 @@ public class IntroManager : MonoBehaviour {
 
     void Start() {
         input.Intro.Enable();
+        foreach (var p in panels) {
+            p.panel.SetActive(false);
+        }
         nextPage();
     }
 
@@ -41,36 +48,20 @@ public class IntroManager : MonoBehaviour {
     }
 
     private void nextPage() {
-        switch (currentPage) {
-            case 0:
-                foreach (var p in panels) {
-                    p.panel.SetActive(false);
-                }
-
-                currentPage++;
-                goto case 1;
-            case 1:
-                if (activatePanel(panels[0])) {
-                    currentPage++;
-                    goto case 2;
-                }
-                break;
-            case 2:
-                if (activatePanel(panels[1])) {
-                    currentPage++;
-                    goto case 3;
-                }
-                break;
-            case 3:
-                Debug.Log("Exiting...");
-                input.Disable();
-                black.TransitionIn(fadeExit, Ease.Linear, () => changeLevel());
-                AmbientManager.instance.PlayAmbient(AmbientNames.EmptyAmbient, fadeExit * 0.8f);
-                break;
-            default:
-                Debug.LogError("This code should not be reachable?");
-                break;
+        if (activatePanel(panels[currentPage])) {
+            currentPage++;
+        } else {
+            return;
         }
+        
+        if (currentPage >= panels.Length) {
+            Debug.Log("Exiting...");
+            input.Disable();
+            ended.Invoke();
+            return;
+        }
+
+        activatePanel(panels[currentPage]);
     }
 
     private bool activatePanel(IntroPanel panel) {
@@ -90,15 +81,13 @@ public class IntroManager : MonoBehaviour {
             Debug.Log($"Skipping {panel.panel.name} panel.");
             panel.exposition.ShowText();
             black.StopTransition();
+
+            Debug.Log($"Finished panel {panel.panel.name} early.");
             panel.state = IntroPanelState.Ended;
             return false;
         } else {
             Debug.Log($"Exiting {panel.panel.name}.");
             return true;
         }
-    }
-
-    private void changeLevel() {
-        SceneManager.LoadScene(LevelNames.Entrance);
     }
 }

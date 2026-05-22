@@ -65,6 +65,11 @@ public class PlayerBrain : MonoBehaviour
         moveObstacle.enabled = true;
     }
 
+    public void Die() {
+        Debug.Log("Player died.");
+        StaticUtils.ChangeLevel(LevelNames.GameOver, "");
+    }
+
     public static Transform GetSpeechBubbleTransform() {
         return GameObject
             .FindGameObjectWithTag(Tags.PlayerTag)

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Station1Objective : MonoBehaviour {
+public class PillarObjective : MonoBehaviour {
     private float pillarCount;
     public string objectiveID;
     public string objectiveContent;
@@ -13,6 +13,14 @@ public class Station1Objective : MonoBehaviour {
 
         foreach (GameObject p in pillars) {
             p.GetComponent<UseAction>().interacted.AddListener(pillarChecked);
+        }
+    }
+
+    public void DisableAllPillars() {
+        var pillars = GameObject.FindGameObjectsWithTag(Tags.PillarTag);
+        foreach (var p in pillars) {
+            p.GetComponent<UseAction>().enabled = false;
+            p.GetComponent<Collider2D>().enabled = false;
         }
     }
 

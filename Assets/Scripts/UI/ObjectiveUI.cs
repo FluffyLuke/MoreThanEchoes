@@ -56,10 +56,12 @@ public class ObjectiveUI : MonoBehaviour {
     }
 
     public void Reset() {
+        Debug.Log("Reseting objective UI. Removing all objectives...");
+        objectives.Clear();
         foreach(Transform child in objectiveParent.transform) {
             Destroy(child.gameObject);
         }
-        Show();
+        // Show();
     }
 
     // Rebuild the UI

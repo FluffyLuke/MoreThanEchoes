@@ -18,6 +18,7 @@ public class Blackness : MonoBehaviour {
     }
 
     public void TransitionOut(float seconds, Ease ease, Action onComplete) {
+        Debug.Log("Doing transition out.");
         tween?.Kill();
 
         blackness.color = new Color(0,0,0,1);
@@ -31,10 +32,11 @@ public class Blackness : MonoBehaviour {
     }
 
     public void TransitionIn(float seconds) {
-        TransitionOut(seconds);
+        TransitionIn(seconds, Ease.Linear, null);
     }
 
     public void TransitionIn(float seconds, Ease ease, Action onComplete) {
+        Debug.Log("Doing transition in.");
         tween?.Kill();
 
         blackness.color = new Color(0,0,0,0);

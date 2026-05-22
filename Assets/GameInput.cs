@@ -1178,6 +1178,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KYS"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d922e17-f78b-4d67-8636-d21dc5520ca9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1200,6 +1209,17 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LessSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccd67e4f-69fa-4a8f-945d-8fff901c2009"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""KYS"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1369,6 +1389,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_MoreSpeed = m_Debug.FindAction("MoreSpeed", throwIfNotFound: true);
         m_Debug_LessSpeed = m_Debug.FindAction("LessSpeed", throwIfNotFound: true);
+        m_Debug_KYS = m_Debug.FindAction("KYS", throwIfNotFound: true);
         // Obstacle
         m_Obstacle = asset.FindActionMap("Obstacle", throwIfNotFound: true);
         m_Obstacle_Slide = m_Obstacle.FindAction("Slide", throwIfNotFound: true);
@@ -1957,6 +1978,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private List<IDebugActions> m_DebugActionsCallbackInterfaces = new List<IDebugActions>();
     private readonly InputAction m_Debug_MoreSpeed;
     private readonly InputAction m_Debug_LessSpeed;
+    private readonly InputAction m_Debug_KYS;
     /// <summary>
     /// Provides access to input actions defined in input action map "Debug".
     /// </summary>
@@ -1976,6 +1998,10 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Debug/LessSpeed".
         /// </summary>
         public InputAction @LessSpeed => m_Wrapper.m_Debug_LessSpeed;
+        /// <summary>
+        /// Provides access to the underlying input action "Debug/KYS".
+        /// </summary>
+        public InputAction @KYS => m_Wrapper.m_Debug_KYS;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2008,6 +2034,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @LessSpeed.started += instance.OnLessSpeed;
             @LessSpeed.performed += instance.OnLessSpeed;
             @LessSpeed.canceled += instance.OnLessSpeed;
+            @KYS.started += instance.OnKYS;
+            @KYS.performed += instance.OnKYS;
+            @KYS.canceled += instance.OnKYS;
         }
 
         /// <summary>
@@ -2025,6 +2054,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @LessSpeed.started -= instance.OnLessSpeed;
             @LessSpeed.performed -= instance.OnLessSpeed;
             @LessSpeed.canceled -= instance.OnLessSpeed;
+            @KYS.started -= instance.OnKYS;
+            @KYS.performed -= instance.OnKYS;
+            @KYS.canceled -= instance.OnKYS;
         }
 
         /// <summary>
@@ -2440,6 +2472,13 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLessSpeed(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "KYS" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKYS(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Obstacle" which allows adding and removing callbacks.

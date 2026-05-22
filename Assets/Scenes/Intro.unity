@@ -353,17 +353,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b48e13325ada80fe81aa9be308c673b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntroManager
-  cps: 15
-  fade: 2
-  fadeExit: 3
   black: {fileID: 431786919}
   panels:
   - panel: {fileID: 1347534258}
     exposition: {fileID: 7268561922346576415}
     state: 0
   - panel: {fileID: 1063170466}
-    exposition: {fileID: 943611317}
+    exposition: {fileID: 646923771}
     state: 0
+  cps: 15
+  fade: 2
+  ended:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1419860329}
+        m_TargetAssemblyTypeName: PlayAmbient, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1419860330}
+        m_TargetAssemblyTypeName: DoSomethingAfter, Assembly-CSharp
+        m_MethodName: StartCounting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 431786919}
+        m_TargetAssemblyTypeName: Blackness, Assembly-CSharp
+        m_MethodName: TransitionIn
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &570421735
 Transform:
   m_ObjectHideFlags: 0
@@ -376,7 +414,8 @@ Transform:
   m_LocalPosition: {x: 632.4921, y: 357.5817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1419860328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &570421736
@@ -514,7 +553,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
   m_PrefabInstance: {fileID: 646923769}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &943611317 stripped
+--- !u!114 &646923771 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7920292126449055592, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
   m_PrefabInstance: {fileID: 646923769}
@@ -726,6 +765,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347534258}
   m_CullTransparentMesh: 1
+--- !u!1 &1419860326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419860328}
+  - component: {fileID: 1419860329}
+  - component: {fileID: 1419860327}
+  - component: {fileID: 1419860330}
+  m_Layer: 0
+  m_Name: LevelEnded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1419860327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419860326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443856234c2856423bf8833adaef56d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeLevel
+  levelName: Entrance
+--- !u!4 &1419860328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419860326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 570421735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1419860329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419860326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c26fa0f3df703dea1bd3a57941acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAmbient
+  id: Empty_Ambient
+  delay: 0
+  fadeDuration: 2
+  playOnStart: 0
+--- !u!114 &1419860330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419860326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace4cf0a1d9bd8eb6a58ef7831b25a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoSomethingAfter
+  defaultDelay: 3
+  runOnStart: 0
+  timeOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1419860327}
+        m_TargetAssemblyTypeName: ChangeLevel, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1663205554
 GameObject:
   m_ObjectHideFlags: 0

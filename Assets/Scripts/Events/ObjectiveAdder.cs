@@ -7,6 +7,7 @@ public enum ObjectiveAction {
     Modify,
     Delete,
     Show,
+    Clear,
 }
 public class ObjectiveAdder : MonoBehaviour {
     public ObjectiveAction whatToDo = ObjectiveAction.Add;
@@ -30,6 +31,9 @@ public class ObjectiveAdder : MonoBehaviour {
                 break;
             case ObjectiveAction.Show:
                 ObjectiveUI.instance.Show();
+                break;
+            case ObjectiveAction.Clear:
+                ObjectiveUI.instance.Reset();
                 break;
         }
     } 

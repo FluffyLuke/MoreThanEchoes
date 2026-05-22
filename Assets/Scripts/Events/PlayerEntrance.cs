@@ -11,7 +11,6 @@ public class PlayerEntrance : MonoBehaviour {
             return;
         }
 
-
         string currentEntranceName = StaticUtils.GetEntranceName();
 
         Entrance currentEntrance = null;
