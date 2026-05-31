@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 205005927765199663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7660445, w: 0.64278764}
-  m_LocalPosition: {x: 0.158, y: -0.099, z: 0}
+  m_LocalPosition: {x: 0.158, y: 0.444, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 2285126117778367445}
   - component: {fileID: 504660787600335182}
   - component: {fileID: 3324567701603777938}
+  - component: {fileID: 2907369947340321925}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -568,9 +569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a423e16c76a7125a0878a5024e5b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  walkSpeed: 4
-  runSpeed: 9
+  walkSpeed: 8
+  runSpeed: 18
   body: {fileID: 8803800059945306359}
+  animator: {fileID: 1633275221528621421}
   walkStepDelta: 0.9
   sprintStepDelta: 0.3
   walkSoundPlayer: {fileID: 103996492124760198}
@@ -667,7 +669,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2285126117778367445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -740,6 +742,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffects
   stunSprite: {fileID: 1761540594330606554}
+--- !u!114 &2907369947340321925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148687200473207946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339dfb63ff45100c68fff4c015106f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
+  animator: {fileID: 1633275221528621421}
+  body: {fileID: 8803800059945306359}
 --- !u!1 &8424972067256158012
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +782,7 @@ Transform:
   m_GameObject: {fileID: 8424972067256158012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70687747, w: 0.70733607}
-  m_LocalPosition: {x: 0.138, y: -0.021, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.553, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -835,6 +851,7 @@ GameObject:
   - component: {fileID: 6527790342754741712}
   - component: {fileID: 3832415537790341634}
   - component: {fileID: 3887215282488470528}
+  - component: {fileID: 1633275221528621421}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -851,9 +868,9 @@ Transform:
   m_GameObject: {fileID: 8803800059945306359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.023, y: -0.944, z: 0}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3558239771562233546}
   - {fileID: 574433775797040871}
@@ -908,7 +925,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a5366ab8db19d82de955da4be027ff6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cee2811dfaf8bf8ac90e14e04a7bf429, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -930,3 +947,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4df8f7e9ca4d10497f0029e786e811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShader
+--- !u!95 &1633275221528621421
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803800059945306359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d5f9b4c1dc8204d6a21a0e3010aa9db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

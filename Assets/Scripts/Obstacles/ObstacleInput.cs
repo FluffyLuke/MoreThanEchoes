@@ -29,11 +29,9 @@ public class ObstacleInput : MonoBehaviour {
         gateEnabled = false;
     }
     void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log($"DEBUG - ENABLED {name}");
         gateEnabled = true;
     }
     void OnTriggerExit2D(Collider2D collision) {
-        Debug.Log($"DEBUG - DISABLED {name}");
         gateEnabled = false;
     }
 }

@@ -6,6 +6,7 @@ public class PlayerSpawnSpeechBubble : MonoBehaviour {
         PlayerEventBus.spawnSpeechBubble.AddListener(Spawn);
     }
     public void Spawn(string whatToShow, float speed) {
+        Debug.Log($"Spawning speech bubble: '{whatToShow}'");
         // Destroy all of children (previous speech bubbles) before spawning new speech bubble
         foreach (Transform t in transform) {
             Destroy(t.gameObject);

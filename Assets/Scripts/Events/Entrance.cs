@@ -5,15 +5,20 @@ using UnityEngine.Events;
 public class Entrance : MonoBehaviour {
     [Header("Init")]
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Blackness fade;
-    public UnityEvent playerEntered = new();
     public string EntranceName = "";
-    [Header("Time")]
+    [Header("Speed")]
     public float transitionTimeSecs = 3;
-    public float moveForSecs = 3;
-    [Header("Direction")]
+    public float walkingSecs = 3;
+    public float runningSecs = 1.5f;
+    [Header("Where")]
     public MoveDirection direction;
+    public bool isRunning = false;
+    [Header("Events")]
+    public UnityEvent playerStartedEntering = new();
+    public UnityEvent playerEntered = new();
     public void SpawnPlayer() {
+        playerStartedEntering.Invoke();
+
         Vector2 pos2 = transform.position;
         GameObject playerObj = Instantiate(playerPrefab, pos2, Quaternion.identity);
 
@@ -23,13 +28,13 @@ public class Entrance : MonoBehaviour {
 
         // Move player
         PlayerMoveCinematic moveCinematic = playerObj.GetComponent<PlayerMoveCinematic>();
-        moveCinematic.SetMove(direction, false);
+        moveCinematic.SetMove(direction, isRunning);
 
         // Set transition
-        fade.TransitionOut(transitionTimeSecs, Ease.Linear, null);
+        UIEventBus.transitionOut.Invoke(transitionTimeSecs, Ease.Linear, null);
 
         // Give player back the control
-        StaticUtils.DoSomethingAfter(moveForSecs, this, () => {
+        StaticUtils.DoSomethingAfter(isRunning ? runningSecs : walkingSecs, this, () => {
             brain.SwitchMode(PlayerMode.Normal);
             playerEntered.Invoke();
         });

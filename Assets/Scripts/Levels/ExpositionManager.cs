@@ -21,7 +21,6 @@ public class IntroPanel {
 }
 public class ExpositionManager : MonoBehaviour {
     [Header("References")]
-    [SerializeField] private Blackness black;
     [SerializeField] private IntroPanel[] panels;
     [Header("Values")]
     public float cps = 15;
@@ -75,12 +74,12 @@ public class ExpositionManager : MonoBehaviour {
             panel.exposition.ShowText(cps, onComplete: () => {
                 panel.state = IntroPanelState.Ended;
             });
-            black.TransitionOut(fade);
+            UIEventBus.transitionOut.Invoke(fade, Ease.Linear, null);
             return false;
         } else if (panel.state == IntroPanelState.Started) {
             Debug.Log($"Skipping {panel.panel.name} panel.");
             panel.exposition.ShowText();
-            black.StopTransition();
+            UIEventBus.stopTransition.Invoke();
 
             Debug.Log($"Finished panel {panel.panel.name} early.");
             panel.state = IntroPanelState.Ended;

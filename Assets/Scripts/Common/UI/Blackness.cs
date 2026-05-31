@@ -10,6 +10,10 @@ public class Blackness : MonoBehaviour {
     private Tween tween;    
     void Awake() {
         blackness = GetComponent<Image>();
+
+        UIEventBus.transitionIn.AddListener(TransitionIn);
+        UIEventBus.transitionOut.AddListener(TransitionOut);
+        UIEventBus.stopTransition.AddListener(StopTransition);
     }
 
     // This can be used in editor

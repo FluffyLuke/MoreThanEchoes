@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +7,13 @@ public class PlayerMove : MonoBehaviour {
     public float walkSpeed = 10;
     public float runSpeed = 20;
     private CharacterController2D controller;
+    private PlayerLook look;
     [SerializeField] private GameObject body;
+    [SerializeField] private Animator animator;
     private GameInput input;
     void Awake() {
         controller = GetComponent<CharacterController2D>();
+        look = GetComponent<PlayerLook>();
         input = new GameInput();
     }
 
@@ -41,12 +43,18 @@ public class PlayerMove : MonoBehaviour {
 
     // FIX: make footstep sounds be relative to speed
     public void Move(Vector2 direction, bool isSprinting, float customSpeed = 0) {
+        animator.SetBool("isRunning", isSprinting);
+
         // Player is not moving at all
         if (direction.x == 0) {
             controller.SetMotion(new(0,0));
             moveT = 0;
+            look.SetWhereToLook(WhereToLook.WhereLooking);
+            animator.SetBool("isWalking", false);
             return;
         }
+
+        animator.SetBool("isWalking", true);
 
         // Sound part
         moveT += Time.deltaTime;
@@ -57,9 +65,11 @@ public class PlayerMove : MonoBehaviour {
             walkSoundPlayer.Play();
         }
 
+        // Set where model is facing
 
-        // Moving part
-        SetModelDirection(direction);
+        // == Moving part == 
+        // Rotate where player is going
+        look.SetWhereToLook(direction.x > 0 ? WhereToLook.Right : WhereToLook.Left);
         float speed = direction.x * Time.deltaTime;
         
         if (customSpeed == 0) {
@@ -69,12 +79,5 @@ public class PlayerMove : MonoBehaviour {
         }
 
         controller.SetMotion(new(speed,0));
-    }
-
-    public void SetModelDirection(Vector2 direction) {
-        Vector3 newBodyScale = body.transform.localScale;
-        if (direction.x > 0) newBodyScale.x = Mathf.Abs(newBodyScale.x);
-        else if (direction.x < 0) newBodyScale.x = -Math.Abs(newBodyScale.x);
-        body.transform.localScale = newBodyScale;
     }
 }

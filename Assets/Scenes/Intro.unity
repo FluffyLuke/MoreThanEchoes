@@ -353,7 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b48e13325ada80fe81aa9be308c673b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntroManager
-  black: {fileID: 431786919}
   panels:
   - panel: {fileID: 1347534258}
     exposition: {fileID: 7268561922346576415}
@@ -361,8 +360,8 @@ MonoBehaviour:
   - panel: {fileID: 1063170466}
     exposition: {fileID: 646923771}
     state: 0
-  cps: 15
-  fade: 2
+  cps: 25
+  fade: 1
   ended:
     m_PersistentCalls:
       m_Calls:

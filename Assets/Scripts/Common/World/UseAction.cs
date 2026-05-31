@@ -8,23 +8,24 @@ public class UseAction : MonoBehaviour {
     private GameInput input;
     public UnityEvent interacted = new();
     void Awake() {
+        buttonSprite.SetActive(false);
         input = new GameInput();
         input.Player.Interact.performed += interact;
     }
-    void Start() {
-        buttonSprite.SetActive(false);
-    }
-
     void OnTriggerEnter2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
+        if (!enabled) return;
+
         buttonSprite.SetActive(true);
         input.Player.Interact.Enable();
     }
 
     void OnTriggerExit2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
+        if (!enabled) return;
+
         buttonSprite.SetActive(false);
-        input.Player.Interact .Disable();
+        input.Player.Interact.Disable();
     }
 
     void OnDisable() {

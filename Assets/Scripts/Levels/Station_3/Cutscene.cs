@@ -28,6 +28,10 @@ public class Cutscene : MonoBehaviour {
         }
 
         PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+
+        // FIX: Move this to a dedicated class, running this here is not optimal
+        GameState.SetCurrentMoment(GameMoment.GoingBack);
+
         cutsceneEnded.Invoke();
     }
 }

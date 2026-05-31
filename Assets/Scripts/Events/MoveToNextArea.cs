@@ -9,7 +9,7 @@ public class MoveToNextArea : MonoBehaviour {
     [SerializeField] private string sceneName = "Intro";
     [SerializeField] private string entranceName = "EntranceName";
     [SerializeField] private MoveDirection direction = MoveDirection.Right;
-    [SerializeField] private Blackness fade;
+    [SerializeField] private bool running = false;
     void Awake() {
         // var scene = SceneManager.GetSceneByName(sceneName);
         // if (!scene.IsValid()) {
@@ -27,10 +27,10 @@ public class MoveToNextArea : MonoBehaviour {
 
         // Move to the right
         PlayerMoveCinematic move = playerObj.GetComponent<PlayerMoveCinematic>();
-        move.SetMove(direction, false);
+        move.SetMove(direction, running);
 
         // Set transition
-        fade.TransitionIn(transitionTimeSecs, Ease.Linear, () => {
+        UIEventBus.transitionIn.Invoke(transitionTimeSecs, Ease.Linear, () => {
             StaticUtils.ChangeLevel(sceneName, entranceName);
         });
     }

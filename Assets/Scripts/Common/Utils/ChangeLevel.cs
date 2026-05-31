@@ -7,4 +7,12 @@ public class ChangeLevel : MonoBehaviour {
         //black.TransitionIn(fade, Ease.Linear, () => StaticUtils.ChangeLevel(levelName, ""));
         StaticUtils.ChangeLevel(levelName, "");
     }
+
+    public void Exit() {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 }
