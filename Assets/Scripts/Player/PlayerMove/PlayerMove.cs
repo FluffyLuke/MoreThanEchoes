@@ -43,7 +43,6 @@ public class PlayerMove : MonoBehaviour {
 
     // FIX: make footstep sounds be relative to speed
     public void Move(Vector2 direction, bool isSprinting, float customSpeed = 0) {
-        animator.SetBool("isRunning", isSprinting);
 
         // Player is not moving at all
         if (direction.x == 0) {
@@ -51,10 +50,12 @@ public class PlayerMove : MonoBehaviour {
             moveT = 0;
             look.SetWhereToLook(WhereToLook.WhereLooking);
             animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
             return;
         }
 
         animator.SetBool("isWalking", true);
+        animator.SetBool("isRunning", isSprinting);
 
         // Sound part
         moveT += Time.deltaTime;
