@@ -23,7 +23,6 @@ public class PlayerLook : MonoBehaviour {
 
         Vector3 direction = GetLookingDirection(transform);
         if (state == WhereToLook.WhereLooking) {
-            Debug.Log("DEBUG: TEST");
             UpdateTorchAngle();
             SetModelDirection(direction.x > 0);
         } else {
@@ -59,7 +58,6 @@ public class PlayerLook : MonoBehaviour {
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         angle *= -1;
 
-        Debug.Log($"DEBUG: angle: {angle}");
         torch.transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
