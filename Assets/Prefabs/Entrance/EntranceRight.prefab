@@ -13,6 +13,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1299587750188102107, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 4482561998339472455}
+    - target: {fileID: 1299587750188102107, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: EntranceName
       value: EntranceRight
       objectReference: {fileID: 0}
@@ -97,3 +101,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+--- !u!1 &4482561998339472455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1825257906656658599, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+  m_PrefabInstance: {fileID: 2837791160545458400}
+  m_PrefabAsset: {fileID: 0}

@@ -4,6 +4,7 @@ public enum PlayerMode {
     Cinematic,
     Normal,
     Obstacle,
+    Inspect,
 }
 public class PlayerBrain : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class PlayerBrain : MonoBehaviour
     private PlayerMove move;
     private PlayerMoveCinematic moveCinematic;
     private PlayerMoveObstacle moveObstacle;
+    private PlayerInspect inspect;
     private PlayerTorch torch;
     private PlayerCheckObjective objective;
-    [SerializeField] private PlayerMode startingMode = PlayerMode.Normal;
+    private MonoBehaviour[] allComponents;
     void Awake() {
         // Get interactive components
         move = GetComponent<PlayerMove>();
@@ -21,48 +23,75 @@ public class PlayerBrain : MonoBehaviour
         objective = GetComponent<PlayerCheckObjective>();
         moveCinematic = GetComponent<PlayerMoveCinematic>();
         moveObstacle = GetComponent<PlayerMoveObstacle>();
+        inspect = GetComponent<PlayerInspect>();
 
-        PlayerEventBus.changeState.AddListener(SwitchMode);
+        // Get all player components to a list
+        allComponents = new MonoBehaviour[] {
+            move,
+            torch,
+            objective,
+            moveCinematic,
+            moveObstacle,
+            inspect,
+        };
+
+        PlayerEventBus.stateNormal.AddListener(NormalMode);
+        PlayerEventBus.stateCinematic.AddListener(CinematicMode);
+        PlayerEventBus.stateObstacle.AddListener(ObstacleMode);
+        PlayerEventBus.stateInspect.AddListener(InspectMode);
+
 
         // Some of the games code spawns player and imidiatelly does something to it's state
         // This call MUST BE in awake
-        SwitchMode(startingMode);
+        NormalMode();
     }
-    public void SwitchMode(PlayerMode mode) {
+
+    private void turnOff() {
         // Disable all interactive components
         // They still can be used, but input variables should be disabled
-        move.enabled = false;
-        torch.enabled = false;
-        moveCinematic.enabled = false;
-        objective.enabled = false;
-        moveObstacle.enabled = false;
-        PlayerEventBus.canInteract = false;
-
-        Debug.Log($"Switching player to mode: {mode}");
-
-        switch (mode) {
-            case PlayerMode.Normal:
-                normalMode();
-                break;
-            case PlayerMode.Cinematic:
-                cinematicMode();
-                break;
-            case PlayerMode.Obstacle:
-                obstacleMode();
-                break;
+        if (inspect.enabled) {
+            // FIX: This is a quick patch. All player components need to have a proper interface
+            // and stop rely on build-in methods like "OnEnable" and "OnDisable"
+            inspect.ExitState();
         }
+        
+        foreach (var c in allComponents) {
+            c.enabled = false;
+        }
+        PlayerEventBus.canInteract = false;
     }
-    private void cinematicMode() {
+    public void CinematicMode() {
+        Debug.Log($"Switching player to mode: Cinematic");
+        turnOff();
+
         moveCinematic.enabled = true;
     }
-    private void normalMode() {
+    public void NormalMode() {
+        Debug.Log($"Switching player to mode: Normal");
+        turnOff();
+
         PlayerEventBus.canInteract = true;
         move.enabled = true;
         torch.enabled = true;
         objective.enabled = true;
     }
-    private void obstacleMode() {
+    public void ObstacleMode() {
+        Debug.Log($"Switching player to mode: Obstacle");
+        turnOff();
+
         moveObstacle.enabled = true;
+    }
+
+    public void InspectMode(int number) {
+        Debug.Log($"Switching player to mode: Inspect");
+        turnOff();
+
+        inspect.enabled = true;
+
+        UIEventBus.transitionIn.Invoke(inspect.transitionTime, inspect.transitionEase, () => {
+            inspect.EnterState(number);
+            UIEventBus.transitionOut.Invoke(inspect.transitionTime, inspect.transitionEase, null);
+        });
     }
 
     public void Die() {

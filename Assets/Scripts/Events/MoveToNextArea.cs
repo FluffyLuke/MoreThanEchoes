@@ -23,7 +23,7 @@ public class MoveToNextArea : MonoBehaviour {
 
         // Switch to cinematic mode (disable player input)
         PlayerBrain brain = playerObj.GetComponent<PlayerBrain>();
-        brain.SwitchMode(PlayerMode.Cinematic);
+        brain.CinematicMode();
 
         // Move to the right
         PlayerMoveCinematic move = playerObj.GetComponent<PlayerMoveCinematic>();

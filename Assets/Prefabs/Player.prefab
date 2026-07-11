@@ -47,7 +47,7 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.041
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -65,13 +65,13 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowSoftness: 0.3
   m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 1
+  m_ShadowVolumeIntensity: 0.582
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 47.52791
-  m_PointLightOuterAngle: 94.29636
+  m_PointLightInnerAngle: 41.122177
+  m_PointLightOuterAngle: 67.50839
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 16.813564
   m_ShapeLightParametricSides: 5
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 1886136447128934430}
   - component: {fileID: 7859212215418900168}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 661108898358392402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 2085873503544386328}
   - component: {fileID: 8350722941863323993}
   - component: {fileID: 3911638551900794345}
+  - component: {fileID: 2076686478572842748}
   - component: {fileID: 9111381125114412964}
   - component: {fileID: 2227373610713867310}
   - component: {fileID: 2285126117778367445}
@@ -641,7 +642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBrain
   speechBubble: {fileID: 7049534053331803796}
-  startingMode: 1
 --- !u!114 &750929339280996023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +716,20 @@ MonoBehaviour:
   torchBeam: {fileID: 658688913966174763}
   torchAura: {fileID: 7603964663370764857}
   soundPlayer: {fileID: 7680167920932918129}
+--- !u!114 &2076686478572842748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148687200473207946}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3193d0a0f3f32bbb7e868a1d990912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInspect
+  transitionTime: 0.3
+  transitionEase: 1
 --- !u!114 &9111381125114412964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,7 +1023,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: cee2811dfaf8bf8ac90e14e04a7bf429, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

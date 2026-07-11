@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -32,4 +33,12 @@ public class DoSomethingAfter : MonoBehaviour {
         timeOut.Invoke();
     }
 
+    public static void After(MonoBehaviour caller, float timeSecs, Action action) {
+        caller.StartCoroutine(doAfter(timeSecs, action));
+    }
+
+    private static IEnumerator doAfter(float timeSecs, Action action) {
+        yield return new WaitForSeconds(timeSecs);
+        action.Invoke();
+    }
 }

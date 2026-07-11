@@ -23,7 +23,7 @@ public class PlayerShowNote : MonoBehaviour {
     }
 
     private void show() {
-        PlayerEventBus.changeState.Invoke(PlayerMode.Cinematic);
+        PlayerEventBus.stateCinematic.Invoke();
         input.Player.Enable();
 
         pickUpSound.Play();
@@ -33,7 +33,7 @@ public class PlayerShowNote : MonoBehaviour {
     }
 
     private void hide(InputAction.CallbackContext ctx) {
-        PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+        PlayerEventBus.stateNormal.Invoke();
 
         pickUpSound.Play();
         group.DOFade(0, fadeTimeSec);

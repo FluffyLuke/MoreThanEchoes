@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380354115959026964, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: sceneName
-      value: Entrance
+      value: Station_1
       objectReference: {fileID: 0}
     - target: {fileID: 2380354115959026964, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: entranceName
@@ -54,11 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.41
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.3
+      value: -3.65
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.z

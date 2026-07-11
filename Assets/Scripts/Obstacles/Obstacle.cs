@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour {
     public void MoveLeftToRight() {
         if (onCooldown) return;
 
-        PlayerEventBus.changeState.Invoke(PlayerMode.Obstacle);
+        PlayerEventBus.stateObstacle.Invoke();
         Debug.Log($"Player is moving through obstacle {name} from left to right.");
 
         keySprite.SetActive(false);
@@ -37,7 +37,7 @@ public class Obstacle : MonoBehaviour {
         var m_o = PlayerEventBus.GetPlayer().GetComponent<PlayerMoveObstacle>();
         m_o.MoveThrough(entryLeft.entry.position, entryLeft.exit.position, ease, speed, () => {
             obstacleCollider.enabled = true;
-            PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+            PlayerEventBus.stateNormal.Invoke();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {
                 onCooldown = false;
             });
@@ -47,7 +47,7 @@ public class Obstacle : MonoBehaviour {
     public void MoveRightToLeft() {
         if (onCooldown) return;
 
-        PlayerEventBus.changeState.Invoke(PlayerMode.Obstacle);
+        PlayerEventBus.stateObstacle.Invoke();
 
         Debug.Log($"Player is moving through obstacle {name} from right to left.");
 
@@ -58,7 +58,7 @@ public class Obstacle : MonoBehaviour {
         var m_o = PlayerEventBus.GetPlayer().GetComponent<PlayerMoveObstacle>();
         m_o.MoveThrough(entryRight.entry.position, entryRight.exit.position, ease, speed, () => {
             obstacleCollider.enabled = true;
-            PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+            PlayerEventBus.stateNormal.Invoke();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {
                 onCooldown = false;
             });

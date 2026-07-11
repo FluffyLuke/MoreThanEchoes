@@ -13,18 +13,18 @@ public class Entrance : MonoBehaviour {
     [Header("Where")]
     public MoveDirection direction;
     public bool isRunning = false;
+    public GameObject spawnPoint;
     [Header("Events")]
     public UnityEvent playerStartedEntering = new();
     public UnityEvent playerEntered = new();
     public void SpawnPlayer() {
         playerStartedEntering.Invoke();
 
-        Vector2 pos2 = transform.position;
-        GameObject playerObj = Instantiate(playerPrefab, pos2, Quaternion.identity);
+        GameObject playerObj = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
 
         // Switch to cinematic mode (disable player input)
         PlayerBrain brain = playerObj.GetComponent<PlayerBrain>();
-        brain.SwitchMode(PlayerMode.Cinematic);
+        brain.CinematicMode();
 
         // Move player
         PlayerMoveCinematic moveCinematic = playerObj.GetComponent<PlayerMoveCinematic>();
@@ -35,7 +35,7 @@ public class Entrance : MonoBehaviour {
 
         // Give player back the control
         StaticUtils.DoSomethingAfter(isRunning ? runningSecs : walkingSecs, this, () => {
-            brain.SwitchMode(PlayerMode.Normal);
+            brain.NormalMode();
             playerEntered.Invoke();
         });
     }

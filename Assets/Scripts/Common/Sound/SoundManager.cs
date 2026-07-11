@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour {
         return true;
     }
 
-    public bool PlayOneShot(string id, Vector3 position, out SoundHandle handle) {
+    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle) {
         if (!lookup.TryGetValue(id, out SoundAsset sound)) {
             Debug.LogError($"Cannot found asset of id: \"{id}\"");
             handle = new SoundHandle(default);
@@ -91,8 +91,8 @@ public class SoundManager : MonoBehaviour {
         }
 
         GameObject gameObject = new GameObject("SoundSource");
-        gameObject.transform.position = position;
-        gameObject.transform.SetParent(this.transform);
+        // gameObject.transform.position = position;
+        gameObject.transform.SetParent(parent.transform);
 
         AudioSource source = gameObject.AddComponent<AudioSource>();
         AudioClip clip = sound.GetRandomClip();
@@ -123,8 +123,24 @@ public class SoundManager : MonoBehaviour {
         return true;
     }
 
+    public bool PlayOneShot(string id, Vector3 position, out SoundHandle handle) {
+        var newParent = new GameObject();
+        newParent.transform.position = position;
+        return PlayOneShot(id, newParent, out handle);
+    }
+
     public bool PlayOneShot(string id, Vector3 position) {
-        bool ifSuccess = PlayOneShot(id, position, out SoundHandle handle);
+        var newParent = new GameObject();
+        newParent.transform.position = position;
+        bool ifSuccess = PlayOneShot(id, newParent, out SoundHandle handle);
+        if (ifSuccess) {
+            Destroy(handle.source.gameObject, handle.source.clip.length);
+        }
+        return ifSuccess;
+    }
+
+    public bool PlayOneShot(string id, GameObject parent) {
+        bool ifSuccess = PlayOneShot(id, parent, out SoundHandle handle);
         if (ifSuccess) {
             Destroy(handle.source.gameObject, handle.source.clip.length);
         }

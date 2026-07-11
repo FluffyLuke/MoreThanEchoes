@@ -15,16 +15,16 @@ public class PlayerEffects : MonoBehaviour {
         PlayerEventBus.stunAndMove.RemoveListener(StunAndMove);
     }
     public void Stun(float timeSec) {
-        PlayerEventBus.changeState.Invoke(PlayerMode.Cinematic);
+        PlayerEventBus.stateCinematic.Invoke();
         stunSprite.SetActive(true);
         StaticUtils.DoSomethingAfter(timeSec, this, () => {
             stunSprite.SetActive(false);
-            PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+            PlayerEventBus.stateNormal.Invoke();
         });
     }
 
     public void StunAndMove(float timeSec, MoveDirection direction, float speed) {
-        PlayerEventBus.changeState.Invoke(PlayerMode.Cinematic);
+        PlayerEventBus.stateCinematic.Invoke();
         stunSprite.SetActive(true);
 
         PlayerMoveCinematic m_c = PlayerEventBus.GetPlayerComponent<PlayerMoveCinematic>();
@@ -33,7 +33,7 @@ public class PlayerEffects : MonoBehaviour {
         
         StaticUtils.DoSomethingAfter(timeSec, this, () => {
             stunSprite.SetActive(false);
-            PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+            PlayerEventBus.stateNormal.Invoke();
         });
     }
 }

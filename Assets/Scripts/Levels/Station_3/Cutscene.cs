@@ -16,7 +16,7 @@ public class Cutscene : MonoBehaviour {
     }
 
     private IEnumerator playCutscene(float wait) {
-        PlayerEventBus.changeState.Invoke(PlayerMode.Cinematic);
+        PlayerEventBus.stateCinematic.Invoke();
         
         foreach (GameObject s in scenes) {
             s.SetActive(true);
@@ -27,7 +27,7 @@ public class Cutscene : MonoBehaviour {
             s.SetActive(false);
         }
 
-        PlayerEventBus.changeState.Invoke(PlayerMode.Normal);
+        PlayerEventBus.stateNormal.Invoke();
 
         // FIX: Move this to a dedicated class, running this here is not optimal
         GameState.SetCurrentMoment(GameMoment.GoingBack);

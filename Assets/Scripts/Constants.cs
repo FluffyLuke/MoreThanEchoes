@@ -11,8 +11,14 @@ public static class AmbientNames {
     public static readonly string EmptyAmbient = "Empty_Ambient";
 }
 
+public static class Renderers {
+    public static int _2D = 0;
+    public static int _3D = 1;
+}
+
 public static class Tags {
     public static readonly string MainCameraTag = "MainCamera";
+    public static readonly string MinigameTag = "Minigame";
     public static readonly string PlayerTag = "Player";
     public static readonly string EntranceTag = "Entrance";
     public static readonly string PillarTag = "Beam";

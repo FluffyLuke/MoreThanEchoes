@@ -1312,6 +1312,158 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerInspect"",
+            ""id"": ""c6fe01de-8e1d-4f9f-a9cd-0172292f62ec"",
+            ""actions"": [
+                {
+                    ""name"": ""ExitDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5f3aef5-02ef-4a0c-adbe-35003ee963e5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba49fcb5-0f35-464a-844f-afcea2ff0a35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""c897e3f8-643d-4465-a7b2-1729b71be11c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""37943996-72ae-4ef2-a4a5-760980907ae6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""22ab4f7f-118e-42a0-9f28-5b1d95f2a8a2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""dda1a41e-42ba-4207-a1b9-7e5c71fae03f"",
+                    ""path"": ""<Keyboard>/f9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ExitDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b75b6d7-db06-4a17-8e84-a2aa30c289e4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fbccdb1-09b7-4adb-be75-6bf5c073138c"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54ccc48d-dabd-48d6-9f4c-2646825d2706"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""311f1986-438a-486c-9988-53a6fe59db11"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49860e5a-58b5-488e-839c-c8e1da573baf"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe169e9b-c7cc-487d-8714-3d630252951a"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a2c45a2-a43a-49d8-87b4-16477838e478"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abbe56fb-8964-4851-8181-c173e94bf4fe"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1416,6 +1568,13 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Obstacle_Slide = m_Obstacle.FindAction("Slide", throwIfNotFound: true);
         m_Obstacle_Crouch = m_Obstacle.FindAction("Crouch", throwIfNotFound: true);
         m_Obstacle_JumpOver = m_Obstacle.FindAction("JumpOver", throwIfNotFound: true);
+        // PlayerInspect
+        m_PlayerInspect = asset.FindActionMap("PlayerInspect", throwIfNotFound: true);
+        m_PlayerInspect_ExitDebug = m_PlayerInspect.FindAction("ExitDebug", throwIfNotFound: true);
+        m_PlayerInspect_LookUp = m_PlayerInspect.FindAction("LookUp", throwIfNotFound: true);
+        m_PlayerInspect_LookLeft = m_PlayerInspect.FindAction("LookLeft", throwIfNotFound: true);
+        m_PlayerInspect_LookRight = m_PlayerInspect.FindAction("LookRight", throwIfNotFound: true);
+        m_PlayerInspect_LookDown = m_PlayerInspect.FindAction("LookDown", throwIfNotFound: true);
     }
 
     ~@GameInput()
@@ -1425,6 +1584,7 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Intro.enabled, "This will cause a leak and performance issues, GameInput.Intro.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Debug.enabled, "This will cause a leak and performance issues, GameInput.Debug.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Obstacle.enabled, "This will cause a leak and performance issues, GameInput.Obstacle.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PlayerInspect.enabled, "This will cause a leak and performance issues, GameInput.PlayerInspect.Disable() has not been called.");
     }
 
     /// <summary>
@@ -2240,6 +2400,146 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ObstacleActions" /> instance referencing this action map.
     /// </summary>
     public ObstacleActions @Obstacle => new ObstacleActions(this);
+
+    // PlayerInspect
+    private readonly InputActionMap m_PlayerInspect;
+    private List<IPlayerInspectActions> m_PlayerInspectActionsCallbackInterfaces = new List<IPlayerInspectActions>();
+    private readonly InputAction m_PlayerInspect_ExitDebug;
+    private readonly InputAction m_PlayerInspect_LookUp;
+    private readonly InputAction m_PlayerInspect_LookLeft;
+    private readonly InputAction m_PlayerInspect_LookRight;
+    private readonly InputAction m_PlayerInspect_LookDown;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "PlayerInspect".
+    /// </summary>
+    public struct PlayerInspectActions
+    {
+        private @GameInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PlayerInspectActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInspect/ExitDebug".
+        /// </summary>
+        public InputAction @ExitDebug => m_Wrapper.m_PlayerInspect_ExitDebug;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInspect/LookUp".
+        /// </summary>
+        public InputAction @LookUp => m_Wrapper.m_PlayerInspect_LookUp;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInspect/LookLeft".
+        /// </summary>
+        public InputAction @LookLeft => m_Wrapper.m_PlayerInspect_LookLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInspect/LookRight".
+        /// </summary>
+        public InputAction @LookRight => m_Wrapper.m_PlayerInspect_LookRight;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInspect/LookDown".
+        /// </summary>
+        public InputAction @LookDown => m_Wrapper.m_PlayerInspect_LookDown;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_PlayerInspect; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PlayerInspectActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PlayerInspectActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PlayerInspectActions" />
+        public void AddCallbacks(IPlayerInspectActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerInspectActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerInspectActionsCallbackInterfaces.Add(instance);
+            @ExitDebug.started += instance.OnExitDebug;
+            @ExitDebug.performed += instance.OnExitDebug;
+            @ExitDebug.canceled += instance.OnExitDebug;
+            @LookUp.started += instance.OnLookUp;
+            @LookUp.performed += instance.OnLookUp;
+            @LookUp.canceled += instance.OnLookUp;
+            @LookLeft.started += instance.OnLookLeft;
+            @LookLeft.performed += instance.OnLookLeft;
+            @LookLeft.canceled += instance.OnLookLeft;
+            @LookRight.started += instance.OnLookRight;
+            @LookRight.performed += instance.OnLookRight;
+            @LookRight.canceled += instance.OnLookRight;
+            @LookDown.started += instance.OnLookDown;
+            @LookDown.performed += instance.OnLookDown;
+            @LookDown.canceled += instance.OnLookDown;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="PlayerInspectActions" />
+        private void UnregisterCallbacks(IPlayerInspectActions instance)
+        {
+            @ExitDebug.started -= instance.OnExitDebug;
+            @ExitDebug.performed -= instance.OnExitDebug;
+            @ExitDebug.canceled -= instance.OnExitDebug;
+            @LookUp.started -= instance.OnLookUp;
+            @LookUp.performed -= instance.OnLookUp;
+            @LookUp.canceled -= instance.OnLookUp;
+            @LookLeft.started -= instance.OnLookLeft;
+            @LookLeft.performed -= instance.OnLookLeft;
+            @LookLeft.canceled -= instance.OnLookLeft;
+            @LookRight.started -= instance.OnLookRight;
+            @LookRight.performed -= instance.OnLookRight;
+            @LookRight.canceled -= instance.OnLookRight;
+            @LookDown.started -= instance.OnLookDown;
+            @LookDown.performed -= instance.OnLookDown;
+            @LookDown.canceled -= instance.OnLookDown;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerInspectActions.UnregisterCallbacks(IPlayerInspectActions)" />.
+        /// </summary>
+        /// <seealso cref="PlayerInspectActions.UnregisterCallbacks(IPlayerInspectActions)" />
+        public void RemoveCallbacks(IPlayerInspectActions instance)
+        {
+            if (m_Wrapper.m_PlayerInspectActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="PlayerInspectActions.AddCallbacks(IPlayerInspectActions)" />
+        /// <seealso cref="PlayerInspectActions.RemoveCallbacks(IPlayerInspectActions)" />
+        /// <seealso cref="PlayerInspectActions.UnregisterCallbacks(IPlayerInspectActions)" />
+        public void SetCallbacks(IPlayerInspectActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerInspectActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerInspectActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="PlayerInspectActions" /> instance referencing this action map.
+    /// </summary>
+    public PlayerInspectActions @PlayerInspect => new PlayerInspectActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2547,5 +2847,48 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJumpOver(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerInspect" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PlayerInspectActions.AddCallbacks(IPlayerInspectActions)" />
+    /// <seealso cref="PlayerInspectActions.RemoveCallbacks(IPlayerInspectActions)" />
+    public interface IPlayerInspectActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "ExitDebug" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnExitDebug(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LookUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLookUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LookLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLookLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LookRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLookRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LookDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLookDown(InputAction.CallbackContext context);
     }
 }
