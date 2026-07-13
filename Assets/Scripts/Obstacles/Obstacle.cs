@@ -1,18 +1,20 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider2D))]
 public class Obstacle : MonoBehaviour {
     public GameObject keySprite;
     public Collider2D obstacleCollider;
-    [Header("Parameter")]
+    [Header("Parameters")]
     public float speed = 5;
     public float cooldownSecs = 1;
     public float stunDurationSecs = 1;
     public float stunSpeed = 5;
     public Ease ease;
     [Header("Move points")]
+    public bool modifyY = false;
     public ObstaclePath entryLeft, entryRight;
     void Start() {
         keySprite.SetActive(false);
@@ -35,7 +37,16 @@ public class Obstacle : MonoBehaviour {
         onCooldown = true;
 
         var m_o = PlayerEventBus.GetPlayer().GetComponent<PlayerMoveObstacle>();
-        m_o.MoveThrough(entryLeft.entry.position, entryLeft.exit.position, ease, speed, () => {
+
+        Vector3 entryPosition = entryLeft.entry.position;
+        Vector3 exitPosition = entryLeft.exit.position;
+
+        if (!modifyY) {
+            entryPosition.y = m_o.gameObject.transform.position.y;
+            exitPosition.y = m_o.gameObject.transform.position.y;
+        }
+
+        m_o.MoveThrough(entryPosition, exitPosition, ease, speed, () => {
             obstacleCollider.enabled = true;
             PlayerEventBus.stateNormal.Invoke();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {
@@ -56,7 +67,16 @@ public class Obstacle : MonoBehaviour {
         onCooldown = true;
 
         var m_o = PlayerEventBus.GetPlayer().GetComponent<PlayerMoveObstacle>();
-        m_o.MoveThrough(entryRight.entry.position, entryRight.exit.position, ease, speed, () => {
+
+        Vector3 entryPosition = entryRight.entry.position;
+        Vector3 exitPosition = entryRight.exit.position;
+
+        if (!modifyY) {
+            entryPosition.y = m_o.gameObject.transform.position.y;
+            exitPosition.y = m_o.gameObject.transform.position.y;
+        }
+
+        m_o.MoveThrough(entryPosition, exitPosition, ease, speed, () => {
             obstacleCollider.enabled = true;
             PlayerEventBus.stateNormal.Invoke();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {

@@ -14,6 +14,7 @@ public class PlayerBrain : MonoBehaviour
     private PlayerMoveObstacle moveObstacle;
     private PlayerInspect inspect;
     private PlayerTorch torch;
+    private PlayerLook look;
     private PlayerCheckObjective objective;
     private MonoBehaviour[] allComponents;
     void Awake() {
@@ -24,6 +25,7 @@ public class PlayerBrain : MonoBehaviour
         moveCinematic = GetComponent<PlayerMoveCinematic>();
         moveObstacle = GetComponent<PlayerMoveObstacle>();
         inspect = GetComponent<PlayerInspect>();
+        look = GetComponent<PlayerLook>();
 
         // Get all player components to a list
         allComponents = new MonoBehaviour[] {
@@ -33,6 +35,7 @@ public class PlayerBrain : MonoBehaviour
             moveCinematic,
             moveObstacle,
             inspect,
+            look,
         };
 
         PlayerEventBus.stateNormal.AddListener(NormalMode);
@@ -74,6 +77,7 @@ public class PlayerBrain : MonoBehaviour
         move.enabled = true;
         torch.enabled = true;
         objective.enabled = true;
+        look.enabled = true;
     }
     public void ObstacleMode() {
         Debug.Log($"Switching player to mode: Obstacle");

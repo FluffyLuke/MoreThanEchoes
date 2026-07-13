@@ -5,16 +5,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerInspect : MonoBehaviour {
     private GameInput input;
-    private Minigame mg;
+    private Minigame mg = null;
     public float transitionTime = 0.3f;
     public Ease transitionEase = Ease.Linear;
     private bool exitFlag = false;
     void Awake() {
         input = new GameInput();
 
-        mg = GameObject
-            .FindGameObjectWithTag(Tags.MinigameTag)
-            .GetComponent<Minigame>();
+        var minigameObject = GameObject.FindGameObjectWithTag(Tags.MinigameTag);
+
+        if (minigameObject == null) {
+            Debug.LogWarning("Cannot find minigame prefab in the scene. This may be intentional. Turning off this player feature.");
+            return;
+        }
+
+        mg = minigameObject.GetComponent<Minigame>();
+            
 
         input.PlayerInspect.LookDown.performed += lookDownInput;
         input.PlayerInspect.LookUp.performed += lookUpInput;
@@ -23,6 +29,8 @@ public class PlayerInspect : MonoBehaviour {
         input.PlayerInspect.ExitDebug.performed += exitDebug;
     }
     public void EnterState(int pillarNumber) {
+        if (mg == null) return;
+
         exitFlag = false;
         enabled = true;
 
@@ -32,6 +40,7 @@ public class PlayerInspect : MonoBehaviour {
         input.PlayerInspect.Enable();
     }
     void Update() {
+        if (mg == null) return;
         if (mg.progres >= 1 && exitFlag == false) {
             exitFlag = true;
             UIEventBus.transitionIn.Invoke(transitionTime, transitionEase, () => {
@@ -42,6 +51,7 @@ public class PlayerInspect : MonoBehaviour {
         }
     }
     public void ExitState() {
+        if (mg == null) return;
         input?.PlayerInspect.Disable();
 
         mg.DisableMinigame();
