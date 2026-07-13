@@ -4,19 +4,34 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider2D))]
 public class ObstacleInput : MonoBehaviour {
-    [SerializeField] private InputActionReference action;
-    [SerializeField] private InputActionReference[] badActions;
+    private InputActionReference currentGoodAction;
+    [SerializeField] private InputActionReference[] allActions;
     // InputActionReference is a shared asset, so additional check must be used
     private bool gateEnabled = false;
     public UnityEvent onInput;
     public UnityEvent onBadInput;
     void Start() {
-        action.action.Enable();
-        action.action.performed += onTrigger;
-
-        foreach (var a in badActions) {
+        SetActionIndex(0);
+    }
+    public void SetActionIndex(int index) {
+        // Remove all current triggers
+        foreach (var a in allActions) {
+            a.action.performed -= onBadTrigger;
+            a.action.performed -= onTrigger;
             a.action.Enable();
+        }
+
+        // Assign good action
+        currentGoodAction = allActions[index];
+        currentGoodAction.action.performed += onTrigger;
+        currentGoodAction.action.Enable();
+
+        // Assign bad actions
+        foreach (var a in allActions) {
+            if (a == currentGoodAction) continue;
+
             a.action.performed += onBadTrigger;
+            a.action.Enable();
         }
     }
     private void onTrigger(InputAction.CallbackContext ctx) {

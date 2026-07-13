@@ -1164,7 +1164,7 @@
             "id": "8cfa5f1c-e0c1-425d-9fc1-39b25f01df2f",
             "actions": [
                 {
-                    "name": "Slide",
+                    "name": "Action1",
                     "type": "Button",
                     "id": "90fc2763-9270-495d-8650-f35c67d7ac45",
                     "expectedControlType": "",
@@ -1173,7 +1173,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "Action2",
                     "type": "Button",
                     "id": "af1c8540-0352-4e9d-b8a3-652fc60d77f0",
                     "expectedControlType": "",
@@ -1182,7 +1182,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "JumpOver",
+                    "name": "Action3",
                     "type": "Button",
                     "id": "c1c9fd0e-d38c-4d5a-86e0-26188c1fbd8f",
                     "expectedControlType": "",
@@ -1199,7 +1199,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Slide",
+                    "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1210,7 +1210,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Crouch",
+                    "action": "Action2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1221,7 +1221,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "JumpOver",
+                    "action": "Action3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

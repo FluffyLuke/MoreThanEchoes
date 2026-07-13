@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider2D))]
 public class Obstacle : MonoBehaviour {
-    public GameObject keySprite;
     public Collider2D obstacleCollider;
     [Header("Parameters")]
     public float speed = 5;
@@ -16,14 +15,32 @@ public class Obstacle : MonoBehaviour {
     [Header("Move points")]
     public bool modifyY = false;
     public ObstaclePath entryLeft, entryRight;
+    [Header("Input")]
+    public ObstacleInput[] inputs;
+    public GameObject keySprite1;
+    public GameObject keySprite2;
+    public GameObject keySprite3;
+    private GameObject[] allKeys;
+    private int currentKey = 0;
+    void Awake() {
+        allKeys = new GameObject[] {
+            keySprite1, keySprite2, keySprite3
+        };
+    }
     void Start() {
-        keySprite.SetActive(false);
+        foreach (var k in allKeys) k.SetActive(false);
+        NewKey();
     }
     void OnTriggerEnter2D(Collider2D other) {
-        keySprite.SetActive(true);
+        foreach (var k in allKeys) k.SetActive(false);
+        allKeys[currentKey].SetActive(true);
     }
     void OnTriggerExit2D(Collider2D other) {
-        keySprite.SetActive(false);
+        foreach (var k in allKeys) k.SetActive(false);
+    }
+    public void NewKey() {
+        currentKey = UnityEngine.Random.Range(0, allKeys.Length);
+        foreach (var i in inputs) i.SetActionIndex(currentKey);
     }
     private bool onCooldown = false;
     public void MoveLeftToRight() {
@@ -32,7 +49,7 @@ public class Obstacle : MonoBehaviour {
         PlayerEventBus.stateObstacle.Invoke();
         Debug.Log($"Player is moving through obstacle {name} from left to right.");
 
-        keySprite.SetActive(false);
+        foreach (var k in allKeys) k.SetActive(false);
         obstacleCollider.enabled = false;
         onCooldown = true;
 
@@ -49,6 +66,7 @@ public class Obstacle : MonoBehaviour {
         m_o.MoveThrough(entryPosition, exitPosition, ease, speed, () => {
             obstacleCollider.enabled = true;
             PlayerEventBus.stateNormal.Invoke();
+            NewKey();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {
                 onCooldown = false;
             });
@@ -62,7 +80,7 @@ public class Obstacle : MonoBehaviour {
 
         Debug.Log($"Player is moving through obstacle {name} from right to left.");
 
-        keySprite.SetActive(false);
+        foreach (var k in allKeys) k.SetActive(false);
         obstacleCollider.enabled = false;
         onCooldown = true;
 
@@ -77,6 +95,7 @@ public class Obstacle : MonoBehaviour {
         }
 
         m_o.MoveThrough(entryPosition, exitPosition, ease, speed, () => {
+            NewKey();
             obstacleCollider.enabled = true;
             PlayerEventBus.stateNormal.Invoke();
             StaticUtils.DoSomethingAfter(cooldownSecs, this, () => {
