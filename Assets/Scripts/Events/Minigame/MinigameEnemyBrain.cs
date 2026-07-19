@@ -140,26 +140,29 @@ public class MinigameEnemyBrain: MonoBehaviour {
     public void OnPlayerLookLeft() {
         looking = PlayerLookingDirection.Left;
         if (attackedFlag == true) return;
+        if (enemyInstanceSide != EnemySide.Left) return;
         
         var currentEnemy = enemyInstance;
         enemyInstance = null;
-        if (enemyInstanceSide == EnemySide.Left) currentEnemy?.Hide();
+        currentEnemy?.Hide();
     }
     public void OnPlayerLookRight() {
         looking = PlayerLookingDirection.Right;
         if (attackedFlag == true) return;
+        if (enemyInstanceSide != EnemySide.Right) return;
 
         var currentEnemy = enemyInstance;
         enemyInstance = null;
-        if (enemyInstanceSide == EnemySide.Right) currentEnemy?.Hide();
+        currentEnemy?.Hide();
     }
     public void OnPlayerLookUp() {
         looking = PlayerLookingDirection.Up;
         if (attackedFlag == true) return;
+        if (enemyInstanceSide != EnemySide.Up) return;
 
         var currentEnemy = enemyInstance;
         enemyInstance = null;
-        if (enemyInstanceSide == EnemySide.Up) currentEnemy?.Hide();
+        currentEnemy?.Hide();
     }
 
     public void OnPlayerLookMain() {

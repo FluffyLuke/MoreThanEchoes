@@ -100,10 +100,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2947955085606496073}
+  - component: {fileID: 900351536659230430}
   - component: {fileID: 4472575833476626983}
   - component: {fileID: 8663379741768104536}
   - component: {fileID: 5658381961470134367}
-  - component: {fileID: 900351536659230430}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -127,6 +127,19 @@ Transform:
   - {fileID: 6208240033590081391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900351536659230430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781694296161889726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f31aa3171e9503e2b7cefcc3d9bda3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Monster
+  speed: 18
 --- !u!61 &4472575833476626983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,15 +225,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae7905912a0d06f59d7a5908b4af847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController2D
---- !u!114 &900351536659230430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6781694296161889726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f31aa3171e9503e2b7cefcc3d9bda3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Monster

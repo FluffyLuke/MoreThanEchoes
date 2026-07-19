@@ -615,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 3900422412519504524}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.002, y: 1.076, z: -5.03}
+  m_LocalPosition: {x: 23.767, y: 1.076, z: -5.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -835,7 +835,7 @@ Transform:
   m_GameObject: {fileID: 5030069580319396237}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.854, y: 1.076, z: -5.03}
+  m_LocalPosition: {x: 21.582, y: 1.076, z: -5.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   - {fileID: 4460740527553435462}
   - {fileID: 3124996307022026117}
   activePillar: {fileID: 0}
-  speed: 10
+  speed: 1
   timeBeforeEndScreen: 2
   progres: 0
 --- !u!114 &8201608537517214119
@@ -1032,8 +1032,8 @@ MonoBehaviour:
     side: 1
   - enemyPrefab: {fileID: 3955692022451821647}
     side: 2
-  minTimeToSpawn: 5
-  maxTimeToSpawn: 10
+  minTimeToSpawn: 10
+  maxTimeToSpawn: 15
   attackedFlag: 0
 --- !u!1 &8069858773627757438
 GameObject:
@@ -1601,12 +1601,80 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8201608537517214119}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerLookMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Minigame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2204650238352345733, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: m_Name
@@ -2590,6 +2658,10 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: volume
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: showSoundID
       value: monster_clicking
       objectReference: {fileID: 0}
@@ -2597,6 +2669,10 @@ PrefabInstance:
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LooseMinigameUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2729,15 +2805,19 @@ PrefabInstance:
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: initPos
       value: 
-      objectReference: {fileID: 2958477723783263334}
+      objectReference: {fileID: 7489463410472374908}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: showPos
       value: 
-      objectReference: {fileID: 25279246123317758}
+      objectReference: {fileID: 1928278625681489959}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LooseMinigameLeft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3639,12 +3719,80 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8201608537517214119}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerLookMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Minigame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2204650238352345733, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: m_Name
@@ -4103,12 +4251,80 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
     - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8201608537517214119}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerLookMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Minigame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameEnemyBrain, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: BlendFinishedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694554030958338005, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
+      propertyPath: CameraActivatedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2031270667558886595, guid: 6b7ddef715623ecb785fbbeeb4e205bc, type: 3}
       propertyPath: m_IsActive

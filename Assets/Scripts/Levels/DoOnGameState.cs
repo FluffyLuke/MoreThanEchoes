@@ -7,10 +7,21 @@ using UnityEngine.Events;
 public class DoOnGameState : MonoBehaviour {
     public GameMoment doOnWhatMoment = GameMoment.GoingForth;
     public UnityEvent doOnAwake = new();
+public UnityEvent doOnStart = new();
+    public UnityEvent doOnStateUpdate = new();
     void Awake() {
-        if (doOnWhatMoment != GameState.currentMoment) return;
-        
-        Debug.Log($"Current game state: {GameState.currentMoment}");
-        doOnAwake.Invoke();
+        GameState.onUpdate.AddListener(updateState);
+
+        if (doOnWhatMoment == GameState.currentMoment) doOnAwake.Invoke();;
+    }
+
+    void Start() {
+        if (doOnWhatMoment == GameState.currentMoment) doOnStart.Invoke();;
+    }
+
+    private void updateState(GameMoment moment) {
+        if (moment == doOnWhatMoment) {
+            doOnStateUpdate.Invoke();
+        }
     }
 }

@@ -3,10 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(CharacterController2D))]
 public class Monster : MonoBehaviour {
-    private float speed = 18;
+    public float speed = 18;
+    public string clickingSoundID = "monster_clicking";
+    private SoundHandle handle;
     private CharacterController2D controller;
     void Start() {
         controller = GetComponent<CharacterController2D>();
+        SoundManager.instance.PlayAndLoop(clickingSoundID, gameObject, out handle, 1);
     }
 
     void Update() {

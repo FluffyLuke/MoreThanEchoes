@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour {
     public static SoundManager instance;
 
     void Awake() {
+        transform.position = new (0,0,0);
         if (instance != null) {
             Destroy(gameObject);
             return;
@@ -43,7 +44,7 @@ public class SoundManager : MonoBehaviour {
         settings.SettingsUpdated.AddListener(UpdateValues);
     }
 
-    public bool PlayAndLoop(string id, Vector3 position, out SoundHandle handle) {
+    public bool PlayAndLoop(string id, GameObject parent, out SoundHandle handle, float spartialBlend) {
         handle = default;
         if (!lookup.TryGetValue(id, out SoundAsset sound))
         {
@@ -52,14 +53,17 @@ public class SoundManager : MonoBehaviour {
         }
 
         GameObject gameObject = new GameObject("SoundSource");
-        gameObject.transform.position = position;
+        // gameObject.transform.position = position;
         gameObject.transform.SetParent(this.transform);
 
         AudioSource source = gameObject.AddComponent<AudioSource>();
+        source.transform.parent = parent.transform;
+
         AudioClip clip = sound.GetRandomClip();
         source.resource = clip;
         source.pitch = Random.Range(sound.pitchRange.x, sound.pitchRange.y);
         source.volume = sound.volume;
+        source.spatialBlend = spartialBlend;
         source.loop = true;
         
         switch (sound.busID) {
@@ -83,7 +87,16 @@ public class SoundManager : MonoBehaviour {
         return true;
     }
 
-    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle) {
+    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle, float spartialBlend = 0, float volume = 1) {
+        if (spartialBlend > 1) {
+            spartialBlend = 1;
+        }
+
+        if (spartialBlend < 0) {
+            spartialBlend = 0;
+        }
+
+
         if (!lookup.TryGetValue(id, out SoundAsset sound)) {
             Debug.LogError($"Cannot found asset of id: \"{id}\"");
             handle = new SoundHandle(default);
@@ -98,7 +111,8 @@ public class SoundManager : MonoBehaviour {
         AudioClip clip = sound.GetRandomClip();
         source.resource = clip;
         source.pitch = Random.Range(sound.pitchRange.x, sound.pitchRange.y);
-        source.volume = sound.volume;
+        source.volume = sound.volume * volume;
+        source.spatialBlend = spartialBlend;
         source.loop = false;
 
         switch (sound.busID) {
@@ -123,24 +137,8 @@ public class SoundManager : MonoBehaviour {
         return true;
     }
 
-    public bool PlayOneShot(string id, Vector3 position, out SoundHandle handle) {
-        var newParent = new GameObject();
-        newParent.transform.position = position;
-        return PlayOneShot(id, newParent, out handle);
-    }
-
-    public bool PlayOneShot(string id, Vector3 position) {
-        var newParent = new GameObject();
-        newParent.transform.position = position;
-        bool ifSuccess = PlayOneShot(id, newParent, out SoundHandle handle);
-        if (ifSuccess) {
-            Destroy(handle.source.gameObject, handle.source.clip.length);
-        }
-        return ifSuccess;
-    }
-
-    public bool PlayOneShot(string id, GameObject parent) {
-        bool ifSuccess = PlayOneShot(id, parent, out SoundHandle handle);
+    public bool PlayOneShot(string id, GameObject parent, float spartialBlend = 0) {
+        bool ifSuccess = PlayOneShot(id, parent, out SoundHandle handle, spartialBlend);
         if (ifSuccess) {
             Destroy(handle.source.gameObject, handle.source.clip.length);
         }

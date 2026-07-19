@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3e7fe0b7ffd66689ea41800887307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameEnemy
+  volume: 3
   showSoundID: walking_wet
   hideSoundID: running_wet
   attackSoundID: monster_attack

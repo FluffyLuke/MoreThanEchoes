@@ -11,6 +11,9 @@ public class PlaySound : MonoBehaviour {
     private IEnumerator playAmbient(Vector3 pos) {
         yield return new WaitForSeconds(delay);
         // Debug.Log($"Playing sound \"{id}\"");
-        SoundManager.instance.PlayOneShot(id, pos);
+        var newParent = new GameObject("PlaySound");
+        newParent.transform.parent = transform;
+        newParent.transform.position = pos;
+        SoundManager.instance.PlayOneShot(id, newParent);
     }
 }

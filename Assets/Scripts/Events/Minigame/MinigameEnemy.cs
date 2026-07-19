@@ -3,6 +3,7 @@ using DG.Tweening;
 using UnityEngine.Events;
 public class MinigameEnemy : MonoBehaviour {
     [Header("Sounds")]
+    public float volume = 1;
     public string showSoundID;
     public string hideSoundID;
     public string attackSoundID;
@@ -23,7 +24,7 @@ public class MinigameEnemy : MonoBehaviour {
         transform.position = initPos.position;
         transform.DOMove(showPos.position, showSpeed);
 
-        SoundManager.instance.PlayOneShot(showSoundID, gameObject);
+        SoundManager.instance.PlayOneShot(showSoundID, gameObject, 1);
 
         DoSomethingAfter.After(this, timeToKill, () => {
            Attack(); 
@@ -33,7 +34,7 @@ public class MinigameEnemy : MonoBehaviour {
     public void Hide() {
         Debug.Log("Hiding enemy...");
 
-        SoundManager.instance.PlayOneShot(hideSoundID, gameObject);
+        SoundManager.instance.PlayOneShot(hideSoundID, gameObject, 1);
 
         StopAllCoroutines();
         onHide.Invoke();
@@ -43,7 +44,7 @@ public class MinigameEnemy : MonoBehaviour {
     }
     public void Attack() {
         transform.position = killPos.position;
-        SoundManager.instance.PlayOneShot(attackSoundID, gameObject);
+        SoundManager.instance.PlayOneShot(attackSoundID, gameObject, 1);
         onAttack.Invoke();
     }
 }

@@ -16,7 +16,10 @@ EditorBuildSettings:
     guid: ec8c7eda86283213abe0fbab589cffef
   - enabled: 1
     path: Assets/Scenes/Tunnel_2.unity
-    guid: e67b0f3b0dcbb2b5394bf329ea0c4492
+    guid: 8e3e6dffde5493b9caaa5a44d5e5d7f2
+  - enabled: 1
+    path: Assets/Scenes/Station_2.unity
+    guid: b1e98b136c13ffd5a83c34889d6c4f76
   - enabled: 1
     path: Assets/Scenes/Station_3.unity
     guid: e9648176d4354c364b2a3bec7dfdae13
