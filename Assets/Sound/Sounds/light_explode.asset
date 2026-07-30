@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87b6c9bb14b383e3b8d8db3e40ff621, type: 3}
+  m_Name: light_explode
+  m_EditorClassIdentifier: Assembly-CSharp::SoundAsset
+  id: light_explode
+  busID: 1
+  clips:
+  - {fileID: 8300000, guid: 5410b378bc7c8b8098884ed352d8feb7, type: 3}
+  pitchRange: {x: 1, y: 1}
+  volume: 1

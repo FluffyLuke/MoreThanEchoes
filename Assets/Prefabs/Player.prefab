@@ -156,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 661108898358392402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -901,6 +901,12 @@ MonoBehaviour:
   animator: {fileID: 1633275221528621421}
   body: {fileID: 8803800059945306359}
   torch: {fileID: 658688913966174763}
+  minimumTorchDistance: 2.4
+  cameraHolder: {fileID: 661108898358392402}
+  axisSpeed: {x: 2, y: 1.5}
+  moveBy: {x: 0, y: 1}
+  maxDistance: 5
+  smoothTime: 0.2
 --- !u!1 &8424972067256158012
 GameObject:
   m_ObjectHideFlags: 0

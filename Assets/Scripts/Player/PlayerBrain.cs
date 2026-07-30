@@ -49,6 +49,10 @@ public class PlayerBrain : MonoBehaviour
         NormalMode();
     }
 
+    void Start() {
+        PlayerEventBus.playerSpawned.Invoke();
+    }
+
     private void turnOff() {
         // Disable all interactive components
         // They still can be used, but input variables should be disabled

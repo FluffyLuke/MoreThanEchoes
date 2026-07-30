@@ -51,6 +51,18 @@ public class AmbientManager : MonoBehaviour {
         return true;
     }
 
+    public void StopAmbient() {
+        Debug.Log($"Stopping ambient");
+        if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
+        if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
+
+        source1.clip = null;
+        source1.volume = 0;
+
+        source2.clip = null;
+        source2.volume = 0;
+    }
+
     public IEnumerator fadeIn(SoundAsset sound, float fadeDuration, AudioSource source) {
         // New Ambient
         AudioClip clip = sound.GetRandomClip();

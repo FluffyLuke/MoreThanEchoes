@@ -19,6 +19,9 @@ public static class PlayerEventBus {
         return GameObject.FindWithTag(Tags.PlayerTag).GetComponent<T>();
     }
 
+    // === Player global events ===
+    public static UnityEvent playerSpawned = new();
+
     // === Player states ===
     public static UnityEvent stateCinematic = new();
     public static UnityEvent stateNormal = new();

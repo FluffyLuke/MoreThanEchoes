@@ -62,7 +62,7 @@ public class Minigame : MonoBehaviour {
         Camera.main.GetUniversalAdditionalCameraData().SetRenderer(Renderers._3D);
         activePillar.ChangeCurrentCamera(activePillar.cameraMain);
     
-        GetComponent<MinigameEnemyBrain>()?.StartMiniGame();
+        GetComponent<MinigameEnemyBrain>().StartMiniGame();
     }
 
     public void DisableMinigame() {
@@ -73,7 +73,7 @@ public class Minigame : MonoBehaviour {
         Camera.main.GetUniversalAdditionalCameraData().SetRenderer(Renderers._2D);
         inspectCanvas.gameObject.SetActive(false);
     
-        GetComponent<MinigameEnemyBrain>()?.EndMinigame();
+        GetComponent<MinigameEnemyBrain>().EndMinigame();
     }
 
     #endregion
