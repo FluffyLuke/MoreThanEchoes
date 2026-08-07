@@ -19,6 +19,9 @@ public class ShadowFigureBehind : MonoBehaviour {
         input = new GameInput();
         input.Player.Enable();
     }
+    void OnDisable() {
+        input.Player.Disable();
+    }
 
     void OnDestroy() {
         input.Player.Disable();

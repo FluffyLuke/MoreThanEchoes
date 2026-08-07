@@ -15,6 +15,6 @@ MonoBehaviour:
   id: light_explode
   busID: 1
   clips:
-  - {fileID: 8300000, guid: 5410b378bc7c8b8098884ed352d8feb7, type: 3}
+  - {fileID: 8300000, guid: a3fb3c03609039b00a884e122d795224, type: 3}
   pitchRange: {x: 1, y: 1}
   volume: 1

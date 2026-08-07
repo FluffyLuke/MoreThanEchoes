@@ -19,6 +19,9 @@ public class ShadowFigure : MonoBehaviour {
         input = new GameInput();
         input.Player.Enable();
     }
+    void OnDisable() {
+        input.Player.Disable();
+    }
 
     void Update() {
         if (fading) {

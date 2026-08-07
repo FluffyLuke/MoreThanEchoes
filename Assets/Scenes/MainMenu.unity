@@ -414,7 +414,7 @@ MonoBehaviour:
   black: {fileID: 570341153}
   background: {fileID: 1872308073}
   fadeStartSecs: 3
-  exitTransitionWait: 2
+  exitTransitionWait: 4
   lightDisappearWait: 0.05
 --- !u!114 &570421738
 MonoBehaviour:

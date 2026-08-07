@@ -13,6 +13,7 @@ public class AmbientManager : MonoBehaviour {
     private Coroutine fadeInCoroutine = null;
     private Coroutine fadeOutCoroutine = null;
     [HideInInspector] public static AmbientManager instance;
+    public static string lastAmbientID = null;
     void Awake() {
         if (instance != null) {
             Destroy(gameObject);
@@ -47,6 +48,8 @@ public class AmbientManager : MonoBehaviour {
         fadeOutCoroutine = StartCoroutine(fadeOut(sound, fadeDuration, currentSource));
 
         usedSource = !usedSource;
+
+        lastAmbientID = id;
 
         return true;
     }

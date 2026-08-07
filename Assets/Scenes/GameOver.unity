@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 570421736}
   - component: {fileID: 570421737}
   - component: {fileID: 570421738}
+  - component: {fileID: 570421739}
   m_Layer: 0
   m_Name: Singletons
   m_TagString: Untagged
@@ -413,7 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b48e13325ada80fe81aa9be308c673b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntroManager
-  black: {fileID: 431786919}
   panels:
   - panel: {fileID: 1347534258}
     exposition: {fileID: 7268561922346576415}
@@ -422,7 +422,31 @@ MonoBehaviour:
   fade: 2
   ended:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570421739}
+        m_TargetAssemblyTypeName: SaveState, Assembly-CSharp
+        m_MethodName: LoadSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &570421739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570421733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f32d0865b9e98585acbd4dff75e177b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveState
 --- !u!1 &1197431464
 GameObject:
   m_ObjectHideFlags: 0

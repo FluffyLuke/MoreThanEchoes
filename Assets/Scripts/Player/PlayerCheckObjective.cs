@@ -13,7 +13,6 @@ public class PlayerCheckObjective : MonoBehaviour {
     void OnDisable() {
         input.Player.Disable();
     }
-
     private void checkObjectives(InputAction.CallbackContext ctx) {
         ObjectiveUI.instance.Show();
     }

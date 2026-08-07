@@ -1977,7 +1977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462018576408006132, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
       propertyPath: sceneName
-      value: Station_3
+      value: Station_2
       objectReference: {fileID: 0}
     - target: {fileID: 3848550363076954427, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
       propertyPath: isRunning
