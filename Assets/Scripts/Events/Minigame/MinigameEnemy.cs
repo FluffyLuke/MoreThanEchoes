@@ -7,6 +7,8 @@ public class MinigameEnemy : MonoBehaviour {
     public string showSoundID;
     public string hideSoundID;
     public string attackSoundID;
+    public string attackSound2ID;
+    public AudioSource source;
     [Header("Speed")]
     public float showSpeed = 2;
     public float hideSpeed = 1;
@@ -24,7 +26,7 @@ public class MinigameEnemy : MonoBehaviour {
         transform.position = initPos.position;
         transform.DOMove(showPos.position, showSpeed);
 
-        SoundManager.instance.PlayOneShot(showSoundID, gameObject, 1);
+        SoundManager.instance.PlayOneShot(showSoundID, gameObject, out SoundHandle handle, source);
 
         DoSomethingAfter.After(this, timeToKill, () => {
            Attack(); 
@@ -34,7 +36,7 @@ public class MinigameEnemy : MonoBehaviour {
     public void Hide() {
         Debug.Log("Hiding enemy...");
 
-        SoundManager.instance.PlayOneShot(hideSoundID, gameObject, 1);
+        SoundManager.instance.PlayOneShot(hideSoundID, gameObject, out SoundHandle handle, source);
 
         StopAllCoroutines();
         onHide.Invoke();
@@ -44,7 +46,8 @@ public class MinigameEnemy : MonoBehaviour {
     }
     public void Attack() {
         transform.position = killPos.position;
-        SoundManager.instance.PlayOneShot(attackSoundID, gameObject, 1);
+        SoundManager.instance.PlayOneShot(attackSoundID, gameObject, out SoundHandle handle, source);
+        SoundManager.instance.PlayOneShot(attackSound2ID, gameObject, out handle, source);
         onAttack.Invoke();
     }
 }

@@ -43,12 +43,15 @@ public class PlayerInspect : MonoBehaviour {
         if (mg == null) return;
         if (mg.progres >= 1 && exitFlag == false) {
             exitFlag = true;
-            UIEventBus.transitionIn.Invoke(transitionTime, transitionEase, () => {
-                PlayerEventBus.stateNormal.Invoke();
-                UIEventBus.transitionOut.Invoke(transitionTime, transitionEase, null);
-            });
-            return;
+            StopInspecting();
         }
+    }
+    public void StopInspecting() {
+        exitFlag = true;
+        UIEventBus.transitionIn.Invoke(transitionTime, transitionEase, () => {
+            PlayerEventBus.stateNormal.Invoke();
+            UIEventBus.transitionOut.Invoke(transitionTime, transitionEase, null);
+        });
     }
     public void ExitState() {
         if (mg == null) return;

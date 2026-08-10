@@ -22219,6 +22219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1169048174692394490, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: timeToKill
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6217079736514981900, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1083.47
@@ -22259,21 +22263,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6406034371040567740, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: timeToKill
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595081590548622593, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: timeToKill
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8009073732932368427, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: m_Name
       value: PillarMinigame
       objectReference: {fileID: 0}
     - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: maxTimeToSpawn
-      value: 12
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: minTimeToSpawn
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: speed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: progresBar
@@ -25299,8 +25311,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 70cafa6bfe7cac1ecb015ab0ae233c4f, type: 3}
-  m_Color: {r: 0.8442687, g: 0.93929994, b: 0.47226986, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 280bd93b7855a6817b562bf8f698fdfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -25318,9 +25330,9 @@ Transform:
   m_GameObject: {fileID: 7668232724086327191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: -0.19, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.6300049, y: -0.8800001, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4410718738116912700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

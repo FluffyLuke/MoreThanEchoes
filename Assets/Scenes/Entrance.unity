@@ -15086,7 +15086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InstantiateObject
   parent: {fileID: 0}
-  whatToSpawnPrefab: {fileID: 8148687200473207946, guid: d48e546043eafaf369557f671125d9ef, type: 3}
+  whatToSpawnPrefab: {fileID: 8148687200473207946, guid: 8c59453480cbb04b888cc97e2bbda39e, type: 3}
 --- !u!1 &1767480730
 GameObject:
   m_ObjectHideFlags: 0

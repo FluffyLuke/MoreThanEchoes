@@ -5,10 +5,14 @@ public class PlaySound : MonoBehaviour {
     [SerializeField] private string id;
     [SerializeField] private float delay = 0f;
     public void Play(Vector3 pos = default) {
-        StartCoroutine(playAmbient(pos));
+        StartCoroutine(playSound(pos));
     }
 
-    private IEnumerator playAmbient(Vector3 pos) {
+    public void Play() {
+        Play(default);
+    }
+
+    private IEnumerator playSound(Vector3 pos) {
         yield return new WaitForSeconds(delay);
         // Debug.Log($"Playing sound \"{id}\"");
         var newParent = new GameObject("PlaySound");

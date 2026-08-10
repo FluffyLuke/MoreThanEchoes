@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class ShadowFigure : MonoBehaviour {
     [Header("Parameters")]
@@ -12,6 +13,8 @@ public class ShadowFigure : MonoBehaviour {
     public Transform initialPosition;
     public Transform endPosition;
     public Transform endPositionSprint;
+    [Header("Events")]
+    public UnityEvent onJumpscare = new();
     private bool fading = false;
     private GameInput input;
 
@@ -35,14 +38,17 @@ public class ShadowFigure : MonoBehaviour {
         if (Vector3.Distance(playerPosition2D, initialPosition2D) <= distance) {
             fading = true;
             bool isSprinting = input.Player.Sprint.IsInProgress();
-            Debug.Log($"IS SPRINTING: {isSprinting}");
             Transform end = isSprinting ? endPositionSprint : endPosition;
+
+            onJumpscare.Invoke();
 
             transform
                 .DOMove(end.position, fadeDuration)
                 .SetEase(ease)
                 .OnComplete(() => {
-                    Destroy(gameObject);
+                    // Sound being played is tied to the shadow figure.
+                    // If shadow figure gets destroyed too quickly, then the sound will be cut.
+                    StaticUtils.DoSomethingAfter(10, this, () => {Destroy(gameObject);});
                 });
             calculateFade();
         }

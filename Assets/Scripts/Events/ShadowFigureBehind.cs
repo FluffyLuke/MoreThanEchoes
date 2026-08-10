@@ -14,6 +14,7 @@ public class ShadowFigureBehind : MonoBehaviour {
     private bool fading = false;
     private GameInput input;
     [HideInInspector] public UnityEvent destroyed = new();
+    public UnityEvent onJumpscare = new();
 
     void Awake() {
         input = new GameInput();
@@ -41,12 +42,14 @@ public class ShadowFigureBehind : MonoBehaviour {
         fading = true;
         bool isSprinting = input.Player.Sprint.IsInProgress();
 
+        onJumpscare.Invoke();
+
         transform
             .DOMove(endPosition.position, fadeDuration)
             .SetEase(ease)
             .OnComplete(() => {
                 destroyed.Invoke();
-                Destroy(gameObject);
+                Destroy(gameObject, 5);
             });
         calculateFade();
     }

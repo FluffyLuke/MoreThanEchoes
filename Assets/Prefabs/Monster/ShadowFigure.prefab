@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5299433150438956022}
   - component: {fileID: 4981988009876605896}
+  - component: {fileID: 7803099472792896525}
   m_Layer: 0
   m_Name: ShadowFigure
   m_TagString: Untagged
@@ -117,6 +118,35 @@ MonoBehaviour:
   initialPosition: {fileID: 5866019008875339909}
   endPosition: {fileID: 1245988745223647686}
   endPositionSprint: {fileID: 4850567934181670573}
+  onJumpscare:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7803099472792896525}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7803099472792896525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975097568485242564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764d6e721ab34ebc2b757ec759a9540b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySound
+  id: jumpscare
+  delay: 0
 --- !u!1 &7407346441577991836
 GameObject:
   m_ObjectHideFlags: 0

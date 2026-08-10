@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +25,11 @@ public class SoundHandle {
     //         coroutine = MonoBehaviour.StartCoroutine(DestroyDelay(), o);
     //     }
     // }
+
+    public IEnumerator OnClipEnded(Action action) {
+        yield return new WaitUntil(() => source.time >= source.clip.length);
+        action.Invoke();
+    }
     public void StopAndDestroy() {
         if (Destroyed) return;
         Destroyed = true;

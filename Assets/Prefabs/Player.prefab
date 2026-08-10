@@ -768,7 +768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8148687200473207946}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3193d0a0f3f32bbb7e868a1d990912, type: 3}
   m_Name: 
@@ -907,6 +907,9 @@ MonoBehaviour:
   moveBy: {x: 0, y: 1}
   maxDistance: 5
   smoothTime: 0.2
+  newLookingDirection:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8424972067256158012
 GameObject:
   m_ObjectHideFlags: 0

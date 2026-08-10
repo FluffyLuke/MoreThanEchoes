@@ -1103,9 +1103,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MoveBack",
+                    "name": "ChangeGameMoment",
                     "type": "Button",
                     "id": "d7599c0e-ef8b-4ba0-a6fe-a2557694aeec",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skip3D",
+                    "type": "Button",
+                    "id": "14bd3c56-8a65-467c-9344-a800c4835315",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1153,7 +1162,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveBack",
+                    "action": "ChangeGameMoment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77542f24-0407-4f4f-bc70-039695224d1f",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip3D",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

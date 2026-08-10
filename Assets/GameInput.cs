@@ -1189,9 +1189,18 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MoveBack"",
+                    ""name"": ""ChangeGameMoment"",
                     ""type"": ""Button"",
                     ""id"": ""d7599c0e-ef8b-4ba0-a6fe-a2557694aeec"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip3D"",
+                    ""type"": ""Button"",
+                    ""id"": ""14bd3c56-8a65-467c-9344-a800c4835315"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1239,7 +1248,18 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveBack"",
+                    ""action"": ""ChangeGameMoment"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77542f24-0407-4f4f-bc70-039695224d1f"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip3D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1562,7 +1582,8 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Debug_MoreSpeed = m_Debug.FindAction("MoreSpeed", throwIfNotFound: true);
         m_Debug_LessSpeed = m_Debug.FindAction("LessSpeed", throwIfNotFound: true);
         m_Debug_KYS = m_Debug.FindAction("KYS", throwIfNotFound: true);
-        m_Debug_MoveBack = m_Debug.FindAction("MoveBack", throwIfNotFound: true);
+        m_Debug_ChangeGameMoment = m_Debug.FindAction("ChangeGameMoment", throwIfNotFound: true);
+        m_Debug_Skip3D = m_Debug.FindAction("Skip3D", throwIfNotFound: true);
         // Obstacle
         m_Obstacle = asset.FindActionMap("Obstacle", throwIfNotFound: true);
         m_Obstacle_Action1 = m_Obstacle.FindAction("Action1", throwIfNotFound: true);
@@ -2160,7 +2181,8 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Debug_MoreSpeed;
     private readonly InputAction m_Debug_LessSpeed;
     private readonly InputAction m_Debug_KYS;
-    private readonly InputAction m_Debug_MoveBack;
+    private readonly InputAction m_Debug_ChangeGameMoment;
+    private readonly InputAction m_Debug_Skip3D;
     /// <summary>
     /// Provides access to input actions defined in input action map "Debug".
     /// </summary>
@@ -2185,9 +2207,13 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @KYS => m_Wrapper.m_Debug_KYS;
         /// <summary>
-        /// Provides access to the underlying input action "Debug/MoveBack".
+        /// Provides access to the underlying input action "Debug/ChangeGameMoment".
         /// </summary>
-        public InputAction @MoveBack => m_Wrapper.m_Debug_MoveBack;
+        public InputAction @ChangeGameMoment => m_Wrapper.m_Debug_ChangeGameMoment;
+        /// <summary>
+        /// Provides access to the underlying input action "Debug/Skip3D".
+        /// </summary>
+        public InputAction @Skip3D => m_Wrapper.m_Debug_Skip3D;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2223,9 +2249,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @KYS.started += instance.OnKYS;
             @KYS.performed += instance.OnKYS;
             @KYS.canceled += instance.OnKYS;
-            @MoveBack.started += instance.OnMoveBack;
-            @MoveBack.performed += instance.OnMoveBack;
-            @MoveBack.canceled += instance.OnMoveBack;
+            @ChangeGameMoment.started += instance.OnChangeGameMoment;
+            @ChangeGameMoment.performed += instance.OnChangeGameMoment;
+            @ChangeGameMoment.canceled += instance.OnChangeGameMoment;
+            @Skip3D.started += instance.OnSkip3D;
+            @Skip3D.performed += instance.OnSkip3D;
+            @Skip3D.canceled += instance.OnSkip3D;
         }
 
         /// <summary>
@@ -2246,9 +2275,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @KYS.started -= instance.OnKYS;
             @KYS.performed -= instance.OnKYS;
             @KYS.canceled -= instance.OnKYS;
-            @MoveBack.started -= instance.OnMoveBack;
-            @MoveBack.performed -= instance.OnMoveBack;
-            @MoveBack.canceled -= instance.OnMoveBack;
+            @ChangeGameMoment.started -= instance.OnChangeGameMoment;
+            @ChangeGameMoment.performed -= instance.OnChangeGameMoment;
+            @ChangeGameMoment.canceled -= instance.OnChangeGameMoment;
+            @Skip3D.started -= instance.OnSkip3D;
+            @Skip3D.performed -= instance.OnSkip3D;
+            @Skip3D.canceled -= instance.OnSkip3D;
         }
 
         /// <summary>
@@ -2812,12 +2844,19 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnKYS(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "MoveBack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ChangeGameMoment" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMoveBack(InputAction.CallbackContext context);
+        void OnChangeGameMoment(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skip3D" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkip3D(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Obstacle" which allows adding and removing callbacks.

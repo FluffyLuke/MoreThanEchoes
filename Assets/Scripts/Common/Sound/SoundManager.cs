@@ -87,6 +87,36 @@ public class SoundManager : MonoBehaviour {
         return true;
     }
 
+    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle, AudioSource source) {
+        if (!lookup.TryGetValue(id, out SoundAsset sound)) {
+            Debug.LogError($"Cannot found asset of id: \"{id}\"");
+            handle = new SoundHandle(default);
+            return false;
+        }
+
+        AudioClip clip = sound.GetRandomClip();
+        source.volume = sound.volume;
+
+        switch (sound.busID) {
+            case AudioBusID.NotDefined:
+                source.outputAudioMixerGroup = bus_main;
+                break;
+            case AudioBusID.Ambient:
+                source.outputAudioMixerGroup = bus_ambient;
+                break;
+            case AudioBusID.SFX:
+                source.outputAudioMixerGroup = bus_sfx;
+                break;
+            default:
+                Debug.LogError("wtf?");
+                break;
+        }
+
+        source.PlayOneShot(clip);
+        handle = new SoundHandle(source);
+
+        return true;
+    }
     public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle, float spartialBlend = 0, float volume = 1) {
         if (spartialBlend > 1) {
             spartialBlend = 1;
@@ -140,7 +170,7 @@ public class SoundManager : MonoBehaviour {
     public bool PlayOneShot(string id, GameObject parent, float spartialBlend = 0) {
         bool ifSuccess = PlayOneShot(id, parent, out SoundHandle handle, spartialBlend);
         if (ifSuccess) {
-            Destroy(handle.source.gameObject, handle.source.clip.length);
+            Destroy(handle.source.gameObject, handle.source.clip.length + 10);
         }
         return ifSuccess;
     }
