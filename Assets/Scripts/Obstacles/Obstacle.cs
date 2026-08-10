@@ -32,11 +32,18 @@ public class Obstacle : MonoBehaviour {
         NewKey();
     }
     void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag != Tags.PlayerTag) return;
+
         foreach (var k in allKeys) k.SetActive(false);
+        foreach (var i in inputs) i.TurnOn();
         allKeys[currentKey].SetActive(true);
+        
     }
     void OnTriggerExit2D(Collider2D other) {
+        if (other.tag != Tags.PlayerTag) return;
+
         foreach (var k in allKeys) k.SetActive(false);
+        foreach (var i in inputs) i.TurnOff();
     }
     public void NewKey() {
         currentKey = UnityEngine.Random.Range(0, allKeys.Length);
@@ -104,9 +111,13 @@ public class Obstacle : MonoBehaviour {
         });
     }
     public void StunLeft() {
+        if (onCooldown) return;
+
         PlayerEventBus.stunAndMove.Invoke(stunDurationSecs, MoveDirection.Left, stunSpeed);
     }
     public void StunRight() {
+        if (onCooldown) return;
+        
         PlayerEventBus.stunAndMove.Invoke(stunDurationSecs, MoveDirection.Right, stunSpeed);
     }
 }

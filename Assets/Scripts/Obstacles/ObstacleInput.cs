@@ -16,28 +16,41 @@ public class ObstacleInput : MonoBehaviour {
     public void SetActionIndex(int index) {
         // Remove all current triggers
         foreach (var a in allActions) {
+            // a.action.Disable();
             a.action.performed -= onBadTrigger;
             a.action.performed -= onTrigger;
-            a.action.Enable();
         }
 
         // Assign good action
         currentGoodAction = allActions[index];
         currentGoodAction.action.performed += onTrigger;
-        currentGoodAction.action.Enable();
+        // currentGoodAction.action.Enable();
 
         // Assign bad actions
         foreach (var a in allActions) {
             if (a == currentGoodAction) continue;
 
             a.action.performed += onBadTrigger;
+            // a.action.Enable();
+        }
+    }
+    public void TurnOn() {
+        foreach(var a in allActions) {
             a.action.Enable();
         }
     }
+
+    public void TurnOff() {
+        foreach(var a in allActions) {
+            a.action.Disable();
+        }
+    }
     private void onTrigger(InputAction.CallbackContext ctx) {
+        Debug.Log($"Player pressed right button! {name} {transform?.parent.name}");
         if (gateEnabled) onInput.Invoke();
     }
     private void onBadTrigger(InputAction.CallbackContext ctx) {
+        Debug.Log($"Player pressed wrong button! {name} {transform?.parent.name}");
         if (gateEnabled) onBadInput.Invoke();
     }
     void OnDisable() {
