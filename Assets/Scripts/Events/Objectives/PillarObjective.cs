@@ -6,6 +6,7 @@ public class PillarObjective : MonoBehaviour {
     public string objectiveID;
     public string objectiveContent;
     public UnityEvent objectiveCompleted = new();
+    public UnityEvent lastObjectiveLeft = new();
     void Start() {
         var pillars = GameObject.FindGameObjectsWithTag(Tags.PillarTag);
         pillarCount = pillars.Length;
@@ -28,6 +29,11 @@ public class PillarObjective : MonoBehaviour {
         if (pillarCount == 0) {
             ObjectiveUI.instance.MarkCompletion(objectiveID, true);
             objectiveCompleted.Invoke();
+        }
+
+        // This is used for station 3.
+        if (pillarCount == 1) {
+            lastObjectiveLeft.Invoke();
         }
     }
 }

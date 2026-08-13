@@ -666,7 +666,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6387527252387728316, guid: e07174133afd28087b6d70b0496349b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2113976784}
   m_SourcePrefab: {fileID: 100100000, guid: e07174133afd28087b6d70b0496349b6, type: 3}
 --- !u!1 &418878748
 GameObject:
@@ -2463,6 +2466,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3066873139327593122, guid: 84a5061de81c71b18a5d50722e69bbf0, type: 3}
   m_PrefabInstance: {fileID: 2072755852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2113976783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6387527252387728316, guid: e07174133afd28087b6d70b0496349b6, type: 3}
+  m_PrefabInstance: {fileID: 379461367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2113976784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113976783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113976785}
+        m_TargetAssemblyTypeName: SpawnFigure, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2113976785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2964044411851171651, guid: e07174133afd28087b6d70b0496349b6, type: 3}
+  m_PrefabInstance: {fileID: 379461367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113976783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48cc653a550f1523941dcba14b4fb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnFigure
 --- !u!4 &2121443129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6833303289870360300, guid: 0aef94b0a0d99333bb69fa62e8e52f3d, type: 3}

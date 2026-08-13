@@ -140,6 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Monster
   speed: 18
+  catchUpSpeed: 30
+  catchUpDistanceFull: 8
+  catchUpDistanceMin: 3
+  clickingSoundID: monster_clicking
 --- !u!61 &4472575833476626983
 BoxCollider2D:
   m_ObjectHideFlags: 0

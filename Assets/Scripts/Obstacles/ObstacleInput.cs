@@ -46,11 +46,9 @@ public class ObstacleInput : MonoBehaviour {
         }
     }
     private void onTrigger(InputAction.CallbackContext ctx) {
-        Debug.Log($"Player pressed right button! {name} {transform?.parent.name}");
         if (gateEnabled) onInput.Invoke();
     }
     private void onBadTrigger(InputAction.CallbackContext ctx) {
-        Debug.Log($"Player pressed wrong button! {name} {transform?.parent.name}");
         if (gateEnabled) onBadInput.Invoke();
     }
     void OnDisable() {

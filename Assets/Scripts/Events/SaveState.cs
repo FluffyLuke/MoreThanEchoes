@@ -14,7 +14,7 @@ public class SaveState : MonoBehaviour {
 
         string ambientID = SaveManager.GetSavedAmbient();
 
-        if (ambientID != null || ambientID != "") AmbientManager.instance.PlayAmbient(ambientID, ambientTransitionSecs);
+        if (ambientID != null && ambientID != "") AmbientManager.instance.PlayAmbient(ambientID, ambientTransitionSecs);
 
         SaveManager.loadedSave = false;
     }

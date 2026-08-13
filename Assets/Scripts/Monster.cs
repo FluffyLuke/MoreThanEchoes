@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController2D))]
 public class Monster : MonoBehaviour {
     public float speed = 18;
+    public float catchUpSpeed = 25;
+    public float catchUpDistanceFull = 5;
+    public float catchUpDistanceMin = 2;
     public string clickingSoundID = "monster_clicking";
     private SoundHandle handle;
     private CharacterController2D controller;
@@ -13,7 +16,12 @@ public class Monster : MonoBehaviour {
     }
 
     void Update() {
-        controller.SetMotion(new Vector2(-speed, 0) * Time.deltaTime);
+        GameObject player = PlayerEventBus.GetPlayer();
+        if (player == null) return;
+
+        float t = Mathf.InverseLerp(catchUpDistanceMin, catchUpDistanceFull, player.transform.position.x);
+        float s = Mathf.Lerp(speed, catchUpSpeed, t);
+        controller.SetMotion(new Vector2(-s, 0) * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
