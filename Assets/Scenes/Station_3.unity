@@ -21697,7 +21697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Station1Objective
   objectiveID: Station3
-  objectiveContent: 'Objects to check '
+  objectiveContent: 'Search last station. Things to check: '
   objectiveCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -25202,6 +25202,10 @@ PrefabInstance:
     - target: {fileID: 6467547998625821788, guid: f24365ae89421e6ea8d1e1e35a8140cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288159641135457707, guid: f24365ae89421e6ea8d1e1e35a8140cd, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

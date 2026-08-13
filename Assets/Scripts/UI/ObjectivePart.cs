@@ -3,8 +3,8 @@ using UnityEngine;
 public class ObjectivePart : MonoBehaviour {
     [SerializeField] private TMPWrapper text;
     public void SetData(ObjectiveData data) {
-        if (data.isCompleted) text.SetText($"<s>{data.text}</s>");
-        else text.SetText(data.text);
+        if (data.isCompleted) text.SetText($"<color=black><s>{data.text}</s></color>");
+        else text.SetText($"<color=black>{data.text}</color>");
     }
 }
 

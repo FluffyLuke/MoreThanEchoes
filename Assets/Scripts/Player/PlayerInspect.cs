@@ -29,6 +29,7 @@ public class PlayerInspect : MonoBehaviour {
         input.PlayerInspect.ExitDebug.performed += exitDebug;
     }
     public void EnterState(int pillarNumber) {
+        ObjectiveUI.instance.HideCompletely();
         if (mg == null) return;
 
         exitFlag = false;
@@ -51,6 +52,7 @@ public class PlayerInspect : MonoBehaviour {
         UIEventBus.transitionIn.Invoke(transitionTime, transitionEase, () => {
             PlayerEventBus.stateNormal.Invoke();
             UIEventBus.transitionOut.Invoke(transitionTime, transitionEase, null);
+            ObjectiveUI.instance.ShowCompletely();
         });
     }
     public void ExitState() {

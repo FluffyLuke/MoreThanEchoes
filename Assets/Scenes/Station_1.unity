@@ -24274,7 +24274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Station1Objective
   objectiveID: Station1
-  objectiveContent: 'Support beams to check: '
+  objectiveContent: 'Search first station. Things to check: '
   objectiveCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -24290,6 +24290,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  lastObjectiveLeft:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &960836163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28854,10 +28857,6 @@ PrefabInstance:
     - target: {fileID: 4619586026027024797, guid: f24365ae89421e6ea8d1e1e35a8140cd, type: 3}
       propertyPath: m_Name
       value: RootCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619586026027024797, guid: f24365ae89421e6ea8d1e1e35a8140cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6467547998625821788, guid: f24365ae89421e6ea8d1e1e35a8140cd, type: 3}
       propertyPath: m_Pivot.x

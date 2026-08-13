@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
-
 [RequireComponent(typeof(CanvasGroup))]
 public class ObjectiveUI : MonoBehaviour {
-    private Dictionary<string, ObjectiveData> objectives = new();
+    public static Dictionary<string, ObjectiveData> objectives = new();
     [SerializeField] private GameObject objectivePartPrefab;
     [SerializeField] private GameObject objectiveParent;
-    private CanvasGroup canvasGroup;
     public static ObjectiveUI instance = null;
     void Awake() {
         if (instance != null) {
@@ -15,10 +15,18 @@ public class ObjectiveUI : MonoBehaviour {
             return;
         }
         instance = this;
+    }
 
-        // Hide objective panel
-        canvasGroup = GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0;
+    void Start() {
+        startingPositionY = transform.position.y;
+    }
+
+    public void HideCompletely() {
+        GetComponent<CanvasGroup>().alpha = 0;
+    }
+
+    public void ShowCompletely() {
+        GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void AddObjective(string id, ObjectiveData objective, bool showNew = true) {
@@ -76,47 +84,60 @@ public class ObjectiveUI : MonoBehaviour {
         }
     }
 
-    private Coroutine fadeCoroutine = null;
     [Header("Transition")]
-    public float fadeInSecs = 0.5f;
-    public float fadeOutCooldownSecs = 3f;
-    public float fadeOutSecs = 2f;
+    private Tween tween = null;
+    private float startingPositionY;
+    public float spaceForEachObjective = 45;
+    public float moveInSecs = 0.5f;
+    public float moveOutCooldownSecs = 3f;
+    public float moveOutSecs = 2f;
     public void Show() {
-        if (fadeCoroutine != null) {
-            StopCoroutine(fadeCoroutine);
+        Rebuild();
+        if (tween != null) {
+            StopAllCoroutines();
+            tween.Kill();
         }
 
-        fadeCoroutine = StartCoroutine(show(fadeInSecs, fadeOutCooldownSecs, fadeOutSecs));
+        Transform body = transform;
+        float moveBy = spaceForEachObjective * objectives.Count;
+
+        tween = body.DOMoveY(moveBy, moveInSecs)
+            .OnComplete(() => {
+                StaticUtils.DoSomethingAfter(moveOutCooldownSecs, this, () => {
+                    tween = body.DOMoveY(startingPositionY, moveOutSecs)
+                        .OnComplete(() => tween = null);
+                });
+            });
     }
-    private IEnumerator show(float fadeIn, float wait, float fadeOut) {
-        while (canvasGroup.alpha < 1) {
-            float updateBy = 1 / fadeIn * Time.deltaTime;
+    // private IEnumerator show(float fadeIn, float wait, float fadeOut) {
+    //     while (canvasGroup.alpha < 1) {
+    //         float updateBy = 1 / fadeIn * Time.deltaTime;
 
-            canvasGroup.alpha += updateBy;
+    //         canvasGroup.alpha += updateBy;
 
-            if (canvasGroup.alpha >= 1) {
-                canvasGroup.alpha = 1;
-                break;
-            }
+    //         if (canvasGroup.alpha >= 1) {
+    //             canvasGroup.alpha = 1;
+    //             break;
+    //         }
 
-            yield return null;
-        }
+    //         yield return null;
+    //     }
 
-        yield return new WaitForSeconds(wait);
+    //     yield return new WaitForSeconds(wait);
         
-        while (canvasGroup.alpha > 0) {
-            float updateBy = 1 / fadeOut * Time.deltaTime; 
+    //     while (canvasGroup.alpha > 0) {
+    //         float updateBy = 1 / fadeOut * Time.deltaTime; 
 
-            canvasGroup.alpha -= updateBy;
+    //         canvasGroup.alpha -= updateBy;
 
-            if (canvasGroup.alpha <= 0) {
-                canvasGroup.alpha = 0;
-                break;
-            }
+    //         if (canvasGroup.alpha <= 0) {
+    //             canvasGroup.alpha = 0;
+    //             break;
+    //         }
 
-            yield return null;
-        }
+    //         yield return null;
+    //     }
 
-        fadeCoroutine = null;
-    }
+    //     fadeCoroutine = null;
+    // }
 }

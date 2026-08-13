@@ -27584,8 +27584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f1ee7ef2181fb7c9cec64f95e7f7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Station1Objective
-  objectiveID: Station1
-  objectiveContent: 'Support beams to check: '
+  objectiveID: Station2
+  objectiveContent: 'Search second station. Things to check: '
   objectiveCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -27601,6 +27601,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  lastObjectiveLeft:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &960836163
 MonoBehaviour:
   m_ObjectHideFlags: 0

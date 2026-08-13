@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class SaveData {
     public string level;
     public string entrance;
     public string ambient;
+    public Dictionary<string, ObjectiveData> objectives;
 }
 
 public static class SaveManager {
@@ -23,6 +25,7 @@ public static class SaveManager {
         loadedSave = true;
         GameState.SetCurrentMoment(save.moment);
         StaticUtils.ChangeLevel(save.level, save.entrance);
+        ObjectiveUI.objectives = save.objectives;
     }
 
     public static string GetSavedAmbient() {
@@ -36,6 +39,7 @@ public static class SaveManager {
 
     public static void Save(string ambient = null) {
         save = new SaveData();
+        save.objectives = new Dictionary<string, ObjectiveData>(ObjectiveUI.objectives);
         save.moment = GameState.currentMoment;
         save.level = SceneManager.GetActiveScene().name;
         save.entrance = StaticUtils.GetEntranceName();
