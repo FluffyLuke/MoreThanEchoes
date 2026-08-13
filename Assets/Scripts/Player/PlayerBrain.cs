@@ -71,6 +71,7 @@ public class PlayerBrain : MonoBehaviour
         Debug.Log($"Switching player to mode: Cinematic");
         turnOff();
 
+        look.enabled = true; // Look must be enabled in order to work properly when walking is triggered.
         moveCinematic.enabled = true;
     }
     public void NormalMode() {
