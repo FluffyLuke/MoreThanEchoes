@@ -32342,6 +32342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4915191074766513823, guid: 85b0e6061260bdfe58b972dc6d17c6fd, type: 3}
+      propertyPath: defaultDelay
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8879147112460636808, guid: 85b0e6061260bdfe58b972dc6d17c6fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 269.7
@@ -33936,18 +33940,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 55062550}
     m_Modifications:
-    - target: {fileID: 462018576408006132, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
-      propertyPath: sceneName
-      value: Tunnel_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848550363076954427, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
-      propertyPath: isRunning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204672024477969291, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6056011256821386564, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
       propertyPath: m_LocalPosition.x
       value: 267.1
@@ -33991,10 +33983,6 @@ PrefabInstance:
     - target: {fileID: 6719058470907805131, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
       propertyPath: m_Name
       value: EntranceRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 8841917453265427579, guid: 7c94349628c183de3bdb5559e22b1873, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

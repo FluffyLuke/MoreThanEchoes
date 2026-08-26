@@ -7985,38 +7985,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: distance
-      value: 14.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 234216556}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PlayAmbient, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981988009876605896, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      propertyPath: onJumpscare.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5299433150438956022, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
       propertyPath: m_LocalPosition.x
       value: 214.25
@@ -8064,32 +8032,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5975097568485242564, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 234216556}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
---- !u!1 &234216555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5975097568485242564, guid: 2c4588787361688e09b76942c7c7f762, type: 3}
-  m_PrefabInstance: {fileID: 234216554}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &234216556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234216555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2c26fa0f3df703dea1bd3a57941acc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayAmbient
-  id: gathering_darkness
-  delay: 0
-  fadeDuration: 1
-  playOnStart: 0
 --- !u!1 &241497735
 GameObject:
   m_ObjectHideFlags: 0
@@ -27929,6 +27873,7 @@ GameObject:
   - component: {fileID: 1368758898}
   - component: {fileID: 1368758897}
   - component: {fileID: 1368758896}
+  - component: {fileID: 1368758899}
   m_Layer: 0
   m_Name: SayNoKeys
   m_TagString: Untagged
@@ -28050,6 +27995,40 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0172639, y: 1.5050915}
   m_EdgeRadius: 0
+--- !u!114 &1368758899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368758894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1368758894}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1374728785
 PrefabInstance:
   m_ObjectHideFlags: 0

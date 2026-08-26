@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -13,19 +14,40 @@ public class Monster : MonoBehaviour {
     void Start() {
         controller = GetComponent<CharacterController2D>();
         SoundManager.instance.PlayAndLoop(clickingSoundID, gameObject, out handle, 1);
+        StartCoroutine(setSpeedT());
     }
+
+    private float bonusSpeed = 0;
+    private float speedT = 0;
 
     void Update() {
         GameObject player = PlayerEventBus.GetPlayer();
         if (player == null) return;
-
-        float t = Mathf.InverseLerp(catchUpDistanceMin, catchUpDistanceFull, player.transform.position.x);
+        
+        float distance = Mathf.Abs(player.transform.position.x - transform.position.x);
+        float t = Mathf.InverseLerp(catchUpDistanceMin, catchUpDistanceFull, distance);
         float s = Mathf.Lerp(speed, catchUpSpeed, t);
-        controller.SetMotion(new Vector2(-s, 0) * Time.deltaTime);
+
+        bonusSpeed += speedT * Time.deltaTime;
+
+        // Keep in in <-2;2>
+        bonusSpeed = Mathf.Min(bonusSpeed, 2);
+        bonusSpeed = Mathf.Max(bonusSpeed, -2);
+
+        Debug.Log($"DEBUG: {bonusSpeed}");
+
+        controller.SetMotion(new Vector2(-(s+bonusSpeed), 0) * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
         StaticUtils.ChangeLevel("GameOver", "");
+    }
+
+    private IEnumerator setSpeedT() {
+        while (true) {
+            speedT = UnityEngine.Random.Range(-0.5f, 0.5f);
+            yield return new WaitForSeconds(2);
+        }
     }
 }

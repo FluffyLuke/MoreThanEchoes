@@ -17,6 +17,9 @@ public class Entrance : MonoBehaviour {
     [Header("Events")]
     public UnityEvent playerStartedEntering = new();
     public UnityEvent playerEntered = new();
+    public void SetIsRunning(bool newValue) {
+        isRunning = newValue;
+    }
     public void SpawnPlayer() {
         playerStartedEntering.Invoke();
 

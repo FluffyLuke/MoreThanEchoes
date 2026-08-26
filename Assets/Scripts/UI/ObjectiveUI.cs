@@ -87,7 +87,7 @@ public class ObjectiveUI : MonoBehaviour {
     [Header("Transition")]
     private Tween tween = null;
     private float startingPositionY;
-    public float spaceForEachObjective = 45;
+    public float spaceForEachObjective = 30;
     public float moveInSecs = 0.5f;
     public float moveOutCooldownSecs = 3f;
     public float moveOutSecs = 2f;
@@ -99,7 +99,7 @@ public class ObjectiveUI : MonoBehaviour {
         }
 
         Transform body = transform;
-        float moveBy = spaceForEachObjective * objectives.Count;
+        float moveBy = spaceForEachObjective * objectives.Count + startingPositionY;
 
         tween = body.DOMoveY(moveBy, moveInSecs)
             .OnComplete(() => {

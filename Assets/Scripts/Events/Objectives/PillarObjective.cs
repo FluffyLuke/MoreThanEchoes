@@ -8,6 +8,11 @@ public class PillarObjective : MonoBehaviour {
     public UnityEvent objectiveCompleted = new();
     public UnityEvent lastObjectiveLeft = new();
     void Start() {
+        if(GameState.currentMoment == GameMoment.GoingBack) {
+            Destroy(this);
+            return;
+        }
+
         var pillars = GameObject.FindGameObjectsWithTag(Tags.PillarTag);
         pillarCount = pillars.Length;
         ObjectiveUI.instance.AddObjective(objectiveID, new($"{objectiveContent}{pillarCount}", false), false);

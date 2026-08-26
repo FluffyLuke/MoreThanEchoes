@@ -140,7 +140,10 @@ public class MinigameEnemyBrain: MonoBehaviour {
     public void OnPlayerLookLeft() {
         looking = PlayerLookingDirection.Left;
         if (attackedFlag == true) return;
-        if (enemyInstanceSide != EnemySide.Left) return;
+        if (enemyInstanceSide != EnemySide.Left) {
+            enemyInstance?.CheckedWrongSpot();
+            return;
+        }
         
         var currentEnemy = enemyInstance;
         enemyInstance = null;
@@ -149,7 +152,10 @@ public class MinigameEnemyBrain: MonoBehaviour {
     public void OnPlayerLookRight() {
         looking = PlayerLookingDirection.Right;
         if (attackedFlag == true) return;
-        if (enemyInstanceSide != EnemySide.Right) return;
+        if (enemyInstanceSide != EnemySide.Right) {
+            enemyInstance?.CheckedWrongSpot();
+            return;
+        }
 
         var currentEnemy = enemyInstance;
         enemyInstance = null;
@@ -158,7 +164,10 @@ public class MinigameEnemyBrain: MonoBehaviour {
     public void OnPlayerLookUp() {
         looking = PlayerLookingDirection.Up;
         if (attackedFlag == true) return;
-        if (enemyInstanceSide != EnemySide.Up) return;
+        if (enemyInstanceSide != EnemySide.Up) {
+            enemyInstance?.CheckedWrongSpot();
+            return;
+        }
 
         var currentEnemy = enemyInstance;
         enemyInstance = null;

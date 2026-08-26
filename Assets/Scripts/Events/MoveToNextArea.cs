@@ -17,6 +17,9 @@ public class MoveToNextArea : MonoBehaviour {
         //     gameObject.SetActive(false); // Disable script and whole object, since scene is bad
         // }
     }
+    public void SetIsRunning(bool newValue) {
+        running = newValue;
+    }
     void OnTriggerEnter2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
         GameObject playerObj = collision.gameObject;

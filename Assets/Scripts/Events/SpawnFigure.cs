@@ -7,7 +7,7 @@ public class SpawnFigure : MonoBehaviour {
     public float behindMaximumTime = 15f;
     [Header("References")]
     public GameObject figureBehindPrefab;
-    private bool lookingRight;
+    private bool lookingRight = true;
     void Start() {
         StartCoroutine(spawnMonsterCooldown(getRandomTime()));
         PlayerEventBus.playerSpawned.AddListener(() => {

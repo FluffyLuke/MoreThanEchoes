@@ -13,6 +13,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1299587750188102107, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      propertyPath: isRunning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299587750188102107, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4482561998339472455}
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380354115959026964, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: sceneName
-      value: Entrance
+      value: Tunnel_2
       objectReference: {fileID: 0}
     - target: {fileID: 4980496030413915123, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_IsActive
@@ -54,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 232.38
+      value: 267.1
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.3
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70,15 +74,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8316629126565148068, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -99,10 +103,75 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8817828249410716971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624103595040902606}
   m_SourcePrefab: {fileID: 100100000, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+--- !u!114 &3848550363076954427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1299587750188102107, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+  m_PrefabInstance: {fileID: 2837791160545458400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719058470907805131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44817f3ee9c16313288bb4c1db072ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entrance
 --- !u!1 &4482561998339472455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825257906656658599, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
   m_PrefabInstance: {fileID: 2837791160545458400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6719058470907805131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8817828249410716971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+  m_PrefabInstance: {fileID: 2837791160545458400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &624103595040902606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719058470907805131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3848550363076954427}
+        m_TargetAssemblyTypeName: Entrance, Assembly-CSharp
+        m_MethodName: SetIsRunning
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3848550363076954427}
+        m_TargetAssemblyTypeName: Entrance, Assembly-CSharp
+        m_MethodName: SetIsRunning
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

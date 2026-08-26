@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6120355500691503940}
   - component: {fileID: 7460869159194294002}
   - component: {fileID: 2865293578501785587}
+  - component: {fileID: 1692624754493955382}
   m_Layer: 0
   m_Name: MoveToNextArea
   m_TagString: Untagged
@@ -94,4 +95,51 @@ MonoBehaviour:
   transitionTimeSecs: 3
   sceneName: Station_1
   entranceName: EntranceLeft
-  fade: {fileID: 0}
+  direction: 1
+  running: 0
+--- !u!114 &1692624754493955382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305225690247798724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2865293578501785587}
+        m_TargetAssemblyTypeName: MoveToNextArea, Assembly-CSharp
+        m_MethodName: SetIsRunning
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2865293578501785587}
+        m_TargetAssemblyTypeName: MoveToNextArea, Assembly-CSharp
+        m_MethodName: SetIsRunning
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
