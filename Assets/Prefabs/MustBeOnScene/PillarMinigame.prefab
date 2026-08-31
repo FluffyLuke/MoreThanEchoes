@@ -1011,7 +1011,6 @@ MonoBehaviour:
   - {fileID: 3124996307022026117}
   activePillar: {fileID: 0}
   speed: 4
-  timeBeforeEndScreen: 2
   progres: 0
 --- !u!114 &8201608537517214119
 MonoBehaviour:
@@ -1333,9 +1332,21 @@ PrefabInstance:
       value: EnemyUp
       objectReference: {fileID: 0}
     - target: {fileID: 5850113577268601946, guid: 9db309fb529ea67e894233e1fb3814c8, type: 3}
+      propertyPath: waitBeforeHideTop
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850113577268601946, guid: 9db309fb529ea67e894233e1fb3814c8, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850113577268601946, guid: 9db309fb529ea67e894233e1fb3814c8, type: 3}
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
+    - target: {fileID: 5850113577268601946, guid: 9db309fb529ea67e894233e1fb3814c8, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 8525795119903859346, guid: 9db309fb529ea67e894233e1fb3814c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.560098
@@ -2811,12 +2822,20 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LooseMinigameLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4160,9 +4179,17 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
       propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8301647827208034267}
+    - target: {fileID: 7403224253502260730, guid: f309179297ce0254692d5e498cdda0ed, type: 3}
+      propertyPath: onAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

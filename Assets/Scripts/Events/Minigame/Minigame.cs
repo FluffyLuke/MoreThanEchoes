@@ -19,7 +19,7 @@ public class Minigame : MonoBehaviour {
     [HideInInspector] public MinigamePillar activePillar;
     [Header("Values")]
     public float speed = 10;
-    public float timeBeforeEndScreen = 2;
+    // public float timeBeforeEndScreen = 2;
     [HideInInspector] public float progres = 0;
     private bool focused = true;
     void Start() {
@@ -80,22 +80,22 @@ public class Minigame : MonoBehaviour {
 
     #region Jumpscare
 
-    public void LooseMinigameLeft() {
+    public void LooseMinigameLeft(float ttk) {
         onGameOver.Invoke();
         activePillar.ChangeCurrentCamera(activePillar.cameraLeft);
-        StartCoroutine(looseMinigame(timeBeforeEndScreen));
+        StartCoroutine(looseMinigame(ttk));
     }
 
-    public void LooseMinigameUp() {
+    public void LooseMinigameUp(float ttk) {
         onGameOver.Invoke();
         activePillar.ChangeCurrentCamera(activePillar.cameraUp);
-        StartCoroutine(looseMinigame(timeBeforeEndScreen));
+        StartCoroutine(looseMinigame(ttk));
     }
 
-    public void LooseMinigameRight() {
+    public void LooseMinigameRight(float ttk) {
         onGameOver.Invoke();
         activePillar.ChangeCurrentCamera(activePillar.cameraRight);
-        StartCoroutine(looseMinigame(timeBeforeEndScreen));
+        StartCoroutine(looseMinigame(ttk));
     }
 
     private IEnumerator looseMinigame(float cooldown) {

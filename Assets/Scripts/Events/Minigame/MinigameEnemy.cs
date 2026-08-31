@@ -12,6 +12,7 @@ public class MinigameEnemy : MonoBehaviour {
     public string attackSound2ID;
     public AudioSource source;
     [Header("Speed")]
+    public float ttk = 1;
     public float waitBeforeHideTop = 1f;
     public float showSpeed = 1;
     public float hideSpeed = 2;
