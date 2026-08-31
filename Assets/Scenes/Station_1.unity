@@ -7934,31 +7934,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -733.35
+      value: -754.70996
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.198772
+      value: 36.65677
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.803008
+      value: -12.544
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.54167527
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.45451948
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.54167527
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.45451948
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29198,6 +29198,10 @@ PrefabInstance:
     - target: {fileID: 777840417580142014, guid: 2f793b34af5aba7acb023cad63b02f12, type: 3}
       propertyPath: m_SortingOrder
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331760519693885850, guid: 2f793b34af5aba7acb023cad63b02f12, type: 3}
+      propertyPath: sceneName
+      value: Entrance
       objectReference: {fileID: 0}
     - target: {fileID: 3597171438875445905, guid: 2f793b34af5aba7acb023cad63b02f12, type: 3}
       propertyPath: m_SortingOrder
