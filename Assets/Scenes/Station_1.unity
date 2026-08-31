@@ -7934,31 +7934,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -754.70996
+      value: -733.35
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.65677
+      value: 36.198772
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.544
+      value: 13.803008
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.54167527
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.45451948
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.54167527
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.45451948
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21935,18 +21935,6 @@ PrefabInstance:
     - target: {fileID: 8097649729116879881, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
-      propertyPath: maxTimeToSpawn
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
-      propertyPath: minTimeToSpawn
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
-      propertyPath: speed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: progresBar

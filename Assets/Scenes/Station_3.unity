@@ -12794,31 +12794,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1092.71
+      value: -1071.35
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.13354
+      value: 35.675545
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.27600098
+      value: 13.803008
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.54167527
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.45451948
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.54167527
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.45451948
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894047972032152301, guid: 0d68de70a79ea96768b81ab0629ba0b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22148,9 +22148,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6595081590548622593, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: crawler
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595081590548622593, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: waitBeforeHideTop
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8009073732932368427, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: m_Name
       value: PillarMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: maxTimeToSpawn
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201608537517214119, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: minTimeToSpawn
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
+      propertyPath: speed
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8301647827208034267, guid: dd94a63e90a895718ac7341e33f93150, type: 3}
       propertyPath: progresBar
