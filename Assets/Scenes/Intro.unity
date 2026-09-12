@@ -447,20 +447,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776095060359607615, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_text
-      value: 'You found this whole "expedition" pointless, a result of the local
-        government''s stupidity. Since when a minuscule earthquake could cause damage
-        to multiple layers of concrete and steel?
-
-
-        You decided, however,
-        that this would be easy pay, and why should you let the easy pay slip by?
-        It is not the worst place they sent you to anyway. With hesitation, you accepted
-        the job.
-
-
-        Now, the maw of the tunnel lies before you. Further down
-        are three stations that need to be checked for any signs of damage. With
-        flashlight in hand, you proceed through the main entrance...'
+      value: "You were less than enthusiastic about this \u201Cexpedition.\u201D
+        It seemed little more than a waste of time to assuage the nerves of clueless
+        local officials. After all, since when could such a miniscule earthquake
+        compromise reliable concrete and steel?\nWaste or not, though, you saw it
+        as easy pay. You\u2019d been sent into far worse hovels and situations for
+        far flimsier causes, after all. A bit of dust and darkness and an easy stamp
+        of approval didn\u2019t sound so bad. You only hoped the subway had been
+        better secured against Cincinnati\u2019s many squatters than most of the
+        other derelicts around town.\nNow, the maw of the tunnel yawns wide before
+        you. Further along are three stations which need to be checked for any signs
+        of damage. Torch in hand, you proceed through the main entrance, and into
+        the dark\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x
@@ -1747,22 +1745,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776095060359607615, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_text
-      value: 'Cincinnati, 2019
-
-
-        During the early hours of the morning an
-        earthquake has been registered not so far away from the city. It was too
-        small to wake anybody, and those lone souls who were awake at that hour barely
-        noticed, if at all. Once the sun came up, life continued unbothered by last
-        night''s events. That was until cracks were discovered on one of the roads
-        leading to the city.
-
-
-        Again, it was ignored. However, then someone
-        in the local government mentioned the old abandoned metro, that runs under
-        the city. Unfinished and forgotten, now became a point of concern for those
-        in charge, as no one wanted to be blamed, should a tragedy occur. In a moment
-        of panic, a civil inspector was tasked with inspecting the tunnels - you'
+      value: "During the early hours of the morning, an earthquake was registered
+        just outside the city. It was too small to do much more than gently rattle
+        windows or jostle picture frames, and most locals slept right through it.
+        Those few souls awake at that hour barely noticed, if at all. The sun rose
+        and life continued unbothered and unchanged- up until newly formed cracks
+        were discovered on one of the city\u2019s roads.\n\nThis too might have gone
+        ignored. But someone in city government mentioned the old abandoned metro,
+        its tunnels running unfinished beneath that very road. Those in charge scrambled
+        to ensure nothing tragic occurred which might be blamed on their inaction.
+        In this fretful atmosphere, a civil inspector has been tasked with ensuring
+        the old tunnels are still stable- you."
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x

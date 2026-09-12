@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 
 public class PlayerShowNote : MonoBehaviour {
-    [SerializeField] private GameObject[] pages;
+    [SerializeField] private NoteAsset currentNote;
+    [Header("Refs")]
+    [SerializeField] private GameObject[] pageImages;
     [Header("Sound")]
     [SerializeField] private PlaySound pickUpSound;
     [SerializeField] private PlaySound turnPageSound;
@@ -22,7 +24,8 @@ public class PlayerShowNote : MonoBehaviour {
         input.Player.Disable();
     }
 
-    private void show() {
+    private void show(NoteAsset newNote) {
+        currentNote = newNote;
         PlayerEventBus.stateCinematic.Invoke();
         input.Player.Enable();
 
@@ -60,8 +63,8 @@ public class PlayerShowNote : MonoBehaviour {
             return;
         }
 
-        if (pageIndex > pages.Length - 1) {
-            pageIndex = pages.Length - 1;
+        if (pageIndex > currentNote.pages.Length - 1) {
+            pageIndex = currentNote.pages.Length - 1;
             return;
         }
 
@@ -70,11 +73,20 @@ public class PlayerShowNote : MonoBehaviour {
             turnPageSound.Play();
         }
 
-        foreach (var p in pages) {
-            p.SetActive(false);
+        NotePart currentPart = currentNote.pages[pageIndex];
+
+        bool flag = false;
+        foreach (var p in pageImages) {
+            if (p.name == currentPart.imageID) { 
+                p.SetActive(true);
+                flag = true;
+            }
+            else p.SetActive(false);
         }
 
-        GameObject currentPage = pages[pageIndex];
-        currentPage.SetActive(true);
+        if (!flag) {
+            Debug.LogError("Could not find page!");
+        }
+
     }
 }

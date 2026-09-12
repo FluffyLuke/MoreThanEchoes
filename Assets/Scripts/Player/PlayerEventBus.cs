@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public static class PlayerEventBus {
     public static bool canInteract = false;
     public static UnityEvent<string, float> spawnSpeechBubble = new();
-    public static UnityEvent showNote = new();
+    public static UnityEvent<NoteAsset> showNote = new();
     public static UnityEvent hideNote = new();
     // time
     public static UnityEvent<float> stun = new();

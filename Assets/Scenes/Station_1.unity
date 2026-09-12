@@ -29138,6 +29138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireplace
       objectReference: {fileID: 0}
+    - target: {fileID: 3845284706591216078, guid: bc02589ce9f434d99a7f1cbbcdff892f, type: 3}
+      propertyPath: note
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d773d72c90e4ae88a455217cff7c99, type: 2}
     - target: {fileID: 4388400166204098152, guid: bc02589ce9f434d99a7f1cbbcdff892f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 119.79448

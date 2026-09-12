@@ -447,6 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f32d0865b9e98585acbd4dff75e177b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveState
+  ambientTransitionSecs: 1
+  ambientID: 
 --- !u!1 &1197431464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1333,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776095060359607615, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_text
-      value: You have been killed!
+      value: It happens so fast- a shuffle of flesh over stone, the soft echo of
+        a quick intake of breath through the empty shadow. The clatter of a dropped
+        torch on concrete. This will be the only trace the police ever find of you.
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x
@@ -1359,11 +1363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1150.39
+      value: -912.59
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 575.19
+      value: 456.29
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_AnchoredPosition.y

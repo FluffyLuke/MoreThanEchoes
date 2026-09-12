@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class Fireplace : MonoBehaviour {
+    public NoteAsset note;
     public float cooldown = 1f;
     private bool onCooldown = false;
 
@@ -12,7 +13,7 @@ public class Fireplace : MonoBehaviour {
         if (onCooldown) return;
 
         onCooldown = true;
-        PlayerEventBus.showNote.Invoke();
+        PlayerEventBus.showNote.Invoke(note);
     }
 
     private void hideNote() {

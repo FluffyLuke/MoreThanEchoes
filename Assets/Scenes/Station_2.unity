@@ -33939,6 +33939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191573d3ba0280ed8b68627894425fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShowNote
+  note: {fileID: 11400000, guid: de3ddf8582282070a8081c1431ebd2c3, type: 2}
   cooldown: 1
 --- !u!1001 &7955632417071500337
 PrefabInstance:
@@ -34035,7 +34036,7 @@ GameObject:
   - component: {fileID: 9175414528360873123}
   - component: {fileID: 7667859041784564180}
   m_Layer: 0
-  m_Name: Newspaper
+  m_Name: Memo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
