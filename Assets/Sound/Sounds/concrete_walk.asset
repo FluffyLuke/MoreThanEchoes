@@ -22,4 +22,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2402950f884dc17eda95a56182b4479d, type: 3}
   - {fileID: 8300000, guid: 47b3610ea6b0fa1e383bef52f1198ae5, type: 3}
   pitchRange: {x: 0.9, y: 1.1}
-  volume: 0.8
+  volume: 0.4

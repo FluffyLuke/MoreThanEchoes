@@ -101,9 +101,7 @@ public class ShadowFigureBehind : MonoBehaviour {
 
             // Eye glow
             float eyeT = Mathf.InverseLerp(startGlowingTime, maxGlowingTime, timeElapsed);
-            Debug.Log($"== DEBUG eyeT {eyeT}== ");
             float eyeAlpha = maxGlowValue * eyeT;
-            Debug.Log($"DEBUG eyeAlpha {eyeAlpha}");
 
             foreach (Light2D l in eyes) {
                 Color newColor = l.color;
@@ -112,7 +110,8 @@ public class ShadowFigureBehind : MonoBehaviour {
             }
 
             if (t >= 1) {
-                PlayerEventBus.GetPlayerComponent<PlayerBrain>().Die();
+                Destroy(gameObject);
+                PlayerEventBus.GetPlayerComponent<PlayerBrain>().Die(false);
             }
         }
     }

@@ -4,6 +4,9 @@ using DG.Tweening;
 
 public class PlayerMoveObstacle : MonoBehaviour {
     [SerializeField] private GameObject body;
+    [SerializeField] private string obstacleMoveAnimation = "pass";
+    [SerializeField] private string defaultAnimationTrigger = "ExitObstacle";
+    [SerializeField] private Animator animator;
     public void MoveThrough(Vector2 start, Vector2 finish, Ease ease, float speedSec, Action onComplete) {
         Vector2 direction = finish - start;
         float distance = Vector2.Distance(start, finish);
@@ -19,12 +22,13 @@ public class PlayerMoveObstacle : MonoBehaviour {
         rb.linearVelocity = Vector2.zero;
         rb.position = start;
         // transform.position = start;
-
+        animator.Play(obstacleMoveAnimation);
         rb
             .DOMove(finish, distance / speedSec)
             .SetEase(ease)
             .SetUpdate(UpdateType.Late)
             .OnComplete(() => {
+                animator.SetTrigger(defaultAnimationTrigger);
                 onComplete.Invoke();
             });
     }

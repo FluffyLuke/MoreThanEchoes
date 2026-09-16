@@ -7,9 +7,9 @@ public static class PlayerEventBus {
     public static UnityEvent<NoteAsset> showNote = new();
     public static UnityEvent hideNote = new();
     // time
-    public static UnityEvent<float> stun = new();
+    public static UnityEvent<float, MoveDirection> stun = new();
     // time, direction, speed
-    public static UnityEvent<float, MoveDirection, float> stunAndMove = new();
+    //public static UnityEvent<float, MoveDirection, float> stunAndMove = new();
 
     // == Player helper functions ===
     public static GameObject GetPlayer() {

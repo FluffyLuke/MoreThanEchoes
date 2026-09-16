@@ -11,6 +11,6 @@ public class KillYourself : MonoBehaviour {
 
     // Kill yourself
     public void KYS(InputAction.CallbackContext ctx) {
-        PlayerEventBus.GetPlayer().GetComponent<PlayerBrain>().Die();
+        PlayerEventBus.GetPlayer().GetComponent<PlayerBrain>().DieInstant();
     }
 }

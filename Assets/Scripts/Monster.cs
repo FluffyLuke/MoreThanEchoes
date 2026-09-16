@@ -41,7 +41,8 @@ public class Monster : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
-        StaticUtils.ChangeLevel("GameOver", "");
+        Destroy(gameObject);
+        PlayerEventBus.GetPlayerComponent<PlayerBrain>().Die(false);
     }
 
     private IEnumerator setSpeedT() {

@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour {
     public float runSpeed = 20;
     private CharacterController2D controller;
     private PlayerLook look;
+    [Header("References")]
     [SerializeField] private GameObject body;
     [SerializeField] private Animator animator;
     private GameInput input;

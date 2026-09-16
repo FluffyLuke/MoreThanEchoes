@@ -100,7 +100,7 @@ public class Minigame : MonoBehaviour {
 
     private IEnumerator looseMinigame(float cooldown) {
         yield return new WaitForSeconds(cooldown);
-        PlayerEventBus.GetPlayerComponent<PlayerBrain>().Die();
+        PlayerEventBus.GetPlayerComponent<PlayerBrain>().DieInstant();
     }
 
     #endregion

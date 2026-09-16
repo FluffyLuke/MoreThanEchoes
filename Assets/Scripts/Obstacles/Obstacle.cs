@@ -10,7 +10,6 @@ public class Obstacle : MonoBehaviour {
     public float speed = 5;
     public float cooldownSecs = 1;
     public float stunDurationSecs = 1;
-    public float stunSpeed = 5;
     public Ease ease;
     [Header("Move points")]
     public bool modifyY = false;
@@ -113,12 +112,12 @@ public class Obstacle : MonoBehaviour {
     public void StunLeft() {
         if (onCooldown) return;
 
-        PlayerEventBus.stunAndMove.Invoke(stunDurationSecs, MoveDirection.Left, stunSpeed);
+        PlayerEventBus.stun.Invoke(stunDurationSecs, MoveDirection.Left);
     }
     public void StunRight() {
         if (onCooldown) return;
         
-        PlayerEventBus.stunAndMove.Invoke(stunDurationSecs, MoveDirection.Right, stunSpeed);
+        PlayerEventBus.stun.Invoke(stunDurationSecs, MoveDirection.Right);
     }
 }
 

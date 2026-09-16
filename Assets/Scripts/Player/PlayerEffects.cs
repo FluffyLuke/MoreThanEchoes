@@ -2,38 +2,28 @@ using System;
 using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour {
-    [SerializeField] private GameObject stunSprite;
+    [SerializeField] private Animator animator;
+    public string stunAnimation = "stun";
     void Start() {
-        stunSprite.SetActive(false);
-
         PlayerEventBus.stun.AddListener(Stun);
-        PlayerEventBus.stunAndMove.AddListener(StunAndMove);
+        //PlayerEventBus.stunAndMove.AddListener(StunAndMove);
     }
 
     void OnDestroy() {
         PlayerEventBus.stun.RemoveListener(Stun);
-        PlayerEventBus.stunAndMove.RemoveListener(StunAndMove);
+        //PlayerEventBus.stunAndMove.RemoveListener(StunAndMove);
     }
-    public void Stun(float timeSec) {
+    public void Stun(float timeSec, MoveDirection direction) {
         PlayerEventBus.stateCinematic.Invoke();
-        stunSprite.SetActive(true);
-        StaticUtils.DoSomethingAfter(timeSec, this, () => {
-            stunSprite.SetActive(false);
-            PlayerEventBus.stateNormal.Invoke();
-        });
-    }
-
-    public void StunAndMove(float timeSec, MoveDirection direction, float speed) {
-        PlayerEventBus.stateCinematic.Invoke();
-        stunSprite.SetActive(true);
 
         PlayerMoveCinematic m_c = PlayerEventBus.GetPlayerComponent<PlayerMoveCinematic>();
-
-        m_c.SetMove(direction, speed);
+        m_c.SetMove(direction == MoveDirection.Left ? MoveDirection.Right : MoveDirection.Left, 0.0001f);
         
-        StaticUtils.DoSomethingAfter(timeSec, this, () => {
-            stunSprite.SetActive(false);
-            PlayerEventBus.stateNormal.Invoke();
-        });
+        animator.Play(stunAnimation);
+    }
+
+    // This should be called by the animation itself
+    public void StunEnd() {
+        PlayerEventBus.stateNormal.Invoke();
     }
 }

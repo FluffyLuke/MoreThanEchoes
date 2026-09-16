@@ -9,6 +9,11 @@ public enum PlayerMode {
 public class PlayerBrain : MonoBehaviour
 {
     public GameObject speechBubble;
+    public Animator animator;
+    public GameObject body;
+    public string deathAnimation = "death";
+    public float timeBeforeLevelChange = 1;
+    public string monsterAttackGroundSoundID = "monster_attack_ground";
     private PlayerMove move;
     private PlayerMoveCinematic moveCinematic;
     private PlayerMoveObstacle moveObstacle;
@@ -38,15 +43,26 @@ public class PlayerBrain : MonoBehaviour
             look,
         };
 
-        PlayerEventBus.stateNormal.AddListener(NormalMode);
-        PlayerEventBus.stateCinematic.AddListener(CinematicMode);
-        PlayerEventBus.stateObstacle.AddListener(ObstacleMode);
-        PlayerEventBus.stateInspect.AddListener(InspectMode);
+        addListeners();
 
 
         // Some of the games code spawns player and imidiatelly does something to it's state
         // This call MUST BE in awake
         NormalMode();
+    }
+
+    private void addListeners() {
+        PlayerEventBus.stateNormal.AddListener(NormalMode);
+        PlayerEventBus.stateCinematic.AddListener(CinematicMode);
+        PlayerEventBus.stateObstacle.AddListener(ObstacleMode);
+        PlayerEventBus.stateInspect.AddListener(InspectMode);
+    }
+
+    private void removeListeners() {
+        PlayerEventBus.stateNormal.RemoveListener(NormalMode);
+        PlayerEventBus.stateCinematic.RemoveListener(CinematicMode);
+        PlayerEventBus.stateObstacle.RemoveListener(ObstacleMode);
+        PlayerEventBus.stateInspect.RemoveListener(InspectMode);
     }
 
     void Start() {
@@ -103,8 +119,28 @@ public class PlayerBrain : MonoBehaviour
         });
     }
 
-    public void Die() {
+    public void Die(bool rightSide) {
         Debug.Log("Player died.");
+        removeListeners();
+
+        if (rightSide) {
+            Vector3 newScale = body.transform.localScale;
+            newScale.x *= -1;
+            body.transform.localScale = newScale;
+        }
+
+        animator.Play(deathAnimation);
+        SoundManager.instance.PlayOneShot(monsterAttackGroundSoundID, gameObject, 0);
+
+        StaticUtils.DoSomethingAfter(timeBeforeLevelChange, this, () => {
+            StaticUtils.ChangeLevel(LevelNames.GameOver, "");
+        });
+    }
+
+    public void DieInstant() {
+        Debug.Log("Player died.");
+        removeListeners();
+
         StaticUtils.ChangeLevel(LevelNames.GameOver, "");
     }
 
