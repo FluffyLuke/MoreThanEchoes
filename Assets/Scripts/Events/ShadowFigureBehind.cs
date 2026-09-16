@@ -25,6 +25,8 @@ public class ShadowFigureBehind : MonoBehaviour {
     [Header("References")]
     public GameObject figure;
     public SpriteRenderer figureSprite;
+    public GameObject body;
+    public Animator animator;
     public Transform endPosition;
     private bool fading = false;
     private GameInput input;
@@ -75,6 +77,12 @@ public class ShadowFigureBehind : MonoBehaviour {
         StaticUtils.DoSomethingAfter(waitBeforeAmbientReturn, this, () => {
             AmbientManager.instance.PlayAmbient(ambientID, ambientReturnTime);
         });
+
+        Vector3 newScale = body.transform.localScale;
+        newScale.x *= -1;
+        body.transform.localScale = newScale;
+
+        animator.Play("run");
 
         transform
             .DOMove(endPosition.position, fadeDuration)

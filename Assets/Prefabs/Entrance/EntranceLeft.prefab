@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: playerEntered.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2247881204205962834, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2380354115959026964, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       propertyPath: direction
       value: 0
@@ -103,6 +107,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8817828249410716971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6564612459327382924}
+    - targetCorrespondingSourceObject: {fileID: 6761329200415138971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6312108344336030830}
+    - targetCorrespondingSourceObject: {fileID: 8024123327077553003, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2915888888806752222}
   m_SourcePrefab: {fileID: 100100000, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
 --- !u!114 &1395469981678511445 stripped
 MonoBehaviour:
@@ -115,6 +125,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44817f3ee9c16313288bb4c1db072ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entrance
+--- !u!1 &6665808724910305301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6761329200415138971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+  m_PrefabInstance: {fileID: 95882509195285646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6312108344336030830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665808724910305301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6665808724910305301}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &7930782891601037285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8024123327077553003, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}
+  m_PrefabInstance: {fileID: 95882509195285646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2915888888806752222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930782891601037285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af37d8f08af84f809aedc5f0640e55bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoOnGameState
+  doOnWhatMoment: 1
+  doOnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  doOnStateUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7930782891601037285}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8866352573893169573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8817828249410716971, guid: 6e4a1dca63f2415119219d0a486a7fc7, type: 3}

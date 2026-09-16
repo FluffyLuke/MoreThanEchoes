@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour {
     [SerializeField] public GlobalSettings settings;
     [SerializeField] private SoundDatabase soundDatabase;
-    private Dictionary<string, SoundAsset> lookup;
+    public Dictionary<string, SoundAsset> lookup;
     [Header("Buses")]
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioMixerGroup bus_main;
@@ -117,7 +117,7 @@ public class SoundManager : MonoBehaviour {
 
         return true;
     }
-    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle, float spartialBlend = 0, float volume = 1) {
+    public bool PlayOneShot(string id, GameObject parent, out SoundHandle handle, float spartialBlend = 0, float volume = 1, AudioSource source = null) {
         if (spartialBlend > 1) {
             spartialBlend = 1;
         }
@@ -133,11 +133,19 @@ public class SoundManager : MonoBehaviour {
             return false;
         }
 
-        GameObject gameObject = new GameObject("SoundSource");
-        // gameObject.transform.position = position;
-        gameObject.transform.SetParent(parent.transform);
+        bool should_delete = false;
+        GameObject gm;
+        if (source == null) {
+            should_delete = true;
+            gm = new GameObject("SoundSource");
+            // gameObject.transform.position = position;
+            gm.transform.SetParent(parent.transform);
 
-        AudioSource source = gameObject.AddComponent<AudioSource>();
+            source = gm.AddComponent<AudioSource>();
+        } else {
+            gm = source.gameObject;
+        }
+
         AudioClip clip = sound.GetRandomClip();
         source.resource = clip;
         source.pitch = Random.Range(sound.pitchRange.x, sound.pitchRange.y);
@@ -163,7 +171,7 @@ public class SoundManager : MonoBehaviour {
         source.PlayOneShot(clip);
         handle = new SoundHandle(source);
 
-        Destroy(gameObject, clip.length);
+        if (should_delete) Destroy(gm, clip.length);
         return true;
     }
 

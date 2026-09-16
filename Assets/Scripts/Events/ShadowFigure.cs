@@ -1,14 +1,20 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class ShadowFigure : MonoBehaviour {
     [Header("Parameters")]
     public float fadeDuration = 1f;
+    public float stepInterval = 0.3f;
     public float distance = 5f;
+    public string wetStepSoundID = "wet_step";
     public Ease ease = Ease.Linear;
     [Header("References")]
+    private AudioSource source;
     public GameObject figure;
+    public Animator animator;
     public SpriteRenderer figureSprite;
     public Transform initialPosition;
     public Transform endPosition;
@@ -21,6 +27,7 @@ public class ShadowFigure : MonoBehaviour {
     void Awake() {
         input = new GameInput();
         input.Player.Enable();
+        source = GetComponent<AudioSource>();
     }
     void OnDisable() {
         input.Player.Disable();
@@ -41,16 +48,23 @@ public class ShadowFigure : MonoBehaviour {
             Transform end = isSprinting ? endPositionSprint : endPosition;
 
             onJumpscare.Invoke();
-
+            animator.Play("run");
+            StartCoroutine(wetSteps(stepInterval));
+            
             transform
                 .DOMove(end.position, fadeDuration)
                 .SetEase(ease)
                 .OnComplete(() => {
-                    // Sound being played is tied to the shadow figure.
-                    // If shadow figure gets destroyed too quickly, then the sound will be cut.
-                    StaticUtils.DoSomethingAfter(10, this, () => {Destroy(gameObject);});
+                    Destroy(gameObject);
                 });
             calculateFade();
+        }
+    }
+
+    private IEnumerator wetSteps(float interval) {
+        while(true) {
+            SoundManager.instance.PlayOneShot(wetStepSoundID, gameObject, out SoundHandle _, spartialBlend: 0.5f, source: source);
+            yield return new WaitForSeconds(interval);
         }
     }
 

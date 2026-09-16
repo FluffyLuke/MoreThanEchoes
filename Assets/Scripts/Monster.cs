@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -9,11 +10,15 @@ public class Monster : MonoBehaviour {
     public float catchUpDistanceFull = 5;
     public float catchUpDistanceMin = 2;
     public string clickingSoundID = "monster_clicking";
+    public string wetStepSoundID = "wet_step";
+    public float stepInterval;
+    public Animator animator;
     private SoundHandle handle;
     private CharacterController2D controller;
     void Start() {
         controller = GetComponent<CharacterController2D>();
         SoundManager.instance.PlayAndLoop(clickingSoundID, gameObject, out handle, 1);
+        animator.Play("run");
         StartCoroutine(setSpeedT());
     }
 
@@ -34,14 +39,13 @@ public class Monster : MonoBehaviour {
         bonusSpeed = Mathf.Min(bonusSpeed, 2);
         bonusSpeed = Mathf.Max(bonusSpeed, -2);
 
-        Debug.Log($"DEBUG: {bonusSpeed}");
-
         controller.SetMotion(new Vector2(-(s+bonusSpeed), 0) * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (!collision.gameObject.CompareTag(Tags.PlayerTag)) return;
         Destroy(gameObject);
+        StopAllCoroutines();
         PlayerEventBus.GetPlayerComponent<PlayerBrain>().Die(false);
     }
 

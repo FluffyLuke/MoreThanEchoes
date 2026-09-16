@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 271241727037597086, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 900351536659230430, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
       propertyPath: speed
       value: 8
@@ -120,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -4.5230646
       objectReference: {fileID: 0}
+    - target: {fileID: 5775573153108411722, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 25113e06ed150ab46a8b2434dc90b035, type: 3}
     - target: {fileID: 6208240033590081391, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -144,8 +152,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterCeiling
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 900351536659230430, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6781694296161889726, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 623010822791889433}
   m_SourcePrefab: {fileID: 100100000, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+--- !u!1 &4259191277617024235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6781694296161889726, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+  m_PrefabInstance: {fileID: 7279722376702173525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &623010822791889433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259191277617024235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bb2424e9e605aaf95e0f3d34641568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterCrawling
+  speed: 8
+  catchUpSpeed: 30
+  catchUpDistanceFull: 20
+  catchUpDistanceMin: 15
+  ttk: 1
+  clickingSoundID: monster_clicking
+  stepInterval: 0
+  animator: {fileID: 7021867493866713448}
+--- !u!95 &7021867493866713448 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 320999836994375741, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+  m_PrefabInstance: {fileID: 7279722376702173525}
+  m_PrefabAsset: {fileID: 0}
