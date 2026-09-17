@@ -7,6 +7,11 @@ public class PlayerMoveObstacle : MonoBehaviour {
     [SerializeField] private string obstacleMoveAnimation = "pass";
     [SerializeField] private string defaultAnimationTrigger = "ExitObstacle";
     [SerializeField] private Animator animator;
+    private Tween currentTween;
+
+    void OnDisable() {
+        currentTween?.Kill();
+    }
     public void MoveThrough(Vector2 start, Vector2 finish, Ease ease, float speedSec, Action onComplete) {
         Vector2 direction = finish - start;
         float distance = Vector2.Distance(start, finish);
@@ -23,7 +28,7 @@ public class PlayerMoveObstacle : MonoBehaviour {
         rb.position = start;
         // transform.position = start;
         animator.Play(obstacleMoveAnimation);
-        rb
+        currentTween = rb
             .DOMove(finish, distance / speedSec)
             .SetEase(ease)
             .SetUpdate(UpdateType.Late)

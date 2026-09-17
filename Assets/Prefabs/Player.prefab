@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySound
   id: walking_concrete
   delay: 0
+  persist: 0
 --- !u!1 &661108898358392402
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySound
   id: Torch_Button_Click
   delay: 0
+  persist: 0
 --- !u!1 &6513202066705782470
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cccf32e76faa5f1be4ad579c645dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffects
-  animator: {fileID: 0}
+  animator: {fileID: 1633275221528621421}
   stunAnimation: stun
 --- !u!114 &2907369947340321925
 MonoBehaviour:

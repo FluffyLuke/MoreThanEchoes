@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour {
     [SerializeField] private Animator animator;
+    public float stunDuration = 0.75f;
     public string stunAnimation = "stun";
     void Start() {
         PlayerEventBus.stun.AddListener(Stun);
@@ -20,10 +21,9 @@ public class PlayerEffects : MonoBehaviour {
         m_c.SetMove(direction == MoveDirection.Left ? MoveDirection.Right : MoveDirection.Left, 0.0001f);
         
         animator.Play(stunAnimation);
-    }
 
-    // This should be called by the animation itself
-    public void StunEnd() {
-        PlayerEventBus.stateNormal.Invoke();
+        DoSomethingAfter.After(this, stunDuration, () => {
+            PlayerEventBus.stateNormal.Invoke();
+        });
     }
 }

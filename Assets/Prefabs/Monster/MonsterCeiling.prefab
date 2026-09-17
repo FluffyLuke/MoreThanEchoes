@@ -68,6 +68,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.038676083
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 0.08383222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.08638376
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
+      value: 0.038225453
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -1.167202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
+      value: -0.11333183
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].inSlope
+      value: -0.13192537
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -1.167202
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
+      value: -0.11333183
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].inWeight
+      value: 0.10165146
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].outSlope
+      value: -0.13192537
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0.032661073
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072726585173035240, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outWeight
+      value: 0.07383482
+      objectReference: {fileID: 0}
     - target: {fileID: 3441696237880733228, guid: 52b7ee3b576ef68b797b92bd57f30e04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.577
@@ -178,13 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bb2424e9e605aaf95e0f3d34641568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterCrawling
-  speed: 8
+  speed: 7.5
   catchUpSpeed: 30
   catchUpDistanceFull: 20
   catchUpDistanceMin: 15
   ttk: 1
   clickingSoundID: monster_clicking
-  stepInterval: 0
   animator: {fileID: 7021867493866713448}
 --- !u!95 &7021867493866713448 stripped
 Animator:

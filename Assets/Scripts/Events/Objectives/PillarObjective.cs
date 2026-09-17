@@ -15,7 +15,7 @@ public class PillarObjective : MonoBehaviour {
 
         var pillars = GameObject.FindGameObjectsWithTag(Tags.PillarTag);
         pillarCount = pillars.Length;
-        ObjectiveUI.instance.AddObjective(objectiveID, new($"{objectiveContent}{pillarCount}", false), false);
+        ObjectiveUI.instance.AddObjective(objectiveID, new($"{objectiveContent}{pillarCount}", false), true);
 
         PlayerEventBus.finishInspecting.AddListener(PillarChecked);
     }

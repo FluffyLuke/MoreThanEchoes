@@ -31,13 +31,13 @@ public class ObjectiveUI : MonoBehaviour {
 
     public void AddObjective(string id, ObjectiveData objective, bool showNew = true) {
         objectives.Add(id, objective);
-        Rebuild();
+        // Rebuild();
         if (showNew) Show();
     }
 
     public void RemoveObjective(string id, bool showNew = true) {
         objectives.Remove(id);
-        Rebuild();
+        // Rebuild();
         if (showNew) Show();
     }
 
@@ -48,7 +48,7 @@ public class ObjectiveUI : MonoBehaviour {
         }
 
         objectives[id].isCompleted = completed;
-        Rebuild();
+        // Rebuild();
         if (showNew) Show();
     }
 
@@ -59,7 +59,7 @@ public class ObjectiveUI : MonoBehaviour {
         }
 
         objectives[id].text = newContents;
-        Rebuild();
+        // Rebuild();
         if (showNew) Show();
     }
 

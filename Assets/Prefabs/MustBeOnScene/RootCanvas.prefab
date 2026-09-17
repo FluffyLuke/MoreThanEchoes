@@ -744,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySound
   id: Page_Turn
   delay: 0
+  persist: 0
 --- !u!1 &1856621016630011894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,7 +1687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveUI
   objectivePartPrefab: {fileID: 6365282416259148587, guid: 70d71a3b4643eff0789f7976e64487c4, type: 3}
   objectiveParent: {fileID: 384438359727419739}
-  spaceForEachObjective: 180
+  spaceForEachObjective: 140
   moveInSecs: 0.5
   moveOutCooldownSecs: 3
   moveOutSecs: 2
@@ -1827,6 +1828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySound
   id: Notebook_Pickup
   delay: 0
+  persist: 0
 --- !u!1 &6055059571628819200
 GameObject:
   m_ObjectHideFlags: 0

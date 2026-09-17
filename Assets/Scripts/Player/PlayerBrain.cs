@@ -123,6 +123,8 @@ public class PlayerBrain : MonoBehaviour
         Debug.Log("Player died.");
         removeListeners();
 
+        PlayerEventBus.stateCinematic.Invoke();
+
         if (rightSide) {
             Vector3 newScale = body.transform.localScale;
             newScale.x *= -1;

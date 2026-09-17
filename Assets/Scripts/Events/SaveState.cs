@@ -5,9 +5,9 @@ public class SaveState : MonoBehaviour {
     // A patchfix over the fact, that save can be done before the ambient transition.
     public string ambientID = null;
     void Start() {
-        if (FindObjectsByType<SaveState>().Length > 1) {
-            Debug.LogError("Cannot load save. There can only be one save state class!");
-            return;
+        var objectives = FindObjectsByType<SaveState>();
+        if (objectives.Length > 1) {
+            Debug.LogWarning("Multiple save classes detected.");
         }
 
         if (!SaveManager.loadedSave) return;

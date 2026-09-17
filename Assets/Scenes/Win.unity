@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443856234c2856423bf8833adaef56d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeLevel
-  levelName: 
+  levelName: MainMenu
 --- !u!114 &167210120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 167210119}
         m_TargetAssemblyTypeName: ChangeLevel, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: Change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -486,17 +486,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
   m_PrefabInstance: {fileID: 1798722464}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &328274527 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7920292126449055592, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
-  m_PrefabInstance: {fileID: 1798722464}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc04388d936699098fbc6a23194831a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TMPWrapper
 --- !u!1001 &358782023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &390472616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -812,12 +801,6 @@ MonoBehaviour:
   panels:
   - panel: {fileID: 1347534258}
     exposition: {fileID: 7268561922346576415}
-    state: 0
-  - panel: {fileID: 1260195126}
-    exposition: {fileID: 1234452277}
-    state: 0
-  - panel: {fileID: 390472615}
-    exposition: {fileID: 328274527}
     state: 0
   cps: 25
   fade: 1
@@ -1188,17 +1171,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
   m_PrefabInstance: {fileID: 1234452273}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1234452277 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7920292126449055592, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
-  m_PrefabInstance: {fileID: 1234452273}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc04388d936699098fbc6a23194831a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TMPWrapper
 --- !u!1 &1260195126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1260195127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2292,20 +2264,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6776095060359607615, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_text
-      value: 'You barely managed to close the gate behind you. Even if the sound
-        of footsteps disappeared after the first station, the sensation of being
-        watched never left you fully.
-
-
-        Those creatures... tall and slender
-        abominations... Your thoughts were fully occupied by them and fright; that
-        gate may not last. Fortunately, glancing back revealed an empty corridor
-        with no one near the gate.
-
-
-        You gave the menacing hole one more
-        look before running towards your car and driving all the way back to your
-        home.'
+      value: "You spill breathless into the light of day shaken, but intact. You
+        cannot fully rationalize -much less explain- what you\u2019ve just seen,
+        but you do your best to convey the threat to the police. But their manner
+        is dismissive, and though they make a show of securing the entrance to the
+        tunnels, you hear no more about the subway in the days to come. It remains
+        locked and lonely- empty. Or so the people of Cincinnati believe..."
       objectReference: {fileID: 0}
     - target: {fileID: 8217609510173403409, guid: 24e70d00260178029b36ff84b19525b4, type: 3}
       propertyPath: m_Pivot.x

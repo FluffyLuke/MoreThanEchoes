@@ -26,6 +26,7 @@ public static class SaveManager {
         GameState.SetCurrentMoment(save.moment);
         StaticUtils.ChangeLevel(save.level, save.entrance);
         ObjectiveUI.objectives = save.objectives;
+        printSave();
     }
 
     public static string GetSavedAmbient() {
@@ -33,6 +34,7 @@ public static class SaveManager {
             Debug.LogError("No save found.");
             return null;
         }
+        printSave();
 
         return save.ambient;
     }
@@ -45,6 +47,10 @@ public static class SaveManager {
         save.entrance = StaticUtils.GetEntranceName();
         save.ambient = ambient != null ? ambient : AmbientManager.lastAmbientID;
         Debug.Log("Saved game!");
+        printSave();
+    }
+
+    private static void printSave() {
         Debug.Log($"Moment: '{save.moment}'");
         Debug.Log($"Level name: '{save.level}'");
         Debug.Log($"Entrance id: '{save.entrance}'");

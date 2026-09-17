@@ -18,7 +18,7 @@ public class ObjectiveAdder : MonoBehaviour {
     public void Run() {
         switch (whatToDo) {
             case ObjectiveAction.Add:
-                ObjectiveUI.instance.AddObjective(id, new(content, false));
+                ObjectiveUI.instance.AddObjective(id, new(content, true));
                 break;
             case ObjectiveAction.Delete:
                 ObjectiveUI.instance.RemoveObjective(id);

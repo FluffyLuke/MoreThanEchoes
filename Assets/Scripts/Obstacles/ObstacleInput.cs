@@ -55,11 +55,19 @@ public class ObstacleInput : MonoBehaviour {
         gateEnabled = false;
     }
     void OnTriggerEnter2D(Collider2D collision) {
+        if (!collision.CompareTag(Tags.PlayerTag)) return;
         // Debug.LogWarning($"DEBUG: Entered collider: {gameObject.name}");
         gateEnabled = true;
     }
     void OnTriggerExit2D(Collider2D collision) {
+        if (!collision.CompareTag(Tags.PlayerTag)) return;
         // Debug.LogWarning($"DEBUG: Exited collider: {gameObject.name}");
         gateEnabled = false;
+    }
+    void OnDestroy() {
+        foreach (var a in allActions) {
+            a.action.performed -= onTrigger;
+            a.action.performed -= onBadTrigger;
+        }
     }
 }
