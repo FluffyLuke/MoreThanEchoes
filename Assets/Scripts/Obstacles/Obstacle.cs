@@ -112,12 +112,25 @@ public class Obstacle : MonoBehaviour {
     public void StunLeft() {
         if (onCooldown) return;
 
+        onCooldown = true; // Lock the obstacle
         PlayerEventBus.stun.Invoke(stunDurationSecs, MoveDirection.Left);
+
+        // Unlock after the stun resolves
+        StaticUtils.DoSomethingAfter(stunDurationSecs, this, () => {
+            onCooldown = false;
+        });
     }
+
     public void StunRight() {
         if (onCooldown) return;
         
+        onCooldown = true; // Lock the obstacle
         PlayerEventBus.stun.Invoke(stunDurationSecs, MoveDirection.Right);
+
+        // Unlock after the stun resolves
+        StaticUtils.DoSomethingAfter(stunDurationSecs, this, () => {
+            onCooldown = false;
+        });
     }
 }
 

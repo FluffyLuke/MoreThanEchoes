@@ -10,9 +10,7 @@ public class ObstacleInput : MonoBehaviour {
     private bool gateEnabled = false;
     public UnityEvent onInput;
     public UnityEvent onBadInput;
-    void Start() {
-        SetActionIndex(0);
-    }
+
     public void SetActionIndex(int index) {
         // Remove all current triggers
         foreach (var a in allActions) {

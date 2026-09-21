@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class AmbientManager : MonoBehaviour {
     [Header("Sounds")]
     [SerializeField] private SoundDatabase soundDatabase;
-    private Dictionary<string, SoundAsset> lookup;
+    public Dictionary<string, SoundAsset> lookup;
     [SerializeField] private AudioSource source1, source2;
     private bool usedSource; // false = source1, true = source2
     private Coroutine fadeInCoroutine = null;
@@ -27,6 +27,25 @@ public class AmbientManager : MonoBehaviour {
         if (source1 == null || source2 == null) {
             Debug.Log("Ambient manager has at least one not assigned audio source!");
         }
+    }
+
+    public bool PlayAmbient(SoundAsset sound, float fadeDuration) {
+        Debug.Log($"Changing ambient to: {sound.id}");
+
+        if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
+        if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
+
+        AudioSource newSource = usedSource ? source1 : source2;
+        AudioSource currentSource = usedSource ? source2 : source1;
+
+        fadeInCoroutine = StartCoroutine(fadeIn(sound, fadeDuration, newSource));
+        fadeOutCoroutine = StartCoroutine(fadeOut(sound, fadeDuration, currentSource));
+
+        usedSource = !usedSource;
+
+        lastAmbientID = sound.id;
+
+        return true;
     }
 
     public bool PlayAmbient(string id, float fadeDuration) {

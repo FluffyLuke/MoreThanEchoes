@@ -105,6 +105,7 @@ public class PlayerBrain : MonoBehaviour
         turnOff();
 
         moveObstacle.enabled = true;
+        look.enabled = true;
     }
 
     public void InspectMode(int number) {
@@ -122,6 +123,7 @@ public class PlayerBrain : MonoBehaviour
     public void Die(bool rightSide) {
         Debug.Log("Player died.");
         PlayerEventBus.stateCinematic.Invoke();
+        look.enabled = false;
         removeListeners();
 
         if (rightSide) {

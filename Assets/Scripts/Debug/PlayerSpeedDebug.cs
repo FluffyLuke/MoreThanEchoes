@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 public class PlayerSpeedDebug : MonoBehaviour {
     private GameInput input;
     void Awake() {
+        #if DEVELOPMENT_BUILD
         input = new GameInput();
         input.Debug.MoreSpeed.performed += moreSpeed;
         input.Debug.LessSpeed.performed += lessSpeed;
 
         input.Debug.Enable();
+        #endif
     }
 
     private void moreSpeed(InputAction.CallbackContext ctx) {

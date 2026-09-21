@@ -15,12 +15,9 @@ public class PlayerMoveObstacle : MonoBehaviour {
     public void MoveThrough(Vector2 start, Vector2 finish, Ease ease, float speedSec, Action onComplete) {
         Vector2 direction = finish - start;
         float distance = Vector2.Distance(start, finish);
+        PlayerLook look = GetComponent<PlayerLook>();
         
-        if (direction.x > 0) {
-            Vector3 newBodyScale = body.transform.localScale;
-            if (direction.x > 0) newBodyScale.x = Mathf.Abs(newBodyScale.x);
-            else if (direction.x < 0) newBodyScale.x = -Math.Abs(newBodyScale.x);
-        }
+        look.SetWhereToLook(direction.x > 0 ? WhereToLook.Right : WhereToLook.Left);
 
         // Must set position on rigidbody to update physics engine to stop jitter
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

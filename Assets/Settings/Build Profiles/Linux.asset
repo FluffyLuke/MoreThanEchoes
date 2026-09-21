@@ -10,19 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 15003, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Windows
+  m_Name: Linux
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfile
   m_AssetVersion: 1
-  m_BuildTarget: 19
+  m_BuildTarget: 24
   m_Subtarget: 2
-  m_PlatformId: 4e3c793746204150860bf175a9a41a05
+  m_PlatformId: cb423bfea44b4d658edb8bc5d91a3024
   m_PlatformBuildProfile:
-    rid: 464998475443470338
+    rid: 1084222305404715009
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
     m_path: Assets/Scenes/MainMenu.unity
     m_guid: da71bf3c7137e8413853e5944c6c4f15
+  - m_enabled: 1
+    m_path: Assets/Scenes/Intro.unity
+    m_guid: d59f29a8c1755109780d64017f7a8a15
   - m_enabled: 1
     m_path: Assets/Scenes/Entrance.unity
     m_guid: 8c9cfa26abfee488c85f1582747f6a02
@@ -42,14 +45,11 @@ MonoBehaviour:
     m_path: Assets/Scenes/Station_3.unity
     m_guid: e9648176d4354c364b2a3bec7dfdae13
   - m_enabled: 1
-    m_path: Assets/Scenes/Intro.unity
-    m_guid: d59f29a8c1755109780d64017f7a8a15
+    m_path: Assets/Scenes/Win.unity
+    m_guid: f9a2ca63015731d3b95bce2f9b82da30
   - m_enabled: 1
     m_path: Assets/Scenes/GameOver.unity
     m_guid: 5d798205944d6406da2f08674e23e3f4
-  - m_enabled: 1
-    m_path: Assets/Scenes/Win.unity
-    m_guid: f9a2ca63015731d3b95bce2f9b82da30
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
@@ -57,8 +57,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 464998475443470338
-      type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
+    - rid: 1084222305404715009
+      type: {class: LinuxPlatformSettings, ns: UnityEditor.LinuxStandalone, asm: UnityEditor.LinuxStandalone.Extensions}
       data:
         m_Development: 0
         m_ConnectProfiler: 0
@@ -72,11 +72,12 @@ MonoBehaviour:
         m_CompressionType: 0
         m_InstallInBuildFolder: 0
         m_InsightsSettingsContainer:
-          m_BuildProfileEngineDiagnosticsState: 0
+          m_BuildProfileEngineDiagnosticsState: 2
         m_AdaptivePerformanceEnabled: 0
-        m_WindowsBuildAndRunDeployTarget: 0
         m_Architecture: 0
-        m_CreateSolution: 0
-        m_CopyPDBFiles: 0
-        m_WindowsDevicePortalAddress: 
-        m_WindowsDevicePortalUsername: 
+        m_RemoteDeviceSectionFoldoutOpen: 0
+        m_DeployTarget: 0
+        m_RemoteDeviceAddress: 
+        m_RemoteDeviceUsername: 
+        m_RemoteDeviceExports: 
+        m_PathOnRemoteDevice: 

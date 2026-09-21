@@ -9,8 +9,15 @@ public class PlayAmbient : MonoBehaviour {
     [SerializeField] private float delay = 0f;
     [SerializeField] private float fadeDuration = 3f;
     [SerializeField] private bool playOnStart = false;
+    private SoundAsset sound;
 
     void Start() {
+        if (!AmbientManager.instance.lookup.TryGetValue(id, out sound))
+        {
+            Debug.LogError($"Cannot found asset of id: \"{id}\"");
+            Destroy(gameObject);
+        }
+
         if (playOnStart) {
             StartCoroutine(playAmbient());
         }
@@ -21,6 +28,6 @@ public class PlayAmbient : MonoBehaviour {
 
     private IEnumerator playAmbient() {
         yield return new WaitForSeconds(delay);
-        AmbientManager.instance.PlayAmbient(id, fadeDuration);
+        AmbientManager.instance.PlayAmbient(sound, fadeDuration);
     }
 }
