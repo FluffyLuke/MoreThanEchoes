@@ -21,7 +21,7 @@ public class Minigame : MonoBehaviour {
     public float speed = 10;
     // public float timeBeforeEndScreen = 2;
     [HideInInspector] public float progres = 0;
-    private bool focused = true;
+    private bool focused = false;
     void Start() {
         inspectCanvas.gameObject.SetActive(false);
     }
@@ -72,6 +72,9 @@ public class Minigame : MonoBehaviour {
         Camera.main.orthographic = true;
         Camera.main.GetUniversalAdditionalCameraData().SetRenderer(Renderers._2D);
         inspectCanvas.gameObject.SetActive(false);
+
+        focused = false; 
+        progres = 0;
     
         GetComponent<MinigameEnemyBrain>().EndMinigame();
     }

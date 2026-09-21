@@ -121,9 +121,8 @@ public class PlayerBrain : MonoBehaviour
 
     public void Die(bool rightSide) {
         Debug.Log("Player died.");
-        removeListeners();
-
         PlayerEventBus.stateCinematic.Invoke();
+        removeListeners();
 
         if (rightSide) {
             Vector3 newScale = body.transform.localScale;

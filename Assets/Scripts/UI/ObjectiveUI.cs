@@ -8,6 +8,7 @@ public class ObjectiveUI : MonoBehaviour {
     public static Dictionary<string, ObjectiveData> objectives = new();
     [SerializeField] private GameObject objectivePartPrefab;
     [SerializeField] private GameObject objectiveParent;
+    [SerializeField] private GameObject shownPosition;
     public static ObjectiveUI instance = null;
     void Awake() {
         if (instance != null) {
@@ -99,9 +100,9 @@ public class ObjectiveUI : MonoBehaviour {
         }
 
         Transform body = transform;
-        float moveBy = spaceForEachObjective * objectives.Count + startingPositionY;
 
-        tween = body.DOMoveY(moveBy, moveInSecs)
+
+        tween = body.DOMoveY(shownPosition.transform.position.y, moveInSecs)
             .OnComplete(() => {
                 StaticUtils.DoSomethingAfter(moveOutCooldownSecs, this, () => {
                     tween = body.DOMoveY(startingPositionY, moveOutSecs)
